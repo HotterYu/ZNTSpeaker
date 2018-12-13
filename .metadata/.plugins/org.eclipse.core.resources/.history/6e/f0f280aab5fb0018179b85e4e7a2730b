@@ -1,0 +1,5 @@
+package com.znt.download.entity;
+
+public class StorageUtils {
+
+}

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/HttpLibrary/HttpLibrary.iml" filepath="$PROJECT_DIR$/HttpLibrary/HttpLibrary.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PersistentCookieJar/PersistentCookieJar.iml" filepath="$PROJECT_DIR$/PersistentCookieJar/PersistentCookieJar.iml" />
+      <module fileurl="file://$PROJECT_DIR$/WifiSpeakerInfor/WifiSpeakerInfor.iml" filepath="$PROJECT_DIR$/WifiSpeakerInfor/WifiSpeakerInfor.iml" />
+      <module fileurl="file://$PROJECT_DIR$/WificonnectorLib/WificonnectorLib.iml" filepath="$PROJECT_DIR$/WificonnectorLib/WificonnectorLib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/WificonnectorSample/WificonnectorSample.iml" filepath="$PROJECT_DIR$/WificonnectorSample/WificonnectorSample.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ZNTDownLoadModel/ZNTDownLoadModel.iml" filepath="$PROJECT_DIR$/ZNTDownLoadModel/ZNTDownLoadModel.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ZNTPushModel/ZNTPushModel.iml" filepath="$PROJECT_DIR$/ZNTPushModel/ZNTPushModel.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ZNTSpeaker.iml" filepath="$PROJECT_DIR$/ZNTSpeaker.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ZNTSpeaker/ZNTSpeaker-ZNTSpeaker.iml" filepath="$PROJECT_DIR$/ZNTSpeaker/ZNTSpeaker-ZNTSpeaker.iml" />
+    </modules>
+  </component>
+</project>

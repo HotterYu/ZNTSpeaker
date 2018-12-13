@@ -1,0 +1,54 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootframeview"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/black" >
+
+    <RelativeLayout
+        android:id="@+id/info_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <!-- <include android:id="@+id/prepare_panel" layout="@layout/media_prepare_layout" android:visibility="gone" /> -->
+
+        <include
+            android:id="@+id/control_panel"
+            layout="@layout/music_toolbar_layout" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tv_music_player_hint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left|top"
+        android:layout_margin="22dp"
+        android:textColor="@color/white" />
+
+    <com.znt.speaker.player.TextureVideoPlayer
+            android:id="@+id/surfaceView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone" />
+
+    <include
+        android:id="@+id/wifi_set"
+        android:layout_gravity="bottom|right"
+        android:layout_margin="32dp"
+        layout="@layout/wifi_set"
+        android:visibility="gone"
+        tools:ignore="IncludeLayoutParam" />
+
+    <!--
+         <com.znt.speaker.v.MainView
+	        android:id="@+id/surfaceView1"
+	        android:layout_width="fill_parent"
+	        android:layout_height="fill_parent"
+	        android:layout_gravity="center"
+	        />
+    -->
+
+
+    <!-- <include android:id="@+id/prepare_panel" layout="@layout/media_prepare_layout" android:visibility="gone" /> -->
+
+</RelativeLayout>

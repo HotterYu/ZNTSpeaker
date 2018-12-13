@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="updating">软件正在更新，请稍后...</string>
+    <string name="updated">软件更新成功!</string>
+    <string name="app_name">DianYinTools</string>
+    
+    <string name="ip_set_start">正在设置IP地址</string>
+    <string name="ip_set_success">IP地址成功</string>
+    <string name="ip_set_fail">IP地址成功</string>
+    
+    <string name="set_system_time">正在设置系统时间</string>
+
+</resources>

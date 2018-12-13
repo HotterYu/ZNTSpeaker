@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="12dp"
+     >
+    
+    <LinearLayout 
+        android:layout_width="600dp"
+	    android:layout_height="wrap_content"
+	    android:orientation="vertical"
+	    android:layout_centerInParent="true"
+	    android:background="@color/white"
+	    android:padding="22dp"
+        >
+        
+        <RelativeLayout 
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            >
+            <TextView 
+	            android:id="@+id/tv_wifi_dev_infor"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_alignParentLeft="true"
+	            android:textColor="@color/text_black_mid"
+	            android:layout_marginTop="12dp"
+	            android:layout_centerVertical="true"
+	            />
+            
+            <Button
+                android:id="@+id/btn_update"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="22dp"
+                android:layout_toRightOf="@+id/tv_wifi_dev_infor"
+                android:text="检测升级"
+                android:layout_centerVertical="true"
+                android:textColor="@color/text_blue_on"
+                />
+            
+            <RadioGroup 
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:padding="6dp"
+                >
+                
+                <RadioButton 
+                    android:id="@+id/rb_wifi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="WIFI配置"
+                    android:checked="true"
+                    />
+                <RadioButton 
+                    android:id="@+id/rb_bind"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="绑定设备"
+                    />
+                
+            </RadioGroup>
+            
+        </RelativeLayout>
+        
+        
+        <View 
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:background="@color/spacebar"
+            android:layout_marginTop="6dp"
+            />
+        
+        <EditText 
+            android:id="@+id/et_wifi_name"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="请输入WIFI名称"
+            android:textColor="@color/black"
+            android:padding="8dp"
+            />
+        <EditText 
+            android:id="@+id/et_wifi_pwd"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="请输入WIFI密码"
+            android:layout_marginTop="16dp"
+            android:textColor="@color/black"
+            android:padding="8dp"
+            />
+        <LinearLayout 
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="22dp"
+            >
+            
+            <Button 
+                android:id="@+id/btn_wifi_cancel"
+                android:layout_width="0dp"
+            	android:layout_height="wrap_content"
+            	android:layout_weight="1.0"
+            	android:text="取消"
+            	android:layout_marginRight="6dp"
+                />
+            <!-- <Button 
+                android:id="@+id/btn_wifi_scan"
+                android:layout_width="0dp"
+            	android:layout_height="wrap_content"
+            	android:layout_weight="1.0"
+            	android:text="手动升级"
+            	android:layout_marginLeft="6dp"
+            	android:layout_marginRight="6dp"
+                />
+            <Button 
+                android:id="@+id/btn_wifi_bind_device"
+                android:layout_width="0dp"
+            	android:layout_height="wrap_content"
+            	android:layout_weight="1.0"
+            	android:text="配置wifi"
+            	android:layout_marginLeft="6dp"
+            	android:layout_marginRight="6dp"
+                /> -->
+            <Button 
+                android:id="@+id/btn_wifi_confirm"
+                android:layout_width="0dp"
+            	android:layout_height="wrap_content"
+            	android:layout_weight="1.0"
+            	android:text="确定"
+            	android:layout_marginLeft="6dp"
+                />
+            
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

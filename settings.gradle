@@ -1,0 +1,8 @@
+include ':ZNTDownLoadModel'
+include ':HttpLibrary'
+include ':WifiSpeakerInfor'
+include ':WificonnectorLib'
+include ':PersistentCookieJar'
+include ':ZNTSpeaker'
+include ':ZNTPushModel'
+include ':WificonnectorSample'

@@ -1,0 +1,394 @@
+[
+    {
+        "merged": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\layout_progress_dialog.xml.flat",
+        "source": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\res\\layout\\progress_dialog.xml"
+    },
+    {
+        "merged": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_launcher.png.flat",
+        "source": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\res\\drawable-xhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_launcher.png.flat",
+        "source": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\res\\drawable-mdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\layout_dialog_connectwifi.xml.flat",
+        "source": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\WificonnectorSample\\build\\intermediates\\packaged_res\\debug\\layout\\dialog_connectwifi.xml"
+    },
+    {
+        "merged": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\drawable_sel_btn_translucent_3.xml.flat",
+        "source": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\res\\drawable\\sel_btn_translucent_3.xml"
+    },
+    {
+        "merged": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\drawable_btn_play_p.png.flat",
+        "source": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\res\\drawable\\btn_play_p.png"
+    },
+    {
+        "merged": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi-v4_ic_launcher_background.png.flat",
+        "source": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\WificonnectorSample\\build\\intermediates\\packaged_res\\debug\\drawable-ldpi-v4\\ic_launcher_background.png"
+    },
+    {
+        "merged": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\layout_media_prepare_layout.xml.flat",
+        "source": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\res\\layout\\media_prepare_layout.xml"
+    },
+    {
+        "merged": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\drawable_selector_btn_pause.xml.flat",
+        "source": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\res\\drawable\\selector_btn_pause.xml"
+    },
+    {
+        "merged": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_action_search.png.flat",
+        "source": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\res\\drawable-xhdpi\\ic_action_search.png"
+    },
+    {
+        "merged": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_wifi_signal_1.png.flat",
+        "source": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\res\\drawable-hdpi\\wifi_signal_1.png"
+    },
+    {
+        "merged": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\drawable_mp_music_default.png.flat",
+        "source": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\res\\drawable\\mp_music_default.png"
+    },
+    {
+        "merged": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\layout_music_toolbar_layout.xml.flat",
+        "source": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\res\\layout\\music_toolbar_layout.xml"
+    },
+    {
+        "merged": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\drawable_progress_blue.xml.flat",
+        "source": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\res\\drawable\\progress_blue.xml"
+    },
+    {
+        "merged": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_bg_speaker.png.flat",
+        "source": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\res\\drawable-hdpi\\bg_speaker.png"
+    },
+    {
+        "merged": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\raw_pkginstall.apk.flat",
+        "source": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\res\\raw\\pkginstall.apk"
+    },
+    {
+        "merged": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi-v4_ic_launcher.png.flat",
+        "source": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\WificonnectorSample\\build\\intermediates\\packaged_res\\debug\\mipmap-xhdpi-v4\\ic_launcher.png"
+    },
+    {
+        "merged": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi-v4_ic_launcher_round.png.flat",
+        "source": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\WificonnectorSample\\build\\intermediates\\packaged_res\\debug\\mipmap-hdpi-v4\\ic_launcher_round.png"
+    },
+    {
+        "merged": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\drawable_sel_btn_translucent_2.xml.flat",
+        "source": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\res\\drawable\\sel_btn_translucent_2.xml"
+    },
+    {
+        "merged": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\drawable_button_pressed.9.png.flat",
+        "source": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\res\\drawable\\button_pressed.9.png"
+    },
+    {
+        "merged": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\drawable_progress_thumb_p.png.flat",
+        "source": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\res\\drawable\\progress_thumb_p.png"
+    },
+    {
+        "merged": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi-v4_ic_launcher.png.flat",
+        "source": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\WificonnectorSample\\build\\intermediates\\packaged_res\\debug\\mipmap-xxxhdpi-v4\\ic_launcher.png"
+    },
+    {
+        "merged": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi-v4_ic_launcher_foreground.png.flat",
+        "source": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\WificonnectorSample\\build\\intermediates\\packaged_res\\debug\\mipmap-xxhdpi-v4\\ic_launcher_foreground.png"
+    },
+    {
+        "merged": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21_ic_launcher_background.xml.flat",
+        "source": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\WificonnectorSample\\build\\intermediates\\packaged_res\\debug\\drawable-anydpi-v21\\ic_launcher_background.xml"
+    },
+    {
+        "merged": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\drawable_input_pressed.9.png.flat",
+        "source": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\res\\drawable\\input_pressed.9.png"
+    },
+    {
+        "merged": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\drawable_selector_edit.xml.flat",
+        "source": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\res\\drawable\\selector_edit.xml"
+    },
+    {
+        "merged": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\drawable_sel_item_bg.xml.flat",
+        "source": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\res\\drawable\\sel_item_bg.xml"
+    },
+    {
+        "merged": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4_ic_launcher_background.png.flat",
+        "source": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\WificonnectorSample\\build\\intermediates\\packaged_res\\debug\\drawable-xxxhdpi-v4\\ic_launcher_background.png"
+    },
+    {
+        "merged": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi-v4_ic_launcher.png.flat",
+        "source": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\WificonnectorSample\\build\\intermediates\\packaged_res\\debug\\mipmap-xxhdpi-v4\\ic_launcher.png"
+    },
+    {
+        "merged": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi-v4_ic_launcher_foreground.png.flat",
+        "source": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\WificonnectorSample\\build\\intermediates\\packaged_res\\debug\\mipmap-mdpi-v4\\ic_launcher_foreground.png"
+    },
+    {
+        "merged": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\drawable_progressbar.xml.flat",
+        "source": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\res\\drawable\\progressbar.xml"
+    },
+    {
+        "merged": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\drawable_input_normal.9.png.flat",
+        "source": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\res\\drawable\\input_normal.9.png"
+    },
+    {
+        "merged": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_wifi_signal_3.png.flat",
+        "source": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\res\\drawable-hdpi\\wifi_signal_3.png"
+    },
+    {
+        "merged": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\drawable_progress_thumb_n.png.flat",
+        "source": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\res\\drawable\\progress_thumb_n.png"
+    },
+    {
+        "merged": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\drawable_style_item_bg_on.xml.flat",
+        "source": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\res\\drawable\\style_item_bg_on.xml"
+    },
+    {
+        "merged": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\drawable_button_normal.9.png.flat",
+        "source": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\res\\drawable\\button_normal.9.png"
+    },
+    {
+        "merged": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_icon_wifi_item_select.png.flat",
+        "source": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\res\\drawable-hdpi\\icon_wifi_item_select.png"
+    },
+    {
+        "merged": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\layout_dialog_update.xml.flat",
+        "source": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\res\\layout\\dialog_update.xml"
+    },
+    {
+        "merged": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_progress.png.flat",
+        "source": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\res\\drawable-hdpi\\progress.png"
+    },
+    {
+        "merged": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\drawable_progress_bottom.png.flat",
+        "source": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\res\\drawable\\progress_bottom.png"
+    },
+    {
+        "merged": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\drawable_input_disabled.9.png.flat",
+        "source": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\res\\drawable\\input_disabled.9.png"
+    },
+    {
+        "merged": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\drawable_selector_btn.xml.flat",
+        "source": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\res\\drawable\\selector_btn.xml"
+    },
+    {
+        "merged": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_ic_launcher.png.flat",
+        "source": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTPushModel\\build\\intermediates\\packaged_res\\debug\\drawable-xxhdpi-v4\\ic_launcher.png"
+    },
+    {
+        "merged": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\drawable_sel_btn_translucent.xml.flat",
+        "source": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\res\\drawable\\sel_btn_translucent.xml"
+    },
+    {
+        "merged": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi-v4_ic_launcher_foreground.png.flat",
+        "source": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\WificonnectorSample\\build\\intermediates\\packaged_res\\debug\\mipmap-xxxhdpi-v4\\ic_launcher_foreground.png"
+    },
+    {
+        "merged": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\drawable_progress_second.png.flat",
+        "source": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\res\\drawable\\progress_second.png"
+    },
+    {
+        "merged": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\drawable_sel_item_bg_frame.xml.flat",
+        "source": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\res\\drawable\\sel_item_bg_frame.xml"
+    },
+    {
+        "merged": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi-v4_ic_launcher.png.flat",
+        "source": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\WificonnectorSample\\build\\intermediates\\packaged_res\\debug\\mipmap-hdpi-v4\\ic_launcher.png"
+    },
+    {
+        "merged": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\layout_dialog_my_alert.xml.flat",
+        "source": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\res\\layout\\dialog_my_alert.xml"
+    },
+    {
+        "merged": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\drawable_seekbar_thumb.xml.flat",
+        "source": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\res\\drawable\\seekbar_thumb.xml"
+    },
+    {
+        "merged": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\WificonnectorSample\\build\\intermediates\\packaged_res\\debug\\mipmap-anydpi-v26\\ic_launcher_round.xml"
+    },
+    {
+        "merged": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi-v4_ic_launcher_round.png.flat",
+        "source": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\WificonnectorSample\\build\\intermediates\\packaged_res\\debug\\mipmap-xxhdpi-v4\\ic_launcher_round.png"
+    },
+    {
+        "merged": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\layout_music_player_layout.xml.flat",
+        "source": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\res\\layout\\music_player_layout.xml"
+    },
+    {
+        "merged": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\drawable_btn_pause_n.png.flat",
+        "source": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\res\\drawable\\btn_pause_n.png"
+    },
+    {
+        "merged": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\drawable_media_progress.png.flat",
+        "source": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\res\\drawable\\media_progress.png"
+    },
+    {
+        "merged": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi-v4_ic_launcher.png.flat",
+        "source": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\WificonnectorSample\\build\\intermediates\\packaged_res\\debug\\mipmap-mdpi-v4\\ic_launcher.png"
+    },
+    {
+        "merged": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\drawable_progress_white.xml.flat",
+        "source": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\res\\drawable\\progress_white.xml"
+    },
+    {
+        "merged": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\drawable_style_item_bg_frame.xml.flat",
+        "source": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\res\\drawable\\style_item_bg_frame.xml"
+    },
+    {
+        "merged": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi-v4_ic_launcher_foreground.png.flat",
+        "source": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\WificonnectorSample\\build\\intermediates\\packaged_res\\debug\\mipmap-hdpi-v4\\ic_launcher_foreground.png"
+    },
+    {
+        "merged": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_icon_close.png.flat",
+        "source": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\res\\drawable-hdpi\\icon_close.png"
+    },
+    {
+        "merged": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\drawable_style_item_bg_translate.xml.flat",
+        "source": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\res\\drawable\\style_item_bg_translate.xml"
+    },
+    {
+        "merged": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\drawable_media_bacground.png.flat",
+        "source": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\res\\drawable\\media_bacground.png"
+    },
+    {
+        "merged": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi-v4_ic_launcher_round.png.flat",
+        "source": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\WificonnectorSample\\build\\intermediates\\packaged_res\\debug\\mipmap-xxxhdpi-v4\\ic_launcher_round.png"
+    },
+    {
+        "merged": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi-v4_ic_launcher_round.png.flat",
+        "source": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\WificonnectorSample\\build\\intermediates\\packaged_res\\debug\\mipmap-xhdpi-v4\\ic_launcher_round.png"
+    },
+    {
+        "merged": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\raw_zntluncher.apk.flat",
+        "source": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\res\\raw\\zntluncher.apk"
+    },
+    {
+        "merged": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi-v4_ic_launcher_round.png.flat",
+        "source": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\WificonnectorSample\\build\\intermediates\\packaged_res\\debug\\mipmap-mdpi-v4\\ic_launcher_round.png"
+    },
+    {
+        "merged": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\drawable_cm_progress_anim.xml.flat",
+        "source": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\res\\drawable\\cm_progress_anim.xml"
+    },
+    {
+        "merged": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\drawable_media_tool_bg1.png.flat",
+        "source": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\res\\drawable\\media_tool_bg1.png"
+    },
+    {
+        "merged": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_icon_wifi_item_lock.png.flat",
+        "source": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\res\\drawable-hdpi\\icon_wifi_item_lock.png"
+    },
+    {
+        "merged": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\WificonnectorSample\\build\\intermediates\\packaged_res\\debug\\mipmap-anydpi-v26\\ic_launcher.xml"
+    },
+    {
+        "merged": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_ic_launcher.png.flat",
+        "source": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTPushModel\\build\\intermediates\\packaged_res\\debug\\drawable-hdpi-v4\\ic_launcher.png"
+    },
+    {
+        "merged": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\drawable_btn_play_n.png.flat",
+        "source": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\res\\drawable\\btn_play_n.png"
+    },
+    {
+        "merged": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_ic_launcher_background.png.flat",
+        "source": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\WificonnectorSample\\build\\intermediates\\packaged_res\\debug\\drawable-xhdpi-v4\\ic_launcher_background.png"
+    },
+    {
+        "merged": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\raw_wifiap.apk.flat",
+        "source": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\res\\raw\\wifiap.apk"
+    },
+    {
+        "merged": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_wifi_signal_4.png.flat",
+        "source": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\res\\drawable-hdpi\\wifi_signal_4.png"
+    },
+    {
+        "merged": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\raw_wifi_speaker_client.db.flat",
+        "source": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\res\\raw\\wifi_speaker_client.db"
+    },
+    {
+        "merged": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\layout_video_player_layout.xml.flat",
+        "source": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\res\\layout\\video_player_layout.xml"
+    },
+    {
+        "merged": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\layout_accesspoint_item.xml.flat",
+        "source": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\WificonnectorSample\\build\\intermediates\\packaged_res\\debug\\layout\\accesspoint_item.xml"
+    },
+    {
+        "merged": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\drawable_media_tool_bg2.png.flat",
+        "source": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\res\\drawable\\media_tool_bg2.png"
+    },
+    {
+        "merged": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi-v4_ic_launcher_foreground.png.flat",
+        "source": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\WificonnectorSample\\build\\intermediates\\packaged_res\\debug\\mipmap-xhdpi-v4\\ic_launcher_foreground.png"
+    },
+    {
+        "merged": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\layout_media_loading_layout.xml.flat",
+        "source": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\res\\layout\\media_loading_layout.xml"
+    },
+    {
+        "merged": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_ic_launcher_background.png.flat",
+        "source": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\WificonnectorSample\\build\\intermediates\\packaged_res\\debug\\drawable-mdpi-v4\\ic_launcher_background.png"
+    },
+    {
+        "merged": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\drawable_sel_btn_translucent_1.xml.flat",
+        "source": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\res\\drawable\\sel_btn_translucent_1.xml"
+    },
+    {
+        "merged": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_logo.png.flat",
+        "source": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\res\\drawable-hdpi\\logo.png"
+    },
+    {
+        "merged": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_wifi_signal_2.png.flat",
+        "source": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\res\\drawable-hdpi\\wifi_signal_2.png"
+    },
+    {
+        "merged": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\drawable_selector_btn_play.xml.flat",
+        "source": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\res\\drawable\\selector_btn_play.xml"
+    },
+    {
+        "merged": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_logo_76.png.flat",
+        "source": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\res\\drawable-hdpi\\logo_76.png"
+    },
+    {
+        "merged": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\drawable_progress_first.png.flat",
+        "source": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\res\\drawable\\progress_first.png"
+    },
+    {
+        "merged": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\raw_znt_wifi.db.flat",
+        "source": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\WificonnectorSample\\build\\intermediates\\packaged_res\\debug\\raw\\znt_wifi.db"
+    },
+    {
+        "merged": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_ic_launcher_background.png.flat",
+        "source": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\WificonnectorSample\\build\\intermediates\\packaged_res\\debug\\drawable-xxhdpi-v4\\ic_launcher_background.png"
+    },
+    {
+        "merged": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\drawable_style_item_bg_off.xml.flat",
+        "source": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\res\\drawable\\style_item_bg_off.xml"
+    },
+    {
+        "merged": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\drawable_btn_pause_p.png.flat",
+        "source": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\res\\drawable\\btn_pause_p.png"
+    },
+    {
+        "merged": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\drawable_media_prepare_startup.png.flat",
+        "source": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\res\\drawable\\media_prepare_startup.png"
+    },
+    {
+        "merged": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\layout_activity_main.xml.flat",
+        "source": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\WificonnectorSample\\build\\intermediates\\packaged_res\\debug\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_ic_launcher_background.png.flat",
+        "source": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\WificonnectorSample\\build\\intermediates\\packaged_res\\debug\\drawable-hdpi-v4\\ic_launcher_background.png"
+    },
+    {
+        "merged": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\anim_push_up_in.xml.flat",
+        "source": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\res\\anim\\push_up_in.xml"
+    },
+    {
+        "merged": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\drawable_seekbar_background.xml.flat",
+        "source": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\res\\drawable\\seekbar_background.xml"
+    },
+    {
+        "merged": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\layout_wifi_set.xml.flat",
+        "source": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTSpeaker\\res\\layout\\wifi_set.xml"
+    }
+]

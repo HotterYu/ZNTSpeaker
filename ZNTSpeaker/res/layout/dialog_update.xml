@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/transparent"
+    android:gravity="center_vertical"
+    >
+    
+    <RelativeLayout 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:background="@color/white"
+        >
+        <TextView 
+	        android:id="@+id/tv_update_hint"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentTop="true"
+	        android:layout_alignParentLeft="true"
+	        android:textColor="@color/text_blue_on"
+	        android:padding="8dp"
+	        />
+	    
+	    <View 
+	        android:id="@+id/view_update_space"
+	        android:layout_width="fill_parent"
+	        android:layout_height="1dp"
+	        android:background="@color/text_blue_on"
+	        android:layout_below="@+id/tv_update_hint"
+	        />
+	    
+	    <LinearLayout 
+	        android:id="@+id/view_update_progress"
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:orientation="vertical"
+	        android:layout_margin="22dp"
+	        android:layout_below="@+id/view_update_space"
+	        android:layout_centerVertical="true"
+	        >
+	        <TextView 
+		        android:id="@+id/tv_update_progress"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_marginBottom="6dp"
+		        />
+		    <ProgressBar 
+		        android:id="@+id/pb_apk_download_progress"
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		        style="?android:attr/progressBarStyleHorizontal"
+		        />
+		    
+		    <TextView 
+		        android:id="@+id/tv_update_cancel"
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		        android:gravity="center_horizontal"
+		        android:layout_marginLeft="22dp"
+		        android:layout_marginRight="22dp"
+		        android:paddingTop="8dp"
+		        android:paddingBottom="8dp"
+				android:text="@string/cancel"
+				android:clickable="true"
+				android:layout_marginBottom="12dp"
+				android:layout_marginTop="22dp"
+				android:background="@drawable/sel_item_bg_frame"
+		        />
+		    
+	    </LinearLayout>
+    </RelativeLayout>
+</RelativeLayout>

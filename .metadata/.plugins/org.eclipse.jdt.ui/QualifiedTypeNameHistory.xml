@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="android.telecom.Log"/>
+<fullyQualifiedTypeName name="android.util.Log"/>
+<fullyQualifiedTypeName name="com.znt.utils.MacUtils"/>
+<fullyQualifiedTypeName name="android.view.ViewGroup.LayoutParams"/>
+<fullyQualifiedTypeName name="android.widget.RelativeLayout"/>
+<fullyQualifiedTypeName name="android.widget.FrameLayout"/>
+<fullyQualifiedTypeName name="java.lang.Integer"/>
+<fullyQualifiedTypeName name="android.text.TextUtils"/>
+<fullyQualifiedTypeName name="com.znt.utils.SystemUtils"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="com.znt.diange.email.EmailSender"/>
+<fullyQualifiedTypeName name="com.znt.push.email.EmailSenderManager"/>
+<fullyQualifiedTypeName name="com.znt.speaker.entity.LocalDataEntity"/>
+<fullyQualifiedTypeName name="com.znt.speaker.db.DBManager"/>
+<fullyQualifiedTypeName name="com.znt.speaker.entity.Constant"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+</qualifiedTypeNameHistroy>

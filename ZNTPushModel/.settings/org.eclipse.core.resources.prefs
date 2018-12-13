@@ -1,0 +1,7 @@
+eclipse.preferences.version=1
+encoding//src/com/znt/push/entity/LocalDataEntity.java=UTF-8
+encoding//src/com/znt/push/http/DownloadConfiguration.java=UTF-8
+encoding//src/com/znt/push/m/HttpRequestModel.java=UTF-8
+encoding//src/com/znt/push/p/HttpPresenter.java=UTF-8
+encoding//src/com/znt/push/update/ApkInstallHelper.java=UTF-8
+encoding//src/com/znt/push/update/UpdateManager.java=UTF-8

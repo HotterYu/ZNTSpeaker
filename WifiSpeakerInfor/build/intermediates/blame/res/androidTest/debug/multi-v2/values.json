@@ -1,0 +1,19 @@
+{
+    "logs": [
+        {
+            "outputFile": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\WifiSpeakerInfor\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values\\values.xml",
+            "map": [
+                {
+                    "source": "E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\WifiSpeakerInfor\\build\\intermediates\\packaged_res\\debug\\values\\values.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,109",
+                        "endColumns": "53,57",
+                        "endOffsets": "104,162"
+                    }
+                }
+            ]
+        }
+    ]
+}
