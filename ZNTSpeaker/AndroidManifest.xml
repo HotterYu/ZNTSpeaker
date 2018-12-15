@@ -2,6 +2,7 @@
     package="com.znt.speaker"
     android:versionCode="252"
     android:versionName="4.6.2"
+    android:installLocation="preferExternal"
     >
 
     <uses-sdk
@@ -17,7 +18,8 @@
 	<uses-feature
 	android:name="android.hardware.usb.host"
 	android:required="true" />
-    
+
+
 	<uses-permission android:name="android.permission.INTERNET"/>
 	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
@@ -66,35 +68,6 @@
             </intent-filter>
         </activity>
         
-        <service
-            android:name="com.znt.speaker.download.DownloadService"
-            android:enabled="true"
-            android:exported="true"></service>
-		<service android:name="com.znt.speaker.service.WifiConnectService">  
-            <intent-filter>  
-                <action android:name="com.znt.service.action.WifiConnectService"/>  
-            </intent-filter>  
-        </service>  
-        
-        <service android:name="com.znt.speaker.service.DevStatusService" >
-            <intent-filter android:priority = "1000">
-                <action android:name="com.znt.speaker.DEV_STATUS" />
-            </intent-filter> 
-		</service>
-        <service android:name="com.znt.speaker.service.MediaRenderService">
-            <intent-filter>
-                <action android:name="com.znt.speaker.start.engine" />
-                <action android:name="com.znt.speaker.restart.engine" />
-            </intent-filter> 
-		</service>
-        <service android:name="com.znt.speaker.service.LogObserverService"></service>
-        <service android:name=".service.DMSService">
-            <intent-filter>
-                <action android:name="com.znt.speaker.server.dms.start.dmsengine" />
-                <action android:name="com.znt.speaker.server.dms.restart.dmsengine" />
-            </intent-filter> 
-		</service>
-		
         <receiver android:name="com.znt.speaker.receiver.BootCompleteReceiver" >
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
@@ -123,24 +96,7 @@
             </intent-filter>
         </receiver> -->
         
-        <activity
-            android:name=".activity.AppsActivity"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
-            android:screenOrientation="landscape">
-        </activity>
-        <activity
-            android:name=".activity.WifiListActivity"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
-            android:screenOrientation="landscape">
-        </activity>
-        
-        <!-- wifi进程-->
-        <service
-            android:name="com.znt.wifimodel.ZNTWifiService"
-            android:enabled="true"
-            android:exported="true"
-            android:permission="1000"
-            android:process=":ZNTWifiService" />
+
         <service
             android:name="com.jflavio1.wificonnectorsample.ZNTWifiService"
             android:enabled="true"
@@ -163,28 +119,7 @@
             android:permission="1000"
             android:process=":ZNTDownloadService" /> 
         
-        <!-- 内存监控 -->
-        <service
-            android:name="com.squareup.leakcanary.internal.HeapAnalyzerService"
-            android:enabled="false"
-            android:process=":leakcanary" />
-        <service
-            android:name="com.squareup.leakcanary.DisplayLeakService"
-            android:enabled="false" />
 
-        <!-- <activity
-            android:name="com.squareup.leakcanary.internal.DisplayLeakActivity"
-            android:enabled="false"
-            android:icon="@drawable/__leak_canary_icon"
-            android:label="@string/__leak_canary_display_activity_label"
-            android:taskAffinity="com.squareup.leakcanary"
-            android:theme="@style/__LeakCanary.Base" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity> -->
         
     </application>
 
