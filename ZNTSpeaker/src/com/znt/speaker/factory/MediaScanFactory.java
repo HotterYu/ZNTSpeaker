@@ -38,14 +38,13 @@ public class MediaScanFactory
 				public void onScanStart() 
 				{
 					// TODO Auto-generated method stub
-					LogFactory.createLog().e("开始扫描本地文件");
+
 				}
 				
 				@Override
 				public void onScanFinish() 
 				{
 					// TODO Auto-generated method stub
-					LogFactory.createLog().e("本地文件扫描完成，检测是否需要释放空间");
 					DBManager.INSTANCE.checkAndReleaseSpace(0);
 				}
 				

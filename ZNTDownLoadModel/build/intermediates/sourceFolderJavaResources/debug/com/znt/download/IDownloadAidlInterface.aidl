@@ -10,6 +10,8 @@ interface IDownloadAidlInterface
     
     void addSongInfor(in SongInfor infor);
     void addSongInfors(in List<SongInfor> infors);
+
+    void updateSaveDir(String dir);
    
     void registerCallback(IDownloadCallback cb);   
     void unregisterCallback(IDownloadCallback cb);

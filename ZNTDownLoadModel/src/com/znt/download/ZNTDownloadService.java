@@ -1,11 +1,15 @@
 package com.znt.download;
 
 
+import java.io.File;
 import java.util.List;
 
+import android.Manifest;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.os.Environment;
 import android.os.IBinder;
 import android.os.RemoteCallbackList;
 import android.os.RemoteException;
@@ -13,6 +17,8 @@ import android.util.Log;
 
 import com.znt.diange.mina.entity.SongInfor;
 import com.znt.download.entity.FileDownLoadManager;
+import com.znt.permission.PermissionUtil;
+import com.znt.utils.StorageUtils;
 
 public class ZNTDownloadService extends Service
 {
@@ -61,6 +67,7 @@ public class ZNTDownloadService extends Service
         	try 
         	{
             	mContext = getApplicationContext();
+
             	//DBManager.init(mContext);
             	FileDownLoadManager.init(new IDownloadListener() 
             	{
@@ -159,5 +166,35 @@ public class ZNTDownloadService extends Service
 			FileDownLoadManager.INSTANCE.addDownloadSongs(infors);
 			Log.e(TAG, "addbSongInfors");
 		}
+
+        @Override
+        public void updateSaveDir(String dir) throws RemoteException {
+            //FileDownLoadManager.INSTANCE.updateSaveDir(dir);
+            //STORAGE_DIR = dir;
+            updateStorageeDir();
+        }
     }
+
+    public static volatile String STORAGE_DIR = "";
+    private void updateStorageeDir()
+    {
+        List<StorageUtils.Volume> V = StorageUtils.getVolume(getApplicationContext());
+        String innerDir = Environment.getExternalStorageDirectory() + "";
+        //List<String> dirs = SystemUtils.getStorageDirectoriesArrayList();
+        for(int i=0;i<V.size();i++)
+        {
+            StorageUtils.Volume temp = V.get(i);
+            File file = new File(temp.getPath());
+            if(!file.getAbsolutePath().equals(innerDir) && file.exists())
+            {
+                STORAGE_DIR = temp.getPath();
+                break;
+            }
+            else
+            {
+                Log.e("","");
+            }
+        }
+    }
+
 }

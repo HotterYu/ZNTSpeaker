@@ -27,6 +27,7 @@ public class FileDownLoadManager
         this.mIDownloadListener = mIDownloadListener;
     }
 
+
     private DownloadListener listener = new DownloadListener()
     {
         /**
@@ -158,10 +159,7 @@ public class FileDownLoadManager
         }
     }
 
-    /**
-     * 开始下载
-     * @param url
-     */
+
     private void  startDownload()
     {
         if(isDownloadRunning())

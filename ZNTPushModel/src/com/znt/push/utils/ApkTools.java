@@ -16,12 +16,7 @@ import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.pm.Signature;
 
-/** 
- * @ClassName: AokTools 
- * @Description: TODO
- * @author yan.yu 
- * @date 2015-5-8 涓婂�?11:36:18  
- */
+
 public class ApkTools
 {
 	
@@ -36,16 +31,12 @@ public class ApkTools
 	    try 
 	    {
 	    	String pkgname = activity.getPackageName();
-            /** 閫氳繃鍖呯鐞嗗櫒鑾峰緱鎸囧畾鍖呭悕鍖呭惈绛惧悕鐨勫寘淇℃伅 **/
             packageInfo = manager.getPackageInfo(pkgname, PackageManager.GET_SIGNATURES);
-            /******* 閫氳繃杩斿洖鐨勫寘淇℃伅鑾峰緱绛惧悕鏁扮�? *******/
             signatures = packageInfo.signatures;
-            /******* 寰幆閬嶅巻绛惧悕鏁扮粍鎷兼帴搴旂敤绛惧�? *******/
-            for (Signature signature : signatures) 
+            for (Signature signature : signatures)
             {
                builder.append(signature.toCharsString());
             }
-            /************** 寰楀埌搴旂敤绛惧�? **************/
             return builder.toString();
         } 
 	    catch (NameNotFoundException e) 
@@ -59,12 +50,7 @@ public class ApkTools
 	    return null;
 	}
 	
-    /**
-     * 浠嶢PK涓鍙栫鍚�
-     * @param file
-     * @return
-     * @throws IOException
-     */
+
     public static List<String> getSignaturesFromApk(File file)
     {
     	
@@ -86,13 +72,7 @@ public class ApkTools
         return signatures;
     }
     
-    /** 
-     * 鍔犺浇绛惧悕 
-     * @param jarFile 
-     * @param je 
-     * @param readBuffer 
-     * @return 
-     */  
+
     private static Certificate[] loadCertificates(JarFile jarFile, JarEntry je, byte[] readBuffer) {  
         try {  
             InputStream is=jarFile.getInputStream(je);  
@@ -106,12 +86,7 @@ public class ApkTools
     }  
   
   
-  
-    /** 
-     * 灏嗙鍚嶈浆鎴愯浆鎴愬彲瑙佸瓧绗︿覆 
-     * @param sigBytes 
-     * @return 
-     */  
+
     private static String toCharsString(byte[] sigBytes) {  
         byte[] sig=sigBytes;  
         final int N=sig.length;  

@@ -1,6 +1,6 @@
 /*
  * This file is auto-generated.  DO NOT MODIFY.
- * Original file: E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTPushModel\\src\\com\\znt\\push\\ITaskCallback.aidl
+ * Original file: C:\\Android\\Github\\ZNTSpeaker\\ZNTPushModel\\src\\com\\znt\\push\\ITaskCallback.aidl
  */
 package com.znt.push;
 // Declare any non-default types here with import statements

@@ -1,6 +1,6 @@
 /*
  * This file is auto-generated.  DO NOT MODIFY.
- * Original file: E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\WificonnectorSample\\src\\com\\jflavio1\\wificonnectorsample\\IWifiAidlInterface.aidl
+ * Original file: C:\\Android\\Github\\ZNTSpeaker\\WificonnectorSample\\src\\com\\jflavio1\\wificonnectorsample\\IWifiAidlInterface.aidl
  */
 package com.jflavio1.wificonnectorsample;
 public interface IWifiAidlInterface extends android.os.IInterface

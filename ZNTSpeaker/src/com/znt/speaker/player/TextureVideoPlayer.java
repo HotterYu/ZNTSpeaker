@@ -19,14 +19,14 @@ public class TextureVideoPlayer extends TextureView{
     private Context mContext = null;
     public VideoState mState;
 
-    private int mVideoWidth;//视频宽度
-    private int mVideoHeight;//视频高度
+    private int mVideoWidth;
+    private int mVideoHeight;
 
-    public static final int CENTER_CROP_MODE = 1;//中心裁剪模式
-    public static final int CENTER_MODE = 2;//一边中心填充模式
+    public static final int CENTER_CROP_MODE = 1;
+    public static final int CENTER_MODE = 2;
     public int mVideoMode = 0;
 
-    //播放状态
+    //锟斤拷锟斤拷状态
     public enum VideoState{
         init,palying,pause
     }
@@ -44,7 +44,7 @@ public class TextureVideoPlayer extends TextureView{
         super(context, attrs, defStyleAttr);
         this.mContext = context;
     }
-  //重新计算video的显示位置，裁剪后全屏显示
+
     public void updateTextureViewSizeCenterCrop(int mVideoWidth, int mVideoHeight){
 
     	this.mVideoWidth = mVideoWidth;
@@ -56,13 +56,10 @@ public class TextureVideoPlayer extends TextureView{
         Matrix matrix = new Matrix();
         float maxScale = Math.max(sx, sy);
 
-        //第1步:把视频区移动到View区,使两者中心点重合.
         matrix.preTranslate((getWidth() - mVideoWidth) / 2, (getHeight() - mVideoHeight) / 2);
-      //第2步:因为默认视频是fitXY的形式显示的,所以首先要缩放还原回来.
         matrix.preScale(mVideoWidth / (float) getWidth(), mVideoHeight / (float) getHeight());
 
-        //第3步,等比例放大或缩小,直到视频区的一边超过View一边, 另一边与View的另一边相等. 因为超过的部分超出了View的范围,所以是不会显示的,相当于裁剪了.
-        matrix.postScale(maxScale, maxScale, getWidth() / 2, getHeight() / 2);//后两个参数坐标是以整个View的坐标系以参考的
+        matrix.postScale(maxScale, maxScale, getWidth() / 2, getHeight() / 2);
 
         setTransform(matrix);
         postInvalidate();
@@ -86,12 +83,9 @@ public class TextureVideoPlayer extends TextureView{
 
         Matrix matrix = new Matrix();
 
-        //第1步:把视频区移动到View区,使两者中心点重合.
         matrix.preTranslate((getWidth() - mVideoWidth) / 2, (getHeight() - mVideoHeight) / 2);
-      //第2步:因为默认视频是fitXY的形式显示的,所以首先要缩放还原回来.
         matrix.preScale(mVideoWidth / (float) getWidth(), mVideoHeight / (float) getHeight());
 
-        //第3步,等比例放大或缩小,直到视频区的一边和View一边相等.如果另一边和view的一边不相等，则留下空隙
         if (sx >= sy){
             matrix.postScale(sy, sy, getWidth() / 2, getHeight() / 2);
         }else{
@@ -117,7 +111,7 @@ public class TextureVideoPlayer extends TextureView{
 	    	adjustAspectRatio(typeInt);
 	    }
 	    else if(typeInt == 7)//
-	    	updateTextureViewSizeCenter();//全屏
+	    	updateTextureViewSizeCenter();//全锟斤拷
 	    else
 	    	setLocation(type);
 	    
@@ -157,15 +151,15 @@ public class TextureVideoPlayer extends TextureView{
 	    Matrix txform = new Matrix();
 	    getTransform(txform);
 	    txform.setScale((float) newWidth / viewWidth, (float) newHeight / viewHeight);
-	    if(type == 4)//缩放居中
+	    if(type == 4)
 	    {
 	    	txform.postTranslate(xoff, yoff);
 	    }
-	    else if(type == 5)//缩放靠左
+	    else if(type == 5)
 	    {
 	    	txform.postTranslate(0, yoff*2);
 	    }
-	    else if(type == 6)//缩放靠右
+	    else if(type == 6)
 	    {
 	    	txform.postTranslate(xoff*2, 0);
 	    }
@@ -175,7 +169,7 @@ public class TextureVideoPlayer extends TextureView{
     public void setLocation(String type)
     {
     	RelativeLayout.LayoutParams params = (android.widget.RelativeLayout.LayoutParams) getLayoutParams();
-	    if(type.equals("8"))//左上角
+	    if(type.equals("8"))
 	    {
 	    	params.addRule(RelativeLayout.ALIGN_PARENT_TOP);
 	    	params.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
@@ -183,27 +177,25 @@ public class TextureVideoPlayer extends TextureView{
 	    	params.height = mVideoHeight;
 	    	setLayoutParams(params);
 	    }
-	    else if(type.equals("9"))//右上角
+	    else if(type.equals("9"))
 	    {
-	    	//添加相应的规则
+
 	    	params.addRule(RelativeLayout.ALIGN_PARENT_TOP);
 	    	params.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
 	    	params.width = mVideoWidth;
 	    	params.height = mVideoHeight;
 	    	setLayoutParams(params);
 	    }
-	    else if(type.equals("10"))//左下角
+	    else if(type.equals("10"))
 	    {
-	    	//添加相应的规则
 	    	params.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
 	    	params.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
 	    	params.width = mVideoWidth;
 	    	params.height = mVideoHeight;
 	    	setLayoutParams(params);
 	    }
-	    else if(type.equals("11"))//右下角
+	    else if(type.equals("11"))
 	    {
-	    	//添加相应的规则
 	    	params.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
 	    	params.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
 	    	params.width = mVideoWidth;
@@ -220,7 +212,6 @@ public class TextureVideoPlayer extends TextureView{
 		
 		
 		RelativeLayout.LayoutParams params= (RelativeLayout.LayoutParams) getLayoutParams();
-		//获取当前控件的布局对象
 		params.height = height;
 		
 		params.width = width;
@@ -243,15 +234,7 @@ public class TextureVideoPlayer extends TextureView{
 		else
 			setRotation(0);
     	
-    	/*setPivotX(getWidth()/2);
-    	setPivotY(getHeight()/2);//支点在图片中心
-    	setRotation(90);
-		
-		int w = getWidth();
-		int h = getHeight();
-		Log.e("", "");*/
-		
-		//adjustAspectRatio();
+
 	}
     
     private float getDegree(String degree)

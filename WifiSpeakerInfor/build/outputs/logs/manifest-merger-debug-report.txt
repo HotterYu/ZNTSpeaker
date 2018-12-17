@@ -1,37 +1,23 @@
 -- Merging decision tree log ---
 manifest
-ADDED from E:\yuyan\eclipse\studio\ZNTSpeaker\WifiSpeakerInfor\AndroidManifest.xml:1:1-14:12
-INJECTED from E:\yuyan\eclipse\studio\ZNTSpeaker\WifiSpeakerInfor\AndroidManifest.xml:1:1-14:12
-INJECTED from E:\yuyan\eclipse\studio\ZNTSpeaker\WifiSpeakerInfor\AndroidManifest.xml:1:1-14:12
-INJECTED from E:\yuyan\eclipse\studio\ZNTSpeaker\WifiSpeakerInfor\AndroidManifest.xml:1:1-14:12
-INJECTED from E:\yuyan\eclipse\studio\ZNTSpeaker\WifiSpeakerInfor\AndroidManifest.xml:1:1-14:12
-INJECTED from E:\yuyan\eclipse\studio\ZNTSpeaker\WifiSpeakerInfor\AndroidManifest.xml:1:1-14:12
-INJECTED from E:\yuyan\eclipse\studio\ZNTSpeaker\WifiSpeakerInfor\AndroidManifest.xml:1:1-14:12
+ADDED from C:\Android\Github\ZNTSpeaker\WifiSpeakerInfor\AndroidManifest.xml:1:1-10:12
+INJECTED from C:\Android\Github\ZNTSpeaker\WifiSpeakerInfor\AndroidManifest.xml:1:1-10:12
+INJECTED from C:\Android\Github\ZNTSpeaker\WifiSpeakerInfor\AndroidManifest.xml:1:1-10:12
+INJECTED from C:\Android\Github\ZNTSpeaker\WifiSpeakerInfor\AndroidManifest.xml:1:1-10:12
+INJECTED from C:\Android\Github\ZNTSpeaker\WifiSpeakerInfor\AndroidManifest.xml:1:1-10:12
+INJECTED from C:\Android\Github\ZNTSpeaker\WifiSpeakerInfor\AndroidManifest.xml:1:1-10:12
+INJECTED from C:\Android\Github\ZNTSpeaker\WifiSpeakerInfor\AndroidManifest.xml:1:1-10:12
 	package
-		ADDED from E:\yuyan\eclipse\studio\ZNTSpeaker\WifiSpeakerInfor\AndroidManifest.xml:2:5-46
-		INJECTED from E:\yuyan\eclipse\studio\ZNTSpeaker\WifiSpeakerInfor\AndroidManifest.xml
-		INJECTED from E:\yuyan\eclipse\studio\ZNTSpeaker\WifiSpeakerInfor\AndroidManifest.xml
+		ADDED from C:\Android\Github\ZNTSpeaker\WifiSpeakerInfor\AndroidManifest.xml:2:5-46
+		INJECTED from C:\Android\Github\ZNTSpeaker\WifiSpeakerInfor\AndroidManifest.xml
+		INJECTED from C:\Android\Github\ZNTSpeaker\WifiSpeakerInfor\AndroidManifest.xml
 	android:versionName
-		ADDED from E:\yuyan\eclipse\studio\ZNTSpeaker\WifiSpeakerInfor\AndroidManifest.xml:4:5-32
-		INJECTED from E:\yuyan\eclipse\studio\ZNTSpeaker\WifiSpeakerInfor\AndroidManifest.xml
-		INJECTED from E:\yuyan\eclipse\studio\ZNTSpeaker\WifiSpeakerInfor\AndroidManifest.xml
+		ADDED from C:\Android\Github\ZNTSpeaker\WifiSpeakerInfor\AndroidManifest.xml:4:5-32
+		INJECTED from C:\Android\Github\ZNTSpeaker\WifiSpeakerInfor\AndroidManifest.xml
+		INJECTED from C:\Android\Github\ZNTSpeaker\WifiSpeakerInfor\AndroidManifest.xml
 	xmlns:android
-		ADDED from E:\yuyan\eclipse\studio\ZNTSpeaker\WifiSpeakerInfor\AndroidManifest.xml:1:11-69
+		ADDED from C:\Android\Github\ZNTSpeaker\WifiSpeakerInfor\AndroidManifest.xml:1:11-69
 	android:versionCode
-		ADDED from E:\yuyan\eclipse\studio\ZNTSpeaker\WifiSpeakerInfor\AndroidManifest.xml:3:5-29
-		INJECTED from E:\yuyan\eclipse\studio\ZNTSpeaker\WifiSpeakerInfor\AndroidManifest.xml
-		INJECTED from E:\yuyan\eclipse\studio\ZNTSpeaker\WifiSpeakerInfor\AndroidManifest.xml
-uses-sdk
-ADDED from E:\yuyan\eclipse\studio\ZNTSpeaker\WifiSpeakerInfor\AndroidManifest.xml:6:5-74
-	android:targetSdkVersion
-		ADDED from E:\yuyan\eclipse\studio\ZNTSpeaker\WifiSpeakerInfor\AndroidManifest.xml:6:42-71
-	android:minSdkVersion
-		ADDED from E:\yuyan\eclipse\studio\ZNTSpeaker\WifiSpeakerInfor\AndroidManifest.xml:6:15-41
-application
-ADDED from E:\yuyan\eclipse\studio\ZNTSpeaker\WifiSpeakerInfor\AndroidManifest.xml:8:5-12:19
-	android:label
-		ADDED from E:\yuyan\eclipse\studio\ZNTSpeaker\WifiSpeakerInfor\AndroidManifest.xml:8:18-50
-	android:icon
-		ADDED from E:\yuyan\eclipse\studio\ZNTSpeaker\WifiSpeakerInfor\AndroidManifest.xml:9:9-45
-	android:theme
-		ADDED from E:\yuyan\eclipse\studio\ZNTSpeaker\WifiSpeakerInfor\AndroidManifest.xml:10:9-40
+		ADDED from C:\Android\Github\ZNTSpeaker\WifiSpeakerInfor\AndroidManifest.xml:3:5-29
+		INJECTED from C:\Android\Github\ZNTSpeaker\WifiSpeakerInfor\AndroidManifest.xml
+		INJECTED from C:\Android\Github\ZNTSpeaker\WifiSpeakerInfor\AndroidManifest.xml

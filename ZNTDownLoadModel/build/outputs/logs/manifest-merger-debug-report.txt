@@ -1,129 +1,129 @@
 -- Merging decision tree log ---
 manifest
-ADDED from E:\yuyan\eclipse\studio\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml:2:1-45:12
-INJECTED from E:\yuyan\eclipse\studio\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml:2:1-45:12
-INJECTED from E:\yuyan\eclipse\studio\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml:2:1-45:12
-INJECTED from E:\yuyan\eclipse\studio\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml:2:1-45:12
-INJECTED from E:\yuyan\eclipse\studio\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml:2:1-45:12
-INJECTED from E:\yuyan\eclipse\studio\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml:2:1-45:12
-INJECTED from E:\yuyan\eclipse\studio\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml:2:1-45:12
+ADDED from C:\Android\Github\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml:2:1-45:12
+INJECTED from C:\Android\Github\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml:2:1-45:12
+INJECTED from C:\Android\Github\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml:2:1-45:12
+INJECTED from C:\Android\Github\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml:2:1-45:12
+INJECTED from C:\Android\Github\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml:2:1-45:12
+INJECTED from C:\Android\Github\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml:2:1-45:12
+INJECTED from C:\Android\Github\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml:2:1-45:12
 	package
-		ADDED from E:\yuyan\eclipse\studio\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml:3:5-31
-		INJECTED from E:\yuyan\eclipse\studio\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml
-		INJECTED from E:\yuyan\eclipse\studio\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml
+		ADDED from C:\Android\Github\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml:3:5-31
+		INJECTED from C:\Android\Github\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml
+		INJECTED from C:\Android\Github\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml
 	android:versionName
-		ADDED from E:\yuyan\eclipse\studio\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml:5:5-30
-		INJECTED from E:\yuyan\eclipse\studio\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml
-		INJECTED from E:\yuyan\eclipse\studio\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml
+		ADDED from C:\Android\Github\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml:5:5-30
+		INJECTED from C:\Android\Github\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml
+		INJECTED from C:\Android\Github\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml
 	xmlns:android
-		ADDED from E:\yuyan\eclipse\studio\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml:2:11-69
+		ADDED from C:\Android\Github\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml:2:11-69
 	android:versionCode
-		ADDED from E:\yuyan\eclipse\studio\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml:4:5-28
-		INJECTED from E:\yuyan\eclipse\studio\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml
-		INJECTED from E:\yuyan\eclipse\studio\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml
+		ADDED from C:\Android\Github\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml:4:5-28
+		INJECTED from C:\Android\Github\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml
+		INJECTED from C:\Android\Github\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml
 uses-sdk
-ADDED from E:\yuyan\eclipse\studio\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml:7:5-9:41
+ADDED from C:\Android\Github\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml:7:5-9:41
 	android:targetSdkVersion
-		ADDED from E:\yuyan\eclipse\studio\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml:9:9-38
+		ADDED from C:\Android\Github\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml:9:9-38
 	android:minSdkVersion
-		ADDED from E:\yuyan\eclipse\studio\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml:8:9-34
+		ADDED from C:\Android\Github\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml:8:9-34
 uses-permission#android.permission.MOUNT_UNMOUNT_FILESYSTEMS
-ADDED from E:\yuyan\eclipse\studio\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml:11:5-83
+ADDED from C:\Android\Github\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml:11:5-83
 	android:name
-		ADDED from E:\yuyan\eclipse\studio\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml:11:22-81
+		ADDED from C:\Android\Github\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml:11:22-81
 uses-permission#android.permission.READ_EXTERNAL_STORAGE
-ADDED from E:\yuyan\eclipse\studio\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml:12:5-80
+ADDED from C:\Android\Github\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml:12:5-80
 	android:name
-		ADDED from E:\yuyan\eclipse\studio\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml:12:22-77
+		ADDED from C:\Android\Github\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml:12:22-77
 uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
-ADDED from E:\yuyan\eclipse\studio\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml:13:5-80
+ADDED from C:\Android\Github\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml:13:5-80
 	android:name
-		ADDED from E:\yuyan\eclipse\studio\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml:13:22-78
+		ADDED from C:\Android\Github\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml:13:22-78
 uses-permission#android.hardware.usb.host
-ADDED from E:\yuyan\eclipse\studio\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml:14:5-16:28
+ADDED from C:\Android\Github\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml:14:5-16:28
 	android:required
-		ADDED from E:\yuyan\eclipse\studio\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml:16:2-26
+		ADDED from C:\Android\Github\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml:16:2-26
 	android:name
-		ADDED from E:\yuyan\eclipse\studio\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml:15:2-42
+		ADDED from C:\Android\Github\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml:15:2-42
 uses-feature#android.hardware.usb.host
-ADDED from E:\yuyan\eclipse\studio\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml:17:2-19:28
+ADDED from C:\Android\Github\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml:17:2-19:28
 	android:required
-		ADDED from E:\yuyan\eclipse\studio\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml:19:2-25
+		ADDED from C:\Android\Github\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml:19:2-25
 	android:name
-		ADDED from E:\yuyan\eclipse\studio\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml:18:2-42
+		ADDED from C:\Android\Github\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml:18:2-42
 uses-permission#android.permission.INTERNET
-ADDED from E:\yuyan\eclipse\studio\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml:20:2-63
+ADDED from C:\Android\Github\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml:20:2-63
 	android:name
-		ADDED from E:\yuyan\eclipse\studio\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml:20:19-61
+		ADDED from C:\Android\Github\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml:20:19-61
 uses-permission#android.permission.ACCESS_NETWORK_STATE
-ADDED from E:\yuyan\eclipse\studio\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml:21:2-75
+ADDED from C:\Android\Github\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml:21:2-75
 	android:name
-		ADDED from E:\yuyan\eclipse\studio\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml:21:19-73
+		ADDED from C:\Android\Github\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml:21:19-73
 uses-permission#android.permission.ACCESS_WIFI_STATE
-ADDED from E:\yuyan\eclipse\studio\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml:22:2-73
+ADDED from C:\Android\Github\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml:22:2-73
 	android:name
-		ADDED from E:\yuyan\eclipse\studio\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml:22:19-70
+		ADDED from C:\Android\Github\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml:22:19-70
 uses-permission#android.permission.CHANGE_WIFI_MULTICAST_STATE
-ADDED from E:\yuyan\eclipse\studio\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml:23:2-82
+ADDED from C:\Android\Github\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml:23:2-82
 	android:name
-		ADDED from E:\yuyan\eclipse\studio\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml:23:19-80
+		ADDED from C:\Android\Github\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml:23:19-80
 uses-permission#android.permission.CHANGE_WIFI_STATE
-ADDED from E:\yuyan\eclipse\studio\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml:24:2-72
+ADDED from C:\Android\Github\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml:24:2-72
 	android:name
-		ADDED from E:\yuyan\eclipse\studio\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml:24:19-70
+		ADDED from C:\Android\Github\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml:24:19-70
 uses-permission#android.permission.CHANGE_NETWORK_STATE
-ADDED from E:\yuyan\eclipse\studio\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml:25:2-75
+ADDED from C:\Android\Github\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml:25:2-75
 	android:name
-		ADDED from E:\yuyan\eclipse\studio\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml:25:19-73
+		ADDED from C:\Android\Github\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml:25:19-73
 uses-permission#android.permission.RECORD_AUDIO
-ADDED from E:\yuyan\eclipse\studio\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml:26:2-67
+ADDED from C:\Android\Github\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml:26:2-67
 	android:name
-		ADDED from E:\yuyan\eclipse\studio\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml:26:19-65
+		ADDED from C:\Android\Github\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml:26:19-65
 uses-permission#android.permission.MODIFY_AUDIO_SETTINGS
-ADDED from E:\yuyan\eclipse\studio\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml:27:2-76
+ADDED from C:\Android\Github\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml:27:2-76
 	android:name
-		ADDED from E:\yuyan\eclipse\studio\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml:27:19-74
+		ADDED from C:\Android\Github\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml:27:19-74
 uses-permission#android.permission.SET_TIME_ZONE
-ADDED from E:\yuyan\eclipse\studio\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml:29:2-69
+ADDED from C:\Android\Github\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml:29:2-69
 	android:name
-		ADDED from E:\yuyan\eclipse\studio\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml:29:19-66
+		ADDED from C:\Android\Github\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml:29:19-66
 uses-permission#android.permission.READ_PHONE_STATE
-ADDED from E:\yuyan\eclipse\studio\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml:31:5-75
+ADDED from C:\Android\Github\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml:31:5-75
 	android:name
-		ADDED from E:\yuyan\eclipse\studio\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml:31:22-72
+		ADDED from C:\Android\Github\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml:31:22-72
 uses-permission#android.permission.INTERACT_ACROSS_USERS
-ADDED from E:\yuyan\eclipse\studio\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml:32:5-79
+ADDED from C:\Android\Github\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml:32:5-79
 	android:name
-		ADDED from E:\yuyan\eclipse\studio\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml:32:22-77
+		ADDED from C:\Android\Github\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml:32:22-77
 uses-permission#android.permission.INTERACT_ACROSS_USERS_FULL
-ADDED from E:\yuyan\eclipse\studio\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml:33:2-81
+ADDED from C:\Android\Github\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml:33:2-81
 	android:name
-		ADDED from E:\yuyan\eclipse\studio\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml:33:19-79
+		ADDED from C:\Android\Github\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml:33:19-79
 uses-permission#android.permission.WAKE_LOCK
-ADDED from E:\yuyan\eclipse\studio\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml:34:2-64
+ADDED from C:\Android\Github\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml:34:2-64
 	android:name
-		ADDED from E:\yuyan\eclipse\studio\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml:34:19-62
+		ADDED from C:\Android\Github\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml:34:19-62
 uses-permission#android.permission.WRITE_SETTINGS
-ADDED from E:\yuyan\eclipse\studio\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml:35:2-69
+ADDED from C:\Android\Github\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml:35:2-69
 	android:name
-		ADDED from E:\yuyan\eclipse\studio\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml:35:19-67
+		ADDED from C:\Android\Github\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml:35:19-67
 uses-permission#android.permission.ACCESS_COARSE_LOCATION
-ADDED from E:\yuyan\eclipse\studio\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml:38:2-78
+ADDED from C:\Android\Github\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml:38:2-78
 	android:name
-		ADDED from E:\yuyan\eclipse\studio\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml:38:19-75
+		ADDED from C:\Android\Github\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml:38:19-75
 uses-permission#android.permission.ACCESS_FINE_LOCATION
-ADDED from E:\yuyan\eclipse\studio\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml:39:5-79
+ADDED from C:\Android\Github\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml:39:5-79
 	android:name
-		ADDED from E:\yuyan\eclipse\studio\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml:39:22-76
+		ADDED from C:\Android\Github\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml:39:22-76
 uses-permission#android.permission.READ_LOGS
-ADDED from E:\yuyan\eclipse\studio\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml:40:5-68
+ADDED from C:\Android\Github\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml:40:5-68
 	android:name
-		ADDED from E:\yuyan\eclipse\studio\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml:40:22-65
+		ADDED from C:\Android\Github\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml:40:22-65
 uses-permission#android.permission.RECEIVE_BOOT_COMPLETED
-ADDED from E:\yuyan\eclipse\studio\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml:41:5-81
+ADDED from C:\Android\Github\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml:41:5-81
 	android:name
-		ADDED from E:\yuyan\eclipse\studio\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml:41:22-78
+		ADDED from C:\Android\Github\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml:41:22-78
 uses-permission#android.permission.FOCE_STOP_PACKAGES
-ADDED from E:\yuyan\eclipse\studio\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml:42:2-74
+ADDED from C:\Android\Github\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml:42:2-74
 	android:name
-		ADDED from E:\yuyan\eclipse\studio\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml:42:19-71
+		ADDED from C:\Android\Github\ZNTSpeaker\ZNTDownLoadModel\AndroidManifest.xml:42:19-71

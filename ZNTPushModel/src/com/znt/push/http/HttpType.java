@@ -2,7 +2,7 @@ package com.znt.push.http;
 
 public enum HttpType
 {
-	CheckUpdate,//æ£?æŸ¥å‡çº?
+	CheckUpdate,
 	Register,
 	CoinRemove,
 	CoinFreezeCancel,

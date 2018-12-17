@@ -1,6 +1,6 @@
 /*
  * This file is auto-generated.  DO NOT MODIFY.
- * Original file: E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTDownLoadModel\\src\\com\\znt\\download\\IDownloadAidlInterface.aidl
+ * Original file: C:\\Android\\Github\\ZNTSpeaker\\ZNTDownLoadModel\\src\\com\\znt\\download\\IDownloadAidlInterface.aidl
  */
 package com.znt.download;
 public interface IDownloadAidlInterface extends android.os.IInterface
@@ -62,6 +62,15 @@ data.enforceInterface(DESCRIPTOR);
 java.util.List<com.znt.diange.mina.entity.SongInfor> _arg0;
 _arg0 = data.createTypedArrayList(com.znt.diange.mina.entity.SongInfor.CREATOR);
 this.addSongInfors(_arg0);
+reply.writeNoException();
+return true;
+}
+case TRANSACTION_updateSaveDir:
+{
+data.enforceInterface(DESCRIPTOR);
+java.lang.String _arg0;
+_arg0 = data.readString();
+this.updateSaveDir(_arg0);
 reply.writeNoException();
 return true;
 }
@@ -137,6 +146,21 @@ _reply.recycle();
 _data.recycle();
 }
 }
+@Override public void updateSaveDir(java.lang.String dir) throws android.os.RemoteException
+{
+android.os.Parcel _data = android.os.Parcel.obtain();
+android.os.Parcel _reply = android.os.Parcel.obtain();
+try {
+_data.writeInterfaceToken(DESCRIPTOR);
+_data.writeString(dir);
+mRemote.transact(Stub.TRANSACTION_updateSaveDir, _data, _reply, 0);
+_reply.readException();
+}
+finally {
+_reply.recycle();
+_data.recycle();
+}
+}
 @Override public void registerCallback(com.znt.download.IDownloadCallback cb) throws android.os.RemoteException
 {
 android.os.Parcel _data = android.os.Parcel.obtain();
@@ -170,11 +194,13 @@ _data.recycle();
 }
 static final int TRANSACTION_addSongInfor = (android.os.IBinder.FIRST_CALL_TRANSACTION + 0);
 static final int TRANSACTION_addSongInfors = (android.os.IBinder.FIRST_CALL_TRANSACTION + 1);
-static final int TRANSACTION_registerCallback = (android.os.IBinder.FIRST_CALL_TRANSACTION + 2);
-static final int TRANSACTION_unregisterCallback = (android.os.IBinder.FIRST_CALL_TRANSACTION + 3);
+static final int TRANSACTION_updateSaveDir = (android.os.IBinder.FIRST_CALL_TRANSACTION + 2);
+static final int TRANSACTION_registerCallback = (android.os.IBinder.FIRST_CALL_TRANSACTION + 3);
+static final int TRANSACTION_unregisterCallback = (android.os.IBinder.FIRST_CALL_TRANSACTION + 4);
 }
 public void addSongInfor(com.znt.diange.mina.entity.SongInfor infor) throws android.os.RemoteException;
 public void addSongInfors(java.util.List<com.znt.diange.mina.entity.SongInfor> infors) throws android.os.RemoteException;
+public void updateSaveDir(java.lang.String dir) throws android.os.RemoteException;
 public void registerCallback(com.znt.download.IDownloadCallback cb) throws android.os.RemoteException;
 public void unregisterCallback(com.znt.download.IDownloadCallback cb) throws android.os.RemoteException;
 }

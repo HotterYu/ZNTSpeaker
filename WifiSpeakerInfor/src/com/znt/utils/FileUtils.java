@@ -30,22 +30,10 @@ import android.util.Log;
 
 import com.znt.diange.mina.entity.SongInfor;
 
-/** 
- * @ClassName: MyFileUtils 
- * @Description: TODO
- * @author yan.yu 
- * @date 2014-2-11 涓嬪�?4:41:52  
- */
 public class FileUtils
 {
 
-	/**
-	* @Description: 鍒ゆ柇鏂囦欢鏄惁鏈夋晥
-	* @param @param filrUrl
-	* @param @return   
-	* @return boolean 
-	* @throws
-	 */
+
 	public static boolean isFileValid(String filrUrl)
 	{
 		if(TextUtils.isEmpty(filrUrl))
@@ -59,13 +47,7 @@ public class FileUtils
 		return true;
 	}
 	
-	/**
-	* @Description: 鑾峰彇鐩綍涓嬬殑鍥剧墖鏂囦�?(濯掍綋搴撲腑鑾峰�?)
-	* @param @param context
-	* @param @return   
-	* @return List<MyFileInfor> 
-	* @throws
-	 */
+
 	public static List<SongInfor> getLocalImages(Context context)
     {
     	List<SongInfor> localPicList = new ArrayList<SongInfor>();
@@ -91,7 +73,7 @@ public class FileUtils
 		    	String LocalImgId = cursor.getString(photoIDIndex);
 		    	long size = cursor.getLong(photoSizeIndex);
 		    	float rotate = cursor.getFloat(photoOrientation);
-		    	if(path.length()<5) continue;//鍥剧墖鍚嶅瓧鏈�灏�4涓瓧绗�?
+		    	if(path.length()<5) continue;
         		String folderPath = path.substring(0, path.lastIndexOf("/")); 
         		String picAlbum = null;
         		if(folderPath.contains("/"))
@@ -117,14 +99,7 @@ public class FileUtils
         return localPicList;
     }
 	
-	/**
-	* @Description: 鑾峰彇鐩綍涓嬬殑鏂囦欢(鏈湴鏂囦欢鎵弿鏂瑰紡)
-	* @param @param fileList  鑾峰彇鐨勬枃浠跺垪琛�?
-	* @param @param type 0, 鍥剧墖锛�?1锛岄煶棰戯紱2锛岃棰�?
-	* @param @param path   鐩綍璺緞
-	* @return void 
-	* @throws
-	 */
+
 	public static void getLocalFiles(final List<File> fileList, final int type, String path)
 	{
 		if(path == null || path.length() == 0)
@@ -142,11 +117,11 @@ public class FileUtils
 					return false;
 				}
 				boolean result = false;
-				if(type == 0)//鍥剧�?
+				if(type == 0)
 					result = isPicture(pathname.getAbsolutePath());
-				else if(type == 1)//闊抽�?
+				else if(type == 1)
 					result = isMusic(pathname.getAbsolutePath());
-				else if(type == 2)//瑙嗛�?
+				else if(type == 2)
 					result = isVideo(pathname.getAbsolutePath());	
 				if(result)
 				{
@@ -157,13 +132,7 @@ public class FileUtils
 		});
 	}
 	
-	/**
-	* @Description: MP4鏂囦�?
-	* @param @param path
-	* @param @return   
-	* @return boolean 
-	* @throws
-	 */
+
 	public static boolean isVideo(String path)
 	{
 		if(path == null || path.length() == 0)
@@ -193,13 +162,7 @@ public class FileUtils
 		return false;
 	}
 	
-	/**
-	* @Description: 闊抽鏂囦欢
-	* @param @param path
-	* @param @return   
-	* @return boolean 
-	* @throws
-	 */
+
 	public static boolean isMusic(String path)
 	{
 		if(path == null || path.length() == 0)
@@ -220,13 +183,7 @@ public class FileUtils
 		return false;
 	}
 	
-	/**
-	* @Description: 鍥剧墖鏂囦欢
-	* @param @param path
-	* @param @return   
-	* @return boolean 
-	* @throws
-	 */
+
 	public static boolean isPicture(String path)
 	{
 		if(path == null || path.length() == 0)
@@ -241,13 +198,7 @@ public class FileUtils
 		return false;
 	}
 	
-	/**
-	* @Description: 鍒涘缓鏂囦欢
-	* @param @param fileUrl
-	* @param @return   
-	* @return int 
-	* @throws
-	 */
+
 	public static int createFile(String fileUrl)
 	{
 		String tempStr = fileUrl;
@@ -276,29 +227,17 @@ public class FileUtils
 		return 1;
 	}
 	
-	/**
-	* @Description: 鍒犻櫎鏈�?湴鍗曚釜鏂囦�?
-	* @param @param file
-	* @param @return   
-	* @return int 0,鍒犻櫎鎴愬姛锛�1锛屾枃浠朵笉瀛樺湪锛�?2锛屽垹闄ゅけ璐�
-	* @throws
-	 */
+
 	public static int deleteFile(File file)
 	{
 		if(file == null || !file.exists())
-			return 1;//鏂囦欢涓嶅瓨鍦�
+			return 1;
 		if(!file.canWrite())
-			return 2;//娌℃湁鍐欐潈闄�
+			return 2;
 		file.delete();
 		return 0;
 	}
-	/**
-	* @Description: 鍒犻櫎鏈�?湴澶氫釜鏂囦�?
-	* @param @param files
-	* @param @return   
-	* @return int 0,鍒犻櫎鎴愬姛锛�1锛屾枃浠朵笉瀛樺湪锛�?2锛屽垹闄ゅけ璐�
-	* @throws
-	 */
+
 	public static int deleteFile(List<File> files)
 	{
 		int result = 0;
@@ -313,13 +252,7 @@ public class FileUtils
 		return result;
 	}
 	
-	/**
-	* @Description: 鍒犻櫎鏈�?湴鐩綍
-	* @param @param file
-	* @param @return   
-	* @return int 0,鍒犻櫎鎴愬姛锛�1锛屾枃浠朵笉瀛樺湪锛�?2锛屽垹闄ゅけ璐�
-	* @throws
-	 */
+
 	public static int deleteFolder(File file)
 	{
 		if(file == null || !file.exists())
@@ -345,20 +278,13 @@ public class FileUtils
 		return 0;
 	}
 	
-	/**
-	* @Description: 浠庢祦涓幏鍙栧瓧鑺傛暟缁�
-	* @param @param is
-	* @param @return
-	* @param @throws IOException   
-	* @return byte[] 
-	* @throws
-	 */
+
 	public static byte[] getBytes(InputStream is) throws IOException 
 	{  
 		if(is == null)
 			return null;
        ByteArrayOutputStream outstream = new ByteArrayOutputStream();  
-       byte[] buffer = new byte[1024]; // 鐢ㄦ暟鎹  
+       byte[] buffer = new byte[1024];
        int len = -1;  
        while ((len = is.read(buffer)) != -1) 
        {  
@@ -366,7 +292,7 @@ public class FileUtils
        }  
        if(outstream != null)
     	   outstream.close();  
-       // 鍏抽棴娴佷竴瀹氳璁板緱銆�  
+
        return outstream.toByteArray();  
    } 
 	
@@ -380,7 +306,7 @@ public class FileUtils
 		{
 			FileInputStream fis = new FileInputStream(file);
 			
-			byte[] buffer = new byte[1024]; // 鐢ㄦ暟鎹  
+			byte[] buffer = new byte[1024];
 	        int len = -1;  
 	        while ((len = fis.read(buffer)) != -1) 
 	        {  
@@ -399,13 +325,7 @@ public class FileUtils
 		return str;
 	}
 	
-	/**
-	* @Description: 鎵撳紑�?�夎鍖呮枃浠�
-	* @param @param activity
-	* @param @param file   
-	* @return void 
-	* @throws
-	 */
+
 	public static void openApkFile(Activity activity, File file) 
 	{
         // TODO Auto-generated method stub
@@ -419,7 +339,7 @@ public class FileUtils
 	}
 	
 	/** 
-     * 澶嶅埗鍗曚釜鏂囦�? 
+     * 澶嶅埗鍗曚釜鏂囦�? 
      * @param oldPath String 鍘熸枃浠惰矾寰� 濡傦細c:/fqf.txt 
      * @param newPath String 澶嶅埗鍚庤矾寰� 濡傦細f:/fqf.txt 
      * @return boolean 
@@ -433,7 +353,7 @@ public class FileUtils
            int byteread = 0; 
            File oldfile = new File(oldPath); 
            if (oldfile.exists()) 
-           { //鏂囦欢�?�樺湪鏃�? 
+           { //鏂囦欢�?�樺湪鏃�? 
         	   FileInputStream inStream = new FileInputStream(oldPath); //璇诲叆鍘熸枃浠� 
                File newFile = new File(newPath);
                if(!newFile.exists())
@@ -443,7 +363,7 @@ public class FileUtils
                byte[] buffer = new byte[1024 * 4]; 
                while ( (byteread = inStream.read(buffer)) != -1) 
                { 
-                   bytesum += byteread; //瀛楄妭鏁�? 鏂囦欢澶у�? 
+                   bytesum += byteread; //瀛楄妭鏁�? 鏂囦欢澶у�? 
                    bos.write(buffer, 0, byteread); 
                } 
                bos.flush(); 
@@ -474,7 +394,7 @@ public class FileUtils
 	   boolean isok = true;
        try 
        { 
-           (new File(newPath)).mkdirs(); //濡傛灉鏂囦欢澶�?�笉瀛樺�? 鍒欏缓绔嬫柊鏂囦欢澶�? 
+           (new File(newPath)).mkdirs(); //濡傛灉鏂囦欢澶�?�笉瀛樺�? 鍒欏缓绔嬫柊鏂囦欢澶�? 
            File oldFile = new File(oldPath); 
            String[] file= oldFile.list(); 
            File temp=null; 
@@ -507,7 +427,7 @@ public class FileUtils
                } 
                if(temp.isDirectory())
                {
-            	   //濡傛灉鏄瓙鏂囦欢澶�? 
+            	   //濡傛灉鏄瓙鏂囦欢澶�? 
                    copyFolder(oldPath + "/"+ file[i],newPath + "/" + file[i]); 
                } 
            } 
@@ -520,7 +440,7 @@ public class FileUtils
    }
    
    /**
-   * @Description: 鍐欐暟鎹埌鏂囦欢涓�?
+   * @Description: 鍐欐暟鎹埌鏂囦欢涓�?
    * @param @param filePath
    * @param @param content
    * @param @return   
@@ -556,7 +476,7 @@ public class FileUtils
 	}
    
    /**
-   * @Description: 浠庢枃浠朵腑鑾峰彇娴�?
+   * @Description: 浠庢枃浠朵腑鑾峰彇娴�?
    * @param @param filePath
    * @param @return   
    * @return InputStream 
@@ -585,7 +505,7 @@ public class FileUtils
    }
    
    /**
-   * @Description: 鑾峰彇鏈畨瑁卆pk鐨勫浘鏍�?
+   * @Description: 鑾峰彇鏈畨瑁卆pk鐨勫浘鏍�?
    * @param @param context
    * @param @param apkPath
    * @param @return   
@@ -674,7 +594,7 @@ public class FileUtils
 	         			{
 	         				time = Integer.parseInt(duration);
 	         			}
-	         			if(time > 10 * 1000 && time < 10 * 60 * 1000)//10绉掍互涓婂苟涓�10鍒嗛挓浠ヤ笅鐨勬枃浠�?
+	         			if(time > 10 * 1000 && time < 10 * 60 * 1000)//10绉掍互涓婂苟涓�10鍒嗛挓浠ヤ笅鐨勬枃浠�?
 	         			{
 	         				SongInfor infor = new SongInfor();
 		         			infor.setMediaName(name);

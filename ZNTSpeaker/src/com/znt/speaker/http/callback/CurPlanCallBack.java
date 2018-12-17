@@ -117,13 +117,7 @@ public abstract class CurPlanCallBack extends Callback<CurPlanInfor>
 			} 
 			catch (Exception e)
 			{
-				/*httpResult.setResult(false, e.getMessage());
-				// TODO Auto-generated catch block
-				String devId = LocalDataEntity.newInstance(context).getDeviceCode();
-				if(e != null)
-					emailManager.sendEmail("获取计划异常_id" + devId , e.getMessage());
-				else
-					emailManager.sendEmail("获取计划异常_id" + devId , "获取播放计划失败");*/
+
 				e.printStackTrace();
 			}
     	}

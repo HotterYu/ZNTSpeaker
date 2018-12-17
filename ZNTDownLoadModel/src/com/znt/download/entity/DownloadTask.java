@@ -6,6 +6,7 @@ import android.util.Log;
 
 import com.znt.diange.mina.entity.SongInfor;
 import com.znt.download.IDownloadListener;
+import com.znt.download.ZNTDownloadService;
 import com.znt.utils.UrlUtil;
 
 import java.io.File;
@@ -61,10 +62,7 @@ public class DownloadTask extends AsyncTask<String,Integer,Integer>
 
     private String getDownloadDir()
     {
-
-        //List<String> dirs = SystemUtils.getStorageDirectoriesArrayList();
-
-        return downloadDir;
+        return ZNTDownloadService.STORAGE_DIR;
     }
 
     /**
@@ -195,6 +193,7 @@ public class DownloadTask extends AsyncTask<String,Integer,Integer>
         catch (Exception e)
         {
             e.printStackTrace();
+            return TYPE_FAILED;
         }
         finally
         {

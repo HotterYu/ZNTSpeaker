@@ -54,7 +54,7 @@ public class DownHelper
     public String getDlAndPath(String mid)
     {
         String downUrl = null;
-        // 根据mid获取MP3dl和mp3path
+
         String midUrl = "http://player.kuwo.cn/webmusic/st/getNewMuiseByRid?rid=MUSIC_" + mid;
         
         URL webUrl;
@@ -96,35 +96,7 @@ public class DownHelper
             }
             downUrl = "http://" + dl + "/resource" + "/" + path;
             
-            /*// 获取当前时间�? 时间以秒为单�?
-            long timestamp = System.currentTimeMillis() / 1000;
-            // 把时间戳转换成十六进制的字符�?
-            String timeStr = timestamp + "";//Long.toHexString(timestamp);
-            
-            // 获取字符�?
-            String str = "kuwo_web@1906/resource/" + path + timeStr;
-            // 把字符串计算成md5
-            // 拿到�?个MD5转换�?
-            MessageDigest md5;
-            try
-            {
-                md5 = java.security.MessageDigest.getInstance("MD5");
-                // 输入的字符串转换成字节数�?
-                byte[] b = str.getBytes();
-                // b是输入字符串转换得到的字节数�?
-                md5.update(b);
-                // 转换并返回结果，也是字节数组，包�?16个元�?
-                byte[] by = md5.digest();
-                // 字符数组转换成字符串 mUrl就是转换后mdt5的�??
-                String mUrl = byteArrayToHex(by);
-                // 拼接下载地址
-                downUrl = "http://" + dl + "/" + mUrl + "/" + timeStr + "/" + "resource" + "/" + path;
-            }
-            catch (NoSuchAlgorithmException e)
-            {
-                e.printStackTrace();
-                return null;
-            }*/
+
         }
         catch (Exception e)
         {
@@ -327,9 +299,9 @@ public class DownHelper
 			
 			downloadFileInfo.createTempFile();//创建临时文件
 			access = new RandomAccessFile(downloadFileInfo.getTempFile(), "rw");
-            // 移动指针到开始位�?
+            // 移动指针到开始位�?
             access.seek(mLoadedByteLength);
-			//out = new FileOutputStream(downloadFileInfo.getTempFile(), true);////true表示向打�?的文件末尾追加数�?
+			//out = new FileOutputStream(downloadFileInfo.getTempFile(), true);////true表示向打�?的文件末尾追加数�?
 			int read = 0;
 			int contentLength = conn.getContentLength(); 
 			/*int progress = 0;*/
@@ -366,7 +338,7 @@ public class DownHelper
 			{
 				downloadFileInfo.deleteTempFile();
 				if(fileDownloadListener != null)
-					fileDownloadListener.onDownloadError(downloadFileInfo, "文件未下载完�?   contentLength-->" + contentLength + "  localLen-->"+localLen);
+					fileDownloadListener.onDownloadError(downloadFileInfo, "文件未下载完   contentLength-->" + contentLength + "  localLen-->"+localLen);
 				setCurDownloadFile(null);
 				return;
 			}
@@ -437,17 +409,7 @@ public class DownHelper
 	        {
 	            conn = (HttpURLConnection) url.openConnection();
 	        }
-			//conn.setRequestProperty("Charset","UTF-8");
-			 /** 
-	         * Range头域可以请求实体的一个或者多个子范围�? 
-	         *      例如: 表示�?500个字节：bytes=0-499 �?�? 
-	         *              表示第二�?500字节：bytes=500-999 �?�? 
-	         *              表示�?�?500个字节：bytes=-500 �?�? 
-	         *              表示500字节以后的范围：bytes=500- �?�? 
-	         *              第一个和�?后一个字节：bytes=0-0,-1 �?�? 
-	         *              同时指定几个范围：bytes=500-600,601-999 �?�? 
-	         * 但是服务器可以忽略此请求头，如果无条件GET包含Range请求头，响应会以状�?�码206（PartialContent）返回�?�不是以200 （OK）�??    
-	         */  
+
 			conn.setRequestMethod("GET");  
 			long mLoadedByteLength = downloadFileInfo.getDoneSize();
 			if(mLoadedByteLength > 0)
@@ -529,25 +491,25 @@ public class DownHelper
             }
             
         }
-        // 获取当前时间�? 时间以秒为单�?
+        // 获取当前时间�? 时间以秒为单�?
         long timestamp = System.currentTimeMillis() / 1000;
-        // 把时间戳转换成十六进制的字符�?
+        // 把时间戳转换成十六进制的字符�?
         String timeStr = Long.toHexString(timestamp);
-        // 获取字符�?
+        // 获取字符�?
         String str = "kuwo_web@1906/resource/" + path + timeStr;
         // 把字符串计算成md5
-        // 拿到�?个MD5转换�?
+        // 拿到�?个MD5转换�?
         MessageDigest md5;
         try
         {
             md5 = MessageDigest.getInstance("MD5");
-            // 输入的字符串转换成字节数�?
+            // 输入的字符串转换成字节数�?
             byte[] b = str.getBytes();
-            // b是输入字符串转换得到的字节数�?
+            // b是输入字符串转换得到的字节数�?
             md5.update(b);
-            // 转换并返回结果，也是字节数组，包�?16个元�?
+            // 转换并返回结果，也是字节数组，包�?16个元�?
             byte[] by = md5.digest();
-            // 字符数组转换成字符串 mUrl就是转换后mdt5的�??
+            // 字符数组转换成字符串 mUrl就是转换后mdt5的�??
             String mUrl = byteArrayToHex(by);
             // 拼接下载地址
             return "http://" + dl + "/" + mUrl + "/" + timeStr + "/" + "resource" + "/" + path;

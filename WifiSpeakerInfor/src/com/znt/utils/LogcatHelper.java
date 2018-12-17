@@ -19,11 +19,7 @@ public class LogcatHelper
     private LogDumper mLogDumper = null;  
     private int mPId;  
   
-    /** 
-     *  
-     * 初始化目�? 
-     *  
-     * */  
+
     public void init(Context context) {  
         if (Environment.getExternalStorageState().equals(  
                 Environment.MEDIA_MOUNTED)) {// 优先保存到SD卡中  
@@ -84,18 +80,7 @@ public class LogcatHelper
                 // TODO Auto-generated catch block  
                 e.printStackTrace();  
             }  
-  
-            /** 
-             *  
-             * 日志等级�?*:v , *:d , *:w , *:e , *:f , *:s 
-             *  
-             * 显示当前mPID程序�? E和W等级的日�?. 
-             *  
-             * */  
-  
-            // cmds = "logcat *:e *:w | grep \"(" + mPID + ")\"";  
-            // cmds = "logcat  | grep \"(" + mPID + ")\"";//打印�?有日志信�?  
-            // cmds = "logcat -s way";//打印标签过滤信息  
+
             cmds = "logcat *:e *:i | grep \"(" + mPID + ")\"";  
   
         }  
@@ -157,7 +142,7 @@ public class LogcatHelper
     public static String getFileName() {  
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");  
         String date = format.format(new Date(System.currentTimeMillis()));  
-        return date;// 2012�?10�?03�? 23:41:31  
+        return date;
     }  
   
     public static String getDateEN() {  

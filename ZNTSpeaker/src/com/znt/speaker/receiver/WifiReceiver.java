@@ -72,8 +72,7 @@ public class WifiReceiver extends BroadcastReceiver
         }  
         else if(intent.getAction().equals(WifiManager.NETWORK_STATE_CHANGED_ACTION))
         {
-        	//wifi连接上与否  
-            NetworkInfo info = intent.getParcelableExtra(WifiManager.EXTRA_NETWORK_INFO); 
+            NetworkInfo info = intent.getParcelableExtra(WifiManager.EXTRA_NETWORK_INFO);
             if(info.getState().equals(NetworkInfo.State.DISCONNECTED))
             {  
         		 WifiManager wifiManager = (WifiManager)context.getSystemService(Context.WIFI_SERVICE);  
@@ -88,8 +87,7 @@ public class WifiReceiver extends BroadcastReceiver
                 		 stopTimer();
                 	 }
                  }
-                 System.out.println("wifi网络连接断开");  
-            }  
+            }
             else if(info.getState().equals(NetworkInfo.State.CONNECTED))
             {  
                   
@@ -105,26 +103,21 @@ public class WifiReceiver extends BroadcastReceiver
                 		stopTimer();
                 	}
                 }
-                //获取当前wifi名称  
-                System.out.println("连接到网络 " + wifiInfo.getSSID());  
-            }  
+            }
         }  
         else if(intent.getAction().equals(WifiManager.WIFI_STATE_CHANGED_ACTION))
         {
-        	//wifi打开与否  
-            int wifistate = intent.getIntExtra(WifiManager.EXTRA_WIFI_STATE, WifiManager.WIFI_STATE_DISABLED);  
+            int wifistate = intent.getIntExtra(WifiManager.EXTRA_WIFI_STATE, WifiManager.WIFI_STATE_DISABLED);
              if(mWifiStateListener != null)
             	 mWifiStateListener.onWifiStateChanged(wifistate);
              else
              {
             	 if(wifistate == WifiManager.WIFI_STATE_DISABLED)
                  {  
-                     System.out.println("系统关闭wifi");  
-                 }  
+                 }
                  else if(wifistate == WifiManager.WIFI_STATE_ENABLED)
                  {  
-                     System.out.println("系统开启wifi");  
-                 }  
+                 }
              }
         }  
     }  

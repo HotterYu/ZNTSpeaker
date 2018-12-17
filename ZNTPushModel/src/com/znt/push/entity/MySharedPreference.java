@@ -4,12 +4,6 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 
-/**
-* @ClassName: MySharedPreference 
-* @Description: 本地数据操作类
-* @author yan.yu 
-* @date 2013-6-8 下午2:18:05 
- */
 public class MySharedPreference
 {
 
@@ -17,12 +11,6 @@ public class MySharedPreference
 	private Context context = null;
 	private Editor edit = null;
 	
-	/**
-	* <p>Title: </p> 
-	* <p>Description: 构造函数
-	* @param context 上下文
-	* @param sharedPreferencesName 文件名字,默认为 
-	 */
 	public MySharedPreference(Context context, String sharedPreferencesName)
 	{
 		this.context = context;
@@ -37,14 +25,6 @@ public class MySharedPreference
 		return new MySharedPreference(context, null);
 	}
 	
-	
-	/**
-	* @Description: 存储数据
-	* @param @param key
-	* @param @param value   
-	* @return void 
-	* @throws
-	 */
 	public void setData(String key, Object value)
 	{
 		if(value instanceof String)
@@ -60,14 +40,6 @@ public class MySharedPreference
 		edit.commit();
 	}
 	
-	/**
-	* @Description: 获取数据
-	* @param @param key
-	* @param @param defValue
-	* @param @return   
-	* @return String , boolean int
-	* @throws
-	 */
 	public String getData(String key, String defValue)
 	{
 		return sp.getString(key, defValue);

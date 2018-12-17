@@ -1,6 +1,6 @@
 /*
  * This file is auto-generated.  DO NOT MODIFY.
- * Original file: E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTDownLoadModel\\src\\com\\znt\\download\\IDownloadCallback.aidl
+ * Original file: C:\\Android\\Github\\ZNTSpeaker\\ZNTDownLoadModel\\src\\com\\znt\\download\\IDownloadCallback.aidl
  */
 package com.znt.download;
 // Declare any non-default types here with import statements

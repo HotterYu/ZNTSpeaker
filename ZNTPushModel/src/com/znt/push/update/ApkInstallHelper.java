@@ -8,12 +8,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 
-/** 
- * @ClassName: ApkInstallHelper 
- * @Description: TODO
- * @author yan.yu 
- * @date 2015-11-5 涓婂�?10:10:51  
- */
+
 public class ApkInstallHelper
 { 
 	
@@ -35,15 +30,12 @@ public class ApkInstallHelper
 	
     public boolean install(String apkPath)
     {
-        // 鍏堝垽鏂墜鏈烘槸鍚︽湁root鏉冮�?
         if(hasRootPerssion())
         {
-            // 鏈塺oot鏉冮檺锛屽埄鐢ㄩ潤榛樺畨瑁呭疄鐜�?
             return clientInstall(apkPath);
         }
         else
         {
-            // 娌℃湁root鏉冮檺锛屽埄鐢ㄦ剰鍥捐繘琛屽畨瑁�?
             File file = new File(apkPath);
             if(!file.exists())
                 return false; 
@@ -61,7 +53,6 @@ public class ApkInstallHelper
     {
         if(hasRootPerssion())
         {
-            // 鏈塺oot鏉冮檺锛屽埄鐢ㄩ潤榛樺嵏杞藉疄鐜�?
             return clientUninstall(packageName);
         }
         else
@@ -74,9 +65,6 @@ public class ApkInstallHelper
         }
     }
      
-    /**
-     * 鍒ゆ柇鎵嬫満鏄惁鏈塺oot鏉冮�?
-     */
     private boolean hasRootPerssion()
     {
         PrintWriter PrintWriter = null;
@@ -104,9 +92,6 @@ public class ApkInstallHelper
         return false;
     }
      
-    /**
-     * 闈欓粯�?�夎�?
-     */
     private boolean clientInstall(String apkPath)
     {
         PrintWriter PrintWriter = null;
@@ -138,9 +123,6 @@ public class ApkInstallHelper
         return false;
     }
      
-    /**
-     * 闈欓粯鍗歌浇
-     */
     private boolean clientUninstall(String packageName)
     {
         PrintWriter PrintWriter = null;
@@ -170,11 +152,7 @@ public class ApkInstallHelper
         return false;
     }
      
-    /**
-     * 鍚姩app
-     * com.exmaple.client/.MainActivity
-     * com.exmaple.client/com.exmaple.client.MainActivity
-     */
+
     public boolean startApp(String packageName,String activityName)
     {
         boolean isSuccess = false;
@@ -203,19 +181,19 @@ public class ApkInstallHelper
      
     private boolean returnResult(int value)
     {
-        // 浠ｈ〃鎴愬姛  
+
         if (value == 0) 
         {
             return true;
         } 
         else if (value == 1) 
         { 
-        	// 澶辫�?
+
             return false;
         } 
         else 
         { 
-        	// 鏈煡鎯呭喌
+
             return false;
         }  
     }

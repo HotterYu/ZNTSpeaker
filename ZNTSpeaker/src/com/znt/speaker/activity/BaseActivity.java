@@ -10,6 +10,7 @@ import android.app.ActivityManager.RunningServiceInfo;
 import android.content.Context;
 import android.media.AudioManager;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.Display;
@@ -29,7 +30,7 @@ import com.znt.utils.FileUtils;
 import com.znt.utils.MyToast;
 import com.znt.utils.SystemUtils;
 
-public class BaseActivity extends Activity
+public class BaseActivity extends AppCompatActivity
 {
 	private MyToast myToast = null;
 	private static MyProgressDialog mProgressDialog;
@@ -156,7 +157,7 @@ public class BaseActivity extends Activity
 			message = "正在处理...";
 		}
 		if(mProgressDialog == null)
-			mProgressDialog = new MyProgressDialog(activity, R.style.Theme_CustomDialog);
+			mProgressDialog = new MyProgressDialog(activity, R.style.CustomDialog);
 		mProgressDialog.setInfor(title, message);
 		
 		if(!mProgressDialog.isShowing())
@@ -185,7 +186,7 @@ public class BaseActivity extends Activity
         }  
 		
 		if(myAlertDialog == null || myAlertDialog.isDismissed())
-			myAlertDialog = new MyAlertDialog(activity, R.style.Theme_CustomDialog);
+			myAlertDialog = new MyAlertDialog(activity, R.style.CustomDialog);
 		myAlertDialog.setInfor(title, message);
 		if(myAlertDialog.isShowing())
 			myAlertDialog.dismiss();
@@ -216,7 +217,7 @@ public class BaseActivity extends Activity
 		}
 		
 		if(myAlertDialog == null || myAlertDialog.isDismissed())
-			myAlertDialog = new MyAlertDialog(activity, R.style.Theme_CustomDialog);
+			myAlertDialog = new MyAlertDialog(activity, R.style.CustomDialog);
 		myAlertDialog.setInfor(title, message);
 		if(myAlertDialog.isShowing())
 			myAlertDialog.dismiss();

@@ -1,6 +1,6 @@
 /*
  * This file is auto-generated.  DO NOT MODIFY.
- * Original file: E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\WificonnectorSample\\src\\com\\jflavio1\\wificonnectorsample\\ITaskCallback.aidl
+ * Original file: C:\\Android\\Github\\ZNTSpeaker\\WificonnectorSample\\src\\com\\jflavio1\\wificonnectorsample\\ITaskCallback.aidl
  */
 package com.jflavio1.wificonnectorsample;
 // Declare any non-default types here with import statements

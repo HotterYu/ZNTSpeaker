@@ -62,6 +62,19 @@ public class ZNTDownloadServiceManager
 			e.printStackTrace();
 		}
 	}
+
+	public void updateSaveDir(String dir)
+	{
+		try
+		{
+			mIDownloadAidlInterface.updateSaveDir(dir);
+		}
+		catch (Exception e)
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	
 	public boolean isBindSuccess()
 	{

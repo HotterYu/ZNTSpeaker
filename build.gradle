@@ -12,3 +12,11 @@ buildscript {
 repositories {
     google()
 }
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+        maven {url 'https://dl.bintray.com/jetbrains/anko'}
+    }
+}

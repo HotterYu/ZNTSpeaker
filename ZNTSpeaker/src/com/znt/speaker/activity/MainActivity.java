@@ -6,27 +6,35 @@ import java.util.List;
 import android.Manifest;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.pm.PackageManager;
+import android.hardware.usb.UsbDevice;
+import android.hardware.usb.UsbManager;
 import android.media.MediaPlayer;
 import android.media.MediaPlayer.OnVideoSizeChangedListener;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
 import android.os.Handler;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.Toast;
 
+import com.github.mjdev.libaums.UsbMassStorageDevice;
+import com.github.mjdev.libaums.fs.UsbFile;
 import com.znt.diange.mina.entity.CurPlanInfor;
 import com.znt.diange.mina.entity.DeviceInfor;
 import com.znt.diange.mina.entity.DeviceStatusInfor;
 import com.znt.diange.mina.entity.SongInfor;
 import com.znt.diange.mina.entity.StaticIpInfor;
+import com.znt.permission.PermissionUtil;
 import com.znt.push.entity.PushModelConstant;
 import com.znt.push.v.IDevStatusView;
 import com.znt.speaker.R;
@@ -42,6 +50,7 @@ import com.znt.speaker.factory.UIManager.OnPlayerControllListener;
 import com.znt.speaker.factory.UIManager.OnSetWifiListener;
 import com.znt.speaker.http.HttpRequestID;
 import com.znt.speaker.m.HttpRequestModel;
+import com.znt.speaker.m.UsbHelper;
 import com.znt.speaker.p.HttpPresenter;
 import com.znt.speaker.p.MusicPlayPresenter;
 import com.znt.speaker.p.MusicPlayPresenter.OnMediaPlayCallBack;
@@ -51,6 +60,7 @@ import com.znt.speaker.prcmanager.ZNTDownloadServiceManager;
 import com.znt.speaker.prcmanager.ZNTDownloadServiceManager.DownlaodCallBack;
 import com.znt.speaker.prcmanager.ZNTPushServiceManager;
 import com.znt.speaker.prcmanager.ZNTWifiServiceManager;
+import com.znt.speaker.receiver.USBBroadCastReceiver;
 import com.znt.speaker.v.IHttpRequestView;
 import com.znt.speaker.v.IMusicReceiverView;
 import com.znt.speaker.v.INetWorkView;
@@ -344,11 +354,108 @@ public class MainActivity extends BaseActivity implements IHttpRequestView, INet
 				}
 			}
 		});
-		
-		//setOritation();
+
+        mUsbHelper = new UsbHelper(getApplicationContext(), new USBBroadCastReceiver.UsbListener() {
+            @Override
+            public void insertUsb(UsbDevice device_add) {
+                Log.e("","");
+                updateSaveDir();
+            }
+
+            @Override
+            public void removeUsb(UsbDevice device_remove) {
+                Log.e("","");
+                updateSaveDir();
+            }
+
+            @Override
+            public void getReadUsbPermission(UsbDevice usbDevice) {
+                Log.e("","");
+            }
+
+            @Override
+            public void failedReadUsb(UsbDevice usbDevice) {
+                Log.e("","");
+            }
+        });
+        updateSaveDir();
+        UsbFile mUsbFile = mUsbHelper.getCurrentFolder();
+        UsbMassStorageDevice[] mUsbFiles = mUsbHelper.getDeviceList();
+        //mUsbHelper.getUsbFolderFileList()
+		tryGetUsbPermission();
 	}
-	
-	private void startWifiService()
+
+	private UsbHelper mUsbHelper = null;
+	private void updateSaveDir()
+    {
+        String dir = "";
+        UsbMassStorageDevice[] mUsbFiles = mUsbHelper.getDeviceList();
+        if(mUsbFiles.length > 0)
+        {
+            UsbDevice temp = mUsbFiles[0].getUsbDevice();
+            dir = temp.getDeviceName();
+        }
+        else
+            dir = Environment.getExternalStorageDirectory() + "";
+
+        mZNTDownloadServiceManager.updateSaveDir(dir);
+    }
+
+	private static final String ACTION_USB_PERMISSION = "com.android.example.USB_PERMISSION";
+	private UsbManager mUsbManager = null;
+	private void tryGetUsbPermission(){
+		mUsbManager = (UsbManager) getSystemService(Context.USB_SERVICE);
+
+		IntentFilter filter = new IntentFilter(ACTION_USB_PERMISSION);
+		registerReceiver(mUsbPermissionActionReceiver, filter);
+
+		PendingIntent mPermissionIntent = PendingIntent.getBroadcast(this, 0, new Intent(ACTION_USB_PERMISSION), 0);
+
+		//here do emulation to ask all connected usb device for permission
+		for (final UsbDevice usbDevice : mUsbManager.getDeviceList().values()) {
+			//add some conditional check if necessary
+			//if(isWeCaredUsbDevice(usbDevice)){
+			if(mUsbManager.hasPermission(usbDevice)){
+				//if has already got permission, just goto connect it
+				//that means: user has choose yes for your previously popup window asking for grant perssion for this usb device
+				//and also choose option: not ask again
+				afterGetUsbPermission(usbDevice);
+			}else{
+				//this line will let android popup window, ask user whether to allow this app to have permission to operate this usb device
+				mUsbManager.requestPermission(usbDevice, mPermissionIntent);
+			}
+			//}
+		}
+	}
+	private void afterGetUsbPermission(UsbDevice usbDevice){
+		//call method to set up device communication
+		//Toast.makeText(this, String.valueOf("Got permission for usb device: " + usbDevice), Toast.LENGTH_LONG).show();
+		//Toast.makeText(this, String.valueOf("Found USB device: VID=" + usbDevice.getVendorId() + " PID=" + usbDevice.getProductId()), Toast.LENGTH_LONG).show();
+		Log.e("","");
+		//doYourOpenUsbDevice(usbDevice);
+	}
+	private final BroadcastReceiver mUsbPermissionActionReceiver = new BroadcastReceiver() {
+		public void onReceive(Context context, Intent intent) {
+			String action = intent.getAction();
+			if (ACTION_USB_PERMISSION.equals(action)) {
+				synchronized (this) {
+					UsbDevice usbDevice = (UsbDevice)intent.getParcelableExtra(UsbManager.EXTRA_DEVICE);
+					if (intent.getBooleanExtra(UsbManager.EXTRA_PERMISSION_GRANTED, false)) {
+						//user choose YES for your previously popup window asking for grant perssion for this usb device
+						if(null != usbDevice){
+							afterGetUsbPermission(usbDevice);
+						}
+					}
+					else {
+						//user choose NO for your previously popup window asking for grant perssion for this usb device
+						Toast.makeText(context, String.valueOf("Permission denied for device" + usbDevice), Toast.LENGTH_LONG).show();
+					}
+				}
+			}
+		}
+	};
+
+    private void startWifiService()
 	{
 		try 
 		{

@@ -51,8 +51,17 @@ public class SongInfor implements Parcelable
 	private boolean isPlaying = false;
 	private long curPlayTime = 0;
 	private int resourceType = 0;
-	
-	
+
+	private String saveDir = "";
+
+	public String getSaveDir() {
+		return saveDir;
+	}
+
+	public void setSaveDir(String saveDir) {
+		this.saveDir = saveDir;
+	}
+
 	public SongInfor()
 	{
 		

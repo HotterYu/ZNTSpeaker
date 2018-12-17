@@ -72,7 +72,6 @@ public class ZNTPushService extends Service implements IHttpRequestView, SpaceCh
 		List<RunningAppProcessInfo> lists = am.getRunningAppProcesses();
 		for(RunningAppProcessInfo info : lists){
 			if(info.processName.equals(proessName)){
-				//Log.i("Service2进程", ""+info.processName);
 				isRunning = true;
 			}
 		}
@@ -168,19 +167,16 @@ public class ZNTPushService extends Service implements IHttpRequestView, SpaceCh
 					{
 						if(TextUtils.isEmpty(devId))
 						{
-							//通知需要注册
 							callback(PushModelConstant.CALL_BACK_PUSH_NOT_REGISTER, null, null, null);
 						}
 						mHttpPresenter.getDevStatus(devId, playSeek, playingSong, playingSongType, netInfo);
 						checkTime = 0;
 						
-						//Log.e("ZNTPushService", "开始检查状态...");
 					}
 					else
 					{
 						checkTime ++;
 						callback(PushModelConstant.CALL_BACK_PUSH_CHECK, checkTime + "", null, null);
-						//Log.e("ZNTPushService", "PULL正在运行-->"+checkTime);
 					}
 					
 				} 
@@ -287,12 +283,11 @@ public class ZNTPushService extends Service implements IHttpRequestView, SpaceCh
 		}
 		else if(requestId == HttpRequestID.CHECK_UPDATE)
 		{
-			Log.e("ZNTPushService", "检查升级开始...");
 			checkUpdateRunning = true;
 		}
 		else if(requestId == HttpRequestID.REGISTER)
 		{
-			Log.e("ZNTPushService", "注册开始...");
+			Log.e("ZNTPushService", "注锟结开始...");
 		}
 	}
 	@Override
@@ -303,16 +298,13 @@ public class ZNTPushService extends Service implements IHttpRequestView, SpaceCh
 		{
 			checkFailCount++;
 			callback(PushModelConstant.CALL_BACK_PUSH_FAIL, checkFailCount + "", error, null);
-			Log.e("ZNTPushService", "检查状态失败...");
 		}
 		else if(requestId == HttpRequestID.CHECK_UPDATE)
 		{
-			Log.e("ZNTPushService", "检查升级失败...");
 			checkUpdateRunning = false;
 		}
 		else if(requestId == HttpRequestID.REGISTER)
 		{
-			Log.e("ZNTPushService", "注册失败...");
 		}
 	}
 	private int updateCheckRunningCount = 0;
@@ -325,7 +317,6 @@ public class ZNTPushService extends Service implements IHttpRequestView, SpaceCh
 			try 
 			{
 				callback(PushModelConstant.CALL_BACK_PUSH_SUCCESS, info, "", null);
-				Log.e("ZNTPushService", "检查状态成功...");
 
 				checkFailCount = 0;
 				
@@ -371,7 +362,6 @@ public class ZNTPushService extends Service implements IHttpRequestView, SpaceCh
 				e.printStackTrace();
 			}
 			
-			Log.e("ZNTPushService", "检查升级成功...");
 		}
 	}
 	@Override
@@ -411,11 +401,9 @@ public class ZNTPushService extends Service implements IHttpRequestView, SpaceCh
 							{
 								checkUpdateRunning = true;
 								mHttpPresenter.checkUpdate();
-								Log.e("ZNTPushService", "检测到新版本，开始升级");
 							}
 							else
 							{
-								Log.e("ZNTPushService", "升级正在进行中-->"+updateCheckRunningCount);
 								updateCheckRunningCount ++;
 								if(updateCheckRunningCount >= 1000)
 								{
@@ -424,8 +412,6 @@ public class ZNTPushService extends Service implements IHttpRequestView, SpaceCh
 								}
 							}
 						}
-						else
-							Log.e("ZNTPushService", "正在检测升级......");
 					}
 				}
 			}

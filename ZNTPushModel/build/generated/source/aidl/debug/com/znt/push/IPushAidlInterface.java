@@ -1,6 +1,6 @@
 /*
  * This file is auto-generated.  DO NOT MODIFY.
- * Original file: E:\\yuyan\\eclipse\\studio\\ZNTSpeaker\\ZNTPushModel\\src\\com\\znt\\push\\IPushAidlInterface.aidl
+ * Original file: C:\\Android\\Github\\ZNTSpeaker\\ZNTPushModel\\src\\com\\znt\\push\\IPushAidlInterface.aidl
  */
 package com.znt.push;
 public interface IPushAidlInterface extends android.os.IInterface

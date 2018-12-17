@@ -206,7 +206,7 @@ public class MainActivity extends Activity implements WifiConnectorModel
 
     public void openConnectDialog(ScanResult scanResult)
     {
-        ConnectToWifiDialog dialog = new ConnectToWifiDialog(MainActivity.this, scanResult);
+        /*ConnectToWifiDialog dialog = new ConnectToWifiDialog(MainActivity.this, scanResult);
         dialog.setConnectButtonListener(new ConnectToWifiDialog.DialogListener()
         {
             @Override
@@ -214,18 +214,18 @@ public class MainActivity extends Activity implements WifiConnectorModel
             {
             	//connectToWifiAccessPoint(scanResult, password);
                 ScanResult sr = new ScanResult();
-            	String pwd = "12345678";
-            	String name = "DianYinGuanJia";
+            	*//*String pwd = "12345678";
+            	String name = "DianYinGuanJia";*//*
             	sr.SSID = name;
     			if(TextUtils.isEmpty(pwd))
     				sr.capabilities = "[ESS]";
     			else
     				sr.capabilities = "[WPA-PSK-CCMP+TKIP][WPA2-PSK-CCMP+TKIP][ESS]";
             	
-            	/*String bssid = scanResult.BSSID;
+            	*//*String bssid = scanResult.BSSID;
             	String ssid = scanResult.SSID;
             	String cap = scanResult.capabilities;
-            	String other = scanResult.toString();*/
+            	String other = scanResult.toString();*//*
     			WifiAdmin mWifiAdmin = new WifiAdmin(getApplicationContext()) {
 					
 					@Override
@@ -267,7 +267,7 @@ public class MainActivity extends Activity implements WifiConnectorModel
 				}
             }
         });
-        dialog.show();
+        dialog.show();*/
     }
 
     @Override

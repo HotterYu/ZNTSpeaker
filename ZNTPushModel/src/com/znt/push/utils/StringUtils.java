@@ -85,22 +85,7 @@ public class StringUtils
         return new String(c);
     }  
 	
-	/**
-	* @Description: 字符过滤
-	* @param @param str
-	* @param @return   
-	* @return String 
-	* @throws
-	 */
-	public static String stringFilter(String str) 
-	{
-		str = str.replaceAll("�?", "[").replaceAll("�?", "]")
-				.replaceAll("�?", "!").replaceAll("�?", ":");// 替换中文标号
-		String regEx = "[『�?�]"; // 清除掉特殊字�?
-		Pattern p = Pattern.compile(regEx);
-		Matcher m = p.matcher(str);
-		return m.replaceAll("").trim();
-	}
+
 	
 	/**
     * @Description: 字符串转整形
@@ -169,7 +154,7 @@ public class StringUtils
 	
 	
 	/**
-    * @Description: 获取百分�?
+    * @Description: 获取百分�?
     * @param @param progress
     * @param @param total
     * @param @return   
@@ -182,7 +167,7 @@ public class StringUtils
     	if(f > 0)
     	{
     		BigDecimal bd = new BigDecimal(f);
-    		bd = bd.setScale(2,BigDecimal.ROUND_UP);//�?3.1415926小数点后面二�?
+    		bd = bd.setScale(2,BigDecimal.ROUND_UP);//�?3.1415926小数点后面二�?
     		float f1 = Float.parseFloat(bd+"");
     		float result = f1*100;
     		int l = (int)result;
@@ -194,33 +179,14 @@ public class StringUtils
     {
     	float f = (float)progress/total;
     	BigDecimal bd = new BigDecimal(f);
-    	bd = bd.setScale(2,BigDecimal.ROUND_UP);//�?3.1415926小数点后面二�?
+    	bd = bd.setScale(2,BigDecimal.ROUND_UP);//�?3.1415926小数点后面二�?
     	float f1 = Float.parseFloat(bd+"");
     	float result = f1*100;
     	int l = (int)result;
     	return l;
     }
     
-    /**
-	* @Description: 设置字符串颜�? 如：
-	* exam1:editText2.setText(Html.fromHtml(  "<font color=#E61A6B>红色代码</font> "+ "<i><font color=#1111EE>蓝色斜体代码</font></i>"
-�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?+"<u><i><font color=#1111EE>蓝色斜体加粗体下划线代码</font></i></u>"));
-	* exam2:String temp = "name:<br /><font color=\"teal\">hello<small>title<b>activeBalance</b></small></font>"; 
-	* 说明�?<br />：表示换行，和�?�\n”一样�??
-			<small>content</small>：表示小字体�?
-			<font color=\"teal\">content</font>：设置颜色，teal是青色�??
-			<b>content</b>：表示粗�?
-			<u>content</u>：表示下横线
-	* @param @param content  内容
-	* @param @param color 颜色
-	* @param @param bold 是否粗体
-	* @param @param italic 是否斜体
-	* @param @param underline 是否下划�?
-	* @param @param size 大小  0:small 1: big  
-	* @param @return   
-	* @return String  字符串的格式  通过Html.fromHtml(inforStyle)解析后再显示
-	* @throws
-	 */
+
 	public static  String setTextStyle(String content, String color, boolean bold, boolean italic, boolean underline, int sizeType)
 	{
 		String result = "<font color=" + color + ">" + content + "</font>";
@@ -237,15 +203,10 @@ public class StringUtils
 		return result;
 	}
 	
-	/**
-     * 设置子字符串为红�?
-     * @param text
-     * @param colorText
-     * @return
-     */
+
     public static SpannableString setColorText(String text, String colorText)
     {
-        //创建�?�? SpannableString对象    
+        //创建�?�? SpannableString对象    
         SpannableString msp = new SpannableString(text);
         Pattern p=Pattern.compile(colorText);
         Matcher matcher=p.matcher(text);
@@ -267,7 +228,7 @@ public class StringUtils
      */
     public static SpannableString setColorText(String text, String colorText, float colorTextSize)
     {
-        //创建�?�? SpannableString对象    
+        //创建�?�? SpannableString对象    
         SpannableString msp = new SpannableString(text);
         Pattern p = Pattern.compile(colorText);
         Matcher matcher = p.matcher(text);
@@ -295,7 +256,7 @@ public class StringUtils
      */
     public static SpannableString setColorText(String text, String colorText, float colorTextSize, int color)
     {
-    	//创建�?�? SpannableString对象    
+    	//创建�?�? SpannableString对象    
     	SpannableString msp = new SpannableString(text);
     	Pattern p = Pattern.compile(colorText);
     	Matcher matcher = p.matcher(text);
@@ -396,7 +357,7 @@ public class StringUtils
     }
     
     /**
-	  * 判断是否是邮�?
+	  * 判断是否是邮�?
 	  * @param param
 	  * @return
 	  */
@@ -424,12 +385,12 @@ public class StringUtils
 	public static boolean isMobileNO(String mobiles) 
 	{
 		/*
-		移动�?134�?135�?136�?137�?138�?139�?150�?151�?157(TD)�?158�?159�?187�?188
-		联�?�：130�?131�?132�?152�?155�?156�?185�?186
-		电信�?133�?153�?180�?189、（1349卫�?�）
-		总结起来就是第一位必定为1，第二位必定�?3�?5�?8，其他位置的可以�?0-9
+		移动�?134�?135�?136�?137�?138�?139�?150�?151�?157(TD)�?158�?159�?187�?188
+		联�?�：130�?131�?132�?152�?155�?156�?185�?186
+		电信�?133�?153�?180�?189、（1349卫�?�）
+		总结起来就是第一位必定为1，第二位必定�?3�?5�?8，其他位置的可以�?0-9
 		*/
-		String telRegex = "[1][358]\\d{9}";//"[1]"代表�?1位为数字1�?"[358]"代表第二位可以为3�?5�?8中的�?个，"\\d{9}"代表后面是可以是0�?9的数字，�?9位�??
+		String telRegex = "[1][358]\\d{9}";//"[1]"代表�?1位为数字1�?"[358]"代表第二位可以为3�?5�?8中的�?个，"\\d{9}"代表后面是可以是0�?9的数字，�?9位�??
 		if (TextUtils.isEmpty(mobiles)) 
 			return false;
 		else 
@@ -438,7 +399,7 @@ public class StringUtils
 	 
 	
 	/** 
-	   *  获取时间�?
+	   *  获取时间�?
 	   * @return 
 	   */ 
 	public static String generateTimeStamp() 
@@ -446,7 +407,7 @@ public class StringUtils
 		return String.valueOf(System.currentTimeMillis() / 1000); 
 	} 
 	  /** 
-	   * 单次产生�?
+	   * 单次产生�?
 	   * @param is32 
 	   *            32 
 	   * @return 
@@ -600,7 +561,7 @@ public class StringUtils
 	 * Convert time from "00:00:00" to seconds.
 	 * 
 	 * @param length
-	 *            00:00:00或�??00:00
+	 *            00:00:00或�??00:00
 	 * @return The length in seconds.
 	 */
 	public static int getIntLength(String length) 

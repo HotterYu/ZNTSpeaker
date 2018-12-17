@@ -27,31 +27,25 @@ public class MacUtils
         String strMac = null;
  
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
-            Log.e("=====", "6.0以下");
-            //Toast.makeText(context, "6.0以下", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(context, "6.0锟斤拷锟斤拷", Toast.LENGTH_SHORT).show();
             strMac = getLocalMacAddressFromWifiInfo(context);
             return strMac;
         } else if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N
                 && Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            Log.e("=====", "6.0以上7.0以下");
-            //Toast.makeText(context, "6.0以上7.0以下", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(context, "6.0锟斤拷锟斤拷7.0锟斤拷锟斤拷", Toast.LENGTH_SHORT).show();
             strMac = getMacAddress(context);
             return strMac;
         } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            Log.e("=====", "7.0以上");
             if (!TextUtils.isEmpty(getMacAddress())) {
-                Log.e("=====", "7.0以上1");
-                //Toast.makeText(context, "7.0以上1", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(context, "7.0锟斤拷锟斤拷1", Toast.LENGTH_SHORT).show();
                 strMac = getMacAddress();
                 return strMac;
             } else if (!TextUtils.isEmpty(getMachineHardwareAddress())) {
-                Log.e("=====", "7.0以上2");
-                //Toast.makeText(context, "7.0以上2", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(context, "7.0锟斤拷锟斤拷2", Toast.LENGTH_SHORT).show();
                 strMac = getMachineHardwareAddress();
                 return strMac;
             } else {
-                Log.e("=====", "7.0以上3");
-                //Toast.makeText(context, "7.0以上3", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(context, "7.0锟斤拷锟斤拷3", Toast.LENGTH_SHORT).show();
                 strMac = getLocalMacAddressFromBusybox();
                 return strMac;
             }
@@ -60,11 +54,6 @@ public class MacUtils
         return "02:00:00:00:00:00";
     }
 	
-	/**
-     * 根据wifi信息获取本地mac
-     * @param context
-     * @return
-     */
     public static String getLocalMacAddressFromWifiInfo(Context context){
         WifiManager wifi = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
         WifiInfo winfo = wifi.getConnectionInfo();
@@ -72,15 +61,9 @@ public class MacUtils
         return mac;
     }
     
-    /**
-     * android 6.0及以上、7.0以下 获取mac地址
-     *
-     * @param context
-     * @return
-     */
+
     public static String getMacAddress(Context context) {
  
-        // 如果是6.0以下，直接通过wifimanager获取
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
             String macAddress0 = getMacAddress0(context);
             if (!TextUtils.isEmpty(macAddress0)) {
@@ -97,7 +80,7 @@ public class MacUtils
             for (; null != str; ) {
                 str = input.readLine();
                 if (str != null) {
-                    macSerial = str.trim();// 去空格
+                    macSerial = str.trim();// 去锟秸革拷
                     break;
                 }
             }
@@ -170,15 +153,11 @@ public class MacUtils
         return builder.toString();
     }
     
-    /**
-     * 根据IP地址获取MAC地址
-     *
-     * @return
-     */
+
     public static String getMacAddress() {
         String strMacAddr = null;
         try {
-            // 获得IpD地址
+
             InetAddress ip = getLocalInetAddress();
             byte[] b = NetworkInterface.getByInetAddress(ip)
                     .getHardwareAddress();
@@ -195,21 +174,15 @@ public class MacUtils
         }
         return strMacAddr;
     }
-/**
-     * 获取移动设备本地IP
-     *
-     * @return
-     */
     private static InetAddress getLocalInetAddress() {
         InetAddress ip = null;
         try {
-            // 列举
             Enumeration<NetworkInterface> en_netInterface = NetworkInterface
                     .getNetworkInterfaces();
-            while (en_netInterface.hasMoreElements()) {// 是否还有元素
+            while (en_netInterface.hasMoreElements()) {
                 NetworkInterface ni = (NetworkInterface) en_netInterface
-                        .nextElement();// 得到下一个元素
-                Enumeration<InetAddress> en_ip = ni.getInetAddresses();// 得到一个ip地址的列举
+                        .nextElement();
+                Enumeration<InetAddress> en_ip = ni.getInetAddresses();
                 while (en_ip.hasMoreElements()) {
                     ip = en_ip.nextElement();
                     if (!ip.isLoopbackAddress()
@@ -230,11 +203,7 @@ public class MacUtils
         return ip;
     }
  
-    /**
-     * 获取本地IP
-     *
-     * @return
-     */
+
     private static String getLocalIpAddress() {
         try {
             for (Enumeration<NetworkInterface> en = NetworkInterface
@@ -254,15 +223,7 @@ public class MacUtils
         return null;
     }
     
-    /**
-     * android 7.0及以上 （2）扫描各个网络接口获取mac地址
-     *
-     */
-    /**
-     * 获取设备HardwareAddress地址
-     *
-     * @return
-     */
+
     public static String getMachineHardwareAddress() {
         Enumeration<NetworkInterface> interfaces = null;
         try {
@@ -308,26 +269,14 @@ public class MacUtils
         return buf.toString();
     }
     
-    /**
-     * android 7.0及以上 （3）通过busybox获取本地存储的mac地址
-     *
-     */
- 
-    /**
-     * 根据busybox获取本地Mac
-     *
-     * @return
-     */
+
     public static String getLocalMacAddressFromBusybox() {
         String result = "";
         String Mac = "";
         result = callCmd("busybox ifconfig", "HWaddr");
-        // 如果返回的result == null，则说明网络不可取
         if (result == null) {
-            return "网络异常";
+            return "鏈煡";
         }
-        // 对该行数据进行解析
-        // 例如：eth0 Link encap:Ethernet HWaddr 00:16:E8:3E:DF:67
         if (result.length() > 0 && result.contains("HWaddr") == true) {
             Mac = result.substring(result.indexOf("HWaddr") + 6,
                     result.length() - 1);

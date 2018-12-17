@@ -87,7 +87,7 @@ public class SystemUtils
 	
 	public static String getScreenOritation(Context activity)
 	{
-		Configuration mConfiguration = activity.getResources().getConfiguration(); //获取设置的配置信�?
+		Configuration mConfiguration = activity.getResources().getConfiguration();
 		int ori = mConfiguration.orientation ; //获取屏幕方向
 
 		if(ori == mConfiguration.ORIENTATION_LANDSCAPE)
@@ -116,20 +116,15 @@ public class SystemUtils
 		View view = activity.getWindow().getDecorView();
 		// 设置是否可以进行绘图缓存
 		view.setDrawingCacheEnabled(true);
-		// 如果绘图缓存无法，强制构建绘图缓�?
 		view.buildDrawingCache();
-	    // 返回这个缓存视图 
 		bitmap = view.getDrawingCache();
 		
-		// 获取状�?�栏高度
 		Rect frame = new Rect();
-		// 测量屏幕宽和�?
 		view.getWindowVisibleDisplayFrame(frame);
-		int stautsHeight = frame.top;//状�?�栏的高�?
+		int stautsHeight = frame.top;
 		
 		int width = activity.getWindowManager().getDefaultDisplay().getWidth();
 		int height = activity.getWindowManager().getDefaultDisplay().getHeight();
-		// 根据坐标点和�?要的宽和高创建bitmap
 		bitmap = Bitmap.createBitmap(bitmap, 0, stautsHeight, width, height-stautsHeight);
 		return bitmap;
 	}
@@ -149,12 +144,7 @@ public class SystemUtils
 	    return availableBlocks*blockSize;
 	}
 	 
-	/**
-	* @Description: 获取机身总大�?
-	* @param @return   
-	* @return long 
-	* @throws
-	 */
+
 	public static long getTotalInternalMemorySize()
 	{
     	File path = Environment.getDataDirectory();
@@ -164,23 +154,13 @@ public class SystemUtils
     	return totalBlocks*blockSize;
 	}
 	   
-	/**
-	* @Description: �?测是否有外部存储设备
-	* @param @return   
-	* @return boolean 
-	* @throws
-	 */
+
 	public static boolean externalMemoryAvailable()
 	{
     	return android.os.Environment.getExternalStorageState().equals(android.os.Environment.MEDIA_MOUNTED);
 	}
 	 
-	/**
-	* @Description: 获取外部存储设备可用空间
-	* @param @return   
-	* @return long 
-	* @throws
-	 */
+
 	public static long getAvailableExternalMemorySize()
 	{
     	if(externalMemoryAvailable())
@@ -199,12 +179,7 @@ public class SystemUtils
     	}
 	}
 	    
-	/**
-	* @Description: 获取外部存储设备总空�?
-	* @param @return   
-	* @return long 
-	* @throws
-	 */
+
 	public static long getTotalExternalMemorySize()
 	{
     	if(externalMemoryAvailable())
@@ -245,23 +220,13 @@ public class SystemUtils
 	{
 		return StringUtils.getFormatSize(getAvailableExternalMemorySize());
 	}
-	/**
-	* @Description: 获取存储设备总容�?
-	* @param @return   
-	* @return String 
-	* @throws
-	 */
+
 	public static String getTotalMemorySize()
 	{
 		return StringUtils.getFormatSize(getTotalExternalMemorySize());
 	}
 	
-	/**
-	* @Description: 获取�?有的存储设备列表
-	* @param @return   
-	* @return ArrayList<String> 
-	* @throws
-	 */
+
 	public static ArrayList<String> getStorageDirectoriesArrayList()
     {
         ArrayList<String> list = new ArrayList<String>();
@@ -353,7 +318,7 @@ public class SystemUtils
 					return new File(sdList.get(i) + File.separator);
 			}
 		}
-		/*如果没有外设就使用内部存�?*/
+
 		return context.getCacheDir();
 	}
 	
@@ -373,7 +338,7 @@ public class SystemUtils
 		long blocSize = statfs.getBlockSize(); 
 		//获取BLOCK数量 
 		long totalBlocks = statfs.getBlockCount(); 
-		//己使用的Block的数�? 
+		//己使用的Block的数
 		long availaBlock = statfs.getAvailableBlocks(); 
 		
 		String total = StringUtils.getFormatSize(totalBlocks*blocSize); 
@@ -388,7 +353,7 @@ public class SystemUtils
 	
 	
 	/**
-	 * 获取当前android系统的sdk版本�?
+	 * 获取当前android系统的sdk版本
 	 * @return
 	 */
 	public static int getAndroidSDKVersion() 
@@ -408,17 +373,17 @@ public class SystemUtils
 	 */
 	public static PackageInfo getPkgInfo(Activity activity) throws Exception
     {
-       // 获取packagemanager的实�?
+       // 获取packagemanager的实
        PackageManager packageManager = activity.getPackageManager();
-       // getPackageName()是你当前类的包名�?0代表是获取版本信�?
+       // getPackageName()是你当前类的包名
        PackageInfo packInfo = packageManager.getPackageInfo(activity.getPackageName(),0);
        return packInfo;
     }
 	public static PackageInfo getPkgInfo(Context activity) throws Exception
 	{
-		// 获取packagemanager的实�?
+		// 获取packagemanager的实
 		PackageManager packageManager = activity.getPackageManager();
-		// getPackageName()是你当前类的包名�?0代表是获取版本信�?
+		// getPackageName()是你当前类的包名
 		PackageInfo packInfo = packageManager.getPackageInfo(activity.getPackageName(),0);
 		return packInfo;
 	}
@@ -566,7 +531,7 @@ public class SystemUtils
         
         //该应用的包名
         String pkg = info.activityInfo.packageName;
-        //应用的主activity�?
+        //应用的主activity
         String cls = info.activityInfo.name;
         
         ComponentName componet = new ComponentName(pkg, cls);
@@ -576,11 +541,7 @@ public class SystemUtils
         context.startActivity(i);
 	}
 	
-	/** 
-     * �?测网络是否连�? 
-     *  
-     * @return 
-     */ 
+
     public static boolean isNetConnected(Context context) 
     {  
     	if(context == null)
@@ -615,11 +576,7 @@ public class SystemUtils
         return info != null ? info.getSSID() : null;
     }
    
-    /** 
-     * �?�?3G是否连接 
-     *  
-     * @return 
-     */ 
+
     private boolean is3gConnected(Context context) 
     {  
         ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);  
@@ -635,11 +592,7 @@ public class SystemUtils
         return false;  
     }  
    
-    /** 
-     * �?测GPS是否打开 
-     *  
-     * @return 
-     */ 
+
     private boolean isGpsEnabled(Context context) 
     {  
         LocationManager lm = (LocationManager) context.getSystemService(Context.LOCATION_SERVICE);  
@@ -654,14 +607,7 @@ public class SystemUtils
         return false;  
     }  
     
-    /**
-    * @Description: �?般用于获取apikey，如�?<meta-data android:name="api_key" android:value="fjYoOGjPsZmRHj8eub0X95Up" />
-    * @param @param context
-    * @param @param metaKey
-    * @param @return   
-    * @return String 
-    * @throws
-     */
+
     public static String getMetaValue(Context context, String metaKey) 
     {
         Bundle metaData = null;
@@ -701,13 +647,7 @@ public class SystemUtils
         }
     }
     
-    /**
-    * @Description: 获取设备唯一id
-    * @param @param activity
-    * @param @return   
-    * @return String 
-    * @throws
-     */
+
     public static String getAndroidId(Context activity)
     {
     	return Secure.getString(activity.getContentResolver(), Secure.ANDROID_ID);
@@ -717,14 +657,14 @@ public class SystemUtils
     public String getLocalMac(Activity activity)
     {
         String mac = "";
-        // 获取wifi管理�?
+
         WifiManager wifiMng = (WifiManager) activity.getSystemService(Context.WIFI_SERVICE);
         WifiInfo wifiInfor = wifiMng.getConnectionInfo();
         mac = wifiInfor.getMacAddress();
         return mac;
     }
     
-    /**隐藏软键�?**/
+
     public static void closeSoftInput(Activity activity)
     {
         View view = activity.getWindow().peekDecorView();
@@ -734,12 +674,12 @@ public class SystemUtils
         }
     }
     
-  //版本�?
+
     public static String getVersionName(Context context) {
   	    return getPackageInfo(context).versionName;
   	}
   	 
-  	//版本�?
+
     public static int getVersionCode(Context context) {
   	    return getPackageInfo(context).versionCode;
   	}

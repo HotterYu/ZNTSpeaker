@@ -46,11 +46,7 @@ public class ApkDownLoadManager
         	downloadTask = null;
     	}
     }
-    
-    /**
-     * 开始下载
-     * @param url
-     */
+
     public void  startDownload(String url, String dir, ApkDownloadListener listener)
     {
     	if(downloadTask != null)
@@ -63,9 +59,7 @@ public class ApkDownLoadManager
         downloadTask.execute(url);
     }
 
-    /**
-     * 暂停下载
-     */
+
     public void pauseDownload()
     {
         if(downloadTask!=null)
@@ -74,9 +68,7 @@ public class ApkDownLoadManager
         }
     }
 
-    /**
-     * 取消下载
-     */
+
     public void cancelDownload()
     {
         if(downloadTask!=null)
@@ -84,21 +76,6 @@ public class ApkDownLoadManager
             downloadTask.cancelDownload();
         }
         isCancel = true;
-        /*else 
-        {
-            if(downloadUrl!=null)
-            {
-                //取消下载时需要将文件删除，并将通知关闭
-                String fileName = downloadUrl.substring(downloadUrl.lastIndexOf("/"));
-                String directory= Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).getPath();
-                File file=new File(directory+fileName);
-                if(file.exists())
-                {
-                    file.delete();
-                }
-                stopForeground(true);
-                //Toast.makeText(DownloadService.this, "Canceled", Toast.LENGTH_SHORT).show();
-            }
-        }*/
+
     }
 }
