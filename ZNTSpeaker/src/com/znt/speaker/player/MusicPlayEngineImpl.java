@@ -1,11 +1,6 @@
 package com.znt.speaker.player;
 
-import java.io.File;
-import java.io.IOException;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
-
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.graphics.SurfaceTexture;
 import android.media.AudioManager;
@@ -13,10 +8,14 @@ import android.media.MediaPlayer;
 import android.media.MediaPlayer.OnBufferingUpdateListener;
 import android.media.MediaPlayer.OnSeekCompleteListener;
 import android.os.Environment;
+import android.os.Handler;
+import android.os.Message;
 import android.util.Log;
 import android.view.Surface;
 import android.view.TextureView.SurfaceTextureListener;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.znt.diange.mina.entity.PlayState;
 import com.znt.diange.mina.entity.SongInfor;
 import com.znt.speaker.entity.LocalDataEntity;
@@ -24,6 +23,13 @@ import com.znt.speaker.factory.UIManager;
 import com.znt.utils.CommonLog;
 import com.znt.utils.FileUtils;
 import com.znt.utils.LogFactory;
+import com.znt.utils.ViewUtils;
+
+import java.io.File;
+import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 
 public class MusicPlayEngineImpl extends AbstractMediaPlayEngine implements SurfaceTextureListener
 {
@@ -52,6 +58,17 @@ public class MusicPlayEngineImpl extends AbstractMediaPlayEngine implements Surf
 	public void setOnSeekCompleteListener(OnSeekCompleteListener listener)
 	{
 		mSeekCompleteListener = listener;
+	}
+
+	private OnImagePlayListener mOnImagePlayListener = null;
+	public void setOnImagePlayListener(OnImagePlayListener mOnImagePlayListener)
+	{
+		this.mOnImagePlayListener = mOnImagePlayListener;
+	}
+	public interface OnImagePlayListener
+	{
+		void onImagePlay( SongInfor tempInfo);
+
 	}
 	
 	public boolean isLoading()
@@ -103,35 +120,37 @@ public class MusicPlayEngineImpl extends AbstractMediaPlayEngine implements Surf
 	{
 		super.exit();
 	}
-	
-	@Override
-	protected boolean prepareSelf()
+
+	private final int MSG_IMG_SHOW_PROCESS = 0;
+	private final int MSG_IMG_HIDE_PROCESS = 1;
+	private final int MSG_VIDE_SHOW_PROCESS = 2;
+	private final int MSG_VIDE_HIDE_PROCESS = 3;
+	@SuppressLint("HandlerLeak")
+	private Handler mHandler = new Handler()
 	{
-	
-		loadStartTime = System.currentTimeMillis();
-		isPreparing = true;
-		/*if(mMediaPlayer.isPlaying())
-			mMediaPlayer.stop();*/
-		mMediaPlayer.reset();
-		try 
-		{
-			String urlPlay = getMusicPlayUrL(mMediaInfo);
-			//String urlPlay = "http://m2.music.126.net/lsqs1Sy15_wMdCsJmiJ_yw==/6658642418688884.mp3";
-			mMediaPlayer.setDataSource(urlPlay);
-			mMediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);  
-			if (mBufferingUpdateListener != null)
+		@Override
+		public void handleMessage(Message msg) {
+			super.handleMessage(msg);
+			if(msg.what == MSG_IMG_SHOW_PROCESS)
 			{
-				mMediaPlayer.setOnBufferingUpdateListener(mBufferingUpdateListener);
+				if(mUimanager.getRatioImageView() == null)
+					mUimanager.initRatioImageView();
+				mUimanager.showRatioImageView(true);
+				Glide.with( activity ).load(msg.obj).diskCacheStrategy(DiskCacheStrategy.ALL).fitCenter().into( mUimanager.getRatioImageView() );
 			}
-			if(FileUtils.isVideo(urlPlay))
+			else if(msg.what == MSG_IMG_HIDE_PROCESS)
+			{
+				mUimanager.showRatioImageView(false);
+			}
+			else if(msg.what == MSG_VIDE_SHOW_PROCESS)
 			{
 				if(mUimanager.getTextureView() == null)
 				{
 					mUimanager.initTextureView();
-					mUimanager.getTextureView().setSurfaceTextureListener(this);
+					mUimanager.getTextureView().setSurfaceTextureListener(MusicPlayEngineImpl.this);
 				}
 			}
-			else//閿�姣佽棰戞挱鏀�
+			else if(msg.what == MSG_VIDE_HIDE_PROCESS)
 			{
 				if(surface != null)
 				{
@@ -140,24 +159,66 @@ public class MusicPlayEngineImpl extends AbstractMediaPlayEngine implements Surf
 				}
 				mUimanager.releaseTextureView();
 			}
-			mMediaPlayer.prepareAsync();
-			mPlayState = PlayState.MPS_PARESYNC;
-			performPlayListener(mPlayState);
-			playError = "";
-		} 
-		catch (Exception e) 
-		{
-			playError = e.getMessage();
-			e.printStackTrace();
-			isPreparing = false;
-			mPlayState = PlayState.MPS_INVALID;
-			setSongInforPlay(mMediaInfo);
-			performPlayListener(mPlayState);
-			log.e("prepareSelf Exception-->" + e.getMessage());
-			
-			return false;
 		}
-		
+	};
+	
+	@Override
+	protected boolean prepareSelf()
+	{
+		String urlPlay = getMusicPlayUrL(mMediaInfo);
+
+		if(FileUtils.isPicture(urlPlay))
+		{
+			ViewUtils.sendMessage(mHandler,MSG_IMG_SHOW_PROCESS, urlPlay);
+			if(mOnImagePlayListener != null)
+				mOnImagePlayListener.onImagePlay(mMediaInfo);
+			setSongInforPlay(mMediaInfo);
+		}
+		else
+		{
+			try
+			{
+
+				ViewUtils.sendMessage(mHandler,MSG_IMG_HIDE_PROCESS, null);
+
+				loadStartTime = System.currentTimeMillis();
+				isPreparing = true;
+
+				mMediaPlayer.reset();
+
+				mMediaPlayer.setDataSource(urlPlay);
+				mMediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
+				if (mBufferingUpdateListener != null)
+				{
+					mMediaPlayer.setOnBufferingUpdateListener(mBufferingUpdateListener);
+				}
+				if(FileUtils.isVideo(urlPlay))
+				{
+					ViewUtils.sendMessage(mHandler,MSG_VIDE_SHOW_PROCESS, null);
+				}
+				else
+				{
+					ViewUtils.sendMessage(mHandler,MSG_VIDE_HIDE_PROCESS, null);
+				}
+
+				mMediaPlayer.prepareAsync();
+				mPlayState = PlayState.MPS_PARESYNC;
+				performPlayListener(mPlayState);
+				playError = "";
+			}
+			catch (Exception e)
+			{
+				playError = e.getMessage();
+				e.printStackTrace();
+				isPreparing = false;
+				mPlayState = PlayState.MPS_INVALID;
+				setSongInforPlay(mMediaInfo);
+				performPlayListener(mPlayState);
+				log.e("prepareSelf Exception-->" + e.getMessage());
+
+				return false;
+			}
+		}
 		return true;
 	}
 	
@@ -185,7 +246,7 @@ public class MusicPlayEngineImpl extends AbstractMediaPlayEngine implements Surf
 		return true;
 	}
 	
-	private String getMusicPlayUrL(SongInfor songInfor)
+	public String getMusicPlayUrL(SongInfor songInfor)
 	{
 		String url = songInfor.getMediaUrl();
 		if(url.startsWith("http://") || url.startsWith("https://"))

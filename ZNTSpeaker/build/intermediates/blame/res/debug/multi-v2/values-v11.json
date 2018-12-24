@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Android\\Github\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v11\\values-v11.xml",
+            "outputFile": "E:\\yuyan\\GitCode\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v11\\values-v11.xml",
             "map": [
                 {
-                    "source": "C:\\Android\\Github\\ZNTSpeaker\\ZNTSpeaker\\res\\values-v11\\styles.xml",
+                    "source": "E:\\yuyan\\GitCode\\ZNTSpeaker\\ZNTSpeaker\\res\\values-v11\\styles.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

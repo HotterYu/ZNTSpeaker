@@ -1,31 +1,31 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Android\Github\ZNTSpeaker\WificonnectorLib\AndroidManifest.xml:1:1-12:12
-INJECTED from C:\Android\Github\ZNTSpeaker\WificonnectorLib\AndroidManifest.xml:1:1-12:12
-INJECTED from C:\Android\Github\ZNTSpeaker\WificonnectorLib\AndroidManifest.xml:1:1-12:12
+ADDED from E:\yuyan\GitCode\ZNTSpeaker\WificonnectorLib\AndroidManifest.xml:1:1-12:12
+INJECTED from E:\yuyan\GitCode\ZNTSpeaker\WificonnectorLib\AndroidManifest.xml:1:1-12:12
+INJECTED from E:\yuyan\GitCode\ZNTSpeaker\WificonnectorLib\AndroidManifest.xml:1:1-12:12
 	package
-		ADDED from C:\Android\Github\ZNTSpeaker\WificonnectorLib\AndroidManifest.xml:2:5-41
-		INJECTED from C:\Android\Github\ZNTSpeaker\WificonnectorLib\AndroidManifest.xml
-		INJECTED from C:\Android\Github\ZNTSpeaker\WificonnectorLib\AndroidManifest.xml
+		ADDED from E:\yuyan\GitCode\ZNTSpeaker\WificonnectorLib\AndroidManifest.xml:2:5-41
+		INJECTED from E:\yuyan\GitCode\ZNTSpeaker\WificonnectorLib\AndroidManifest.xml
+		INJECTED from E:\yuyan\GitCode\ZNTSpeaker\WificonnectorLib\AndroidManifest.xml
 	xmlns:android
-		ADDED from C:\Android\Github\ZNTSpeaker\WificonnectorLib\AndroidManifest.xml:1:11-69
+		ADDED from E:\yuyan\GitCode\ZNTSpeaker\WificonnectorLib\AndroidManifest.xml:1:11-69
 uses-permission#android.permission.ACCESS_NETWORK_STATE
-ADDED from C:\Android\Github\ZNTSpeaker\WificonnectorLib\AndroidManifest.xml:4:5-78
+ADDED from E:\yuyan\GitCode\ZNTSpeaker\WificonnectorLib\AndroidManifest.xml:4:5-78
 	android:name
-		ADDED from C:\Android\Github\ZNTSpeaker\WificonnectorLib\AndroidManifest.xml:4:22-76
+		ADDED from E:\yuyan\GitCode\ZNTSpeaker\WificonnectorLib\AndroidManifest.xml:4:22-76
 uses-permission#android.permission.ACCESS_WIFI_STATE
-ADDED from C:\Android\Github\ZNTSpeaker\WificonnectorLib\AndroidManifest.xml:5:5-76
+ADDED from E:\yuyan\GitCode\ZNTSpeaker\WificonnectorLib\AndroidManifest.xml:5:5-76
 	android:name
-		ADDED from C:\Android\Github\ZNTSpeaker\WificonnectorLib\AndroidManifest.xml:5:22-73
+		ADDED from E:\yuyan\GitCode\ZNTSpeaker\WificonnectorLib\AndroidManifest.xml:5:22-73
 uses-permission#android.permission.CHANGE_WIFI_STATE
-ADDED from C:\Android\Github\ZNTSpeaker\WificonnectorLib\AndroidManifest.xml:6:5-76
+ADDED from E:\yuyan\GitCode\ZNTSpeaker\WificonnectorLib\AndroidManifest.xml:6:5-76
 	android:name
-		ADDED from C:\Android\Github\ZNTSpeaker\WificonnectorLib\AndroidManifest.xml:6:22-73
+		ADDED from E:\yuyan\GitCode\ZNTSpeaker\WificonnectorLib\AndroidManifest.xml:6:22-73
 uses-permission#android.permission.ACCESS_FINE_LOCATION
-ADDED from C:\Android\Github\ZNTSpeaker\WificonnectorLib\AndroidManifest.xml:7:5-78
+ADDED from E:\yuyan\GitCode\ZNTSpeaker\WificonnectorLib\AndroidManifest.xml:7:5-78
 	android:name
-		ADDED from C:\Android\Github\ZNTSpeaker\WificonnectorLib\AndroidManifest.xml:7:22-76
+		ADDED from E:\yuyan\GitCode\ZNTSpeaker\WificonnectorLib\AndroidManifest.xml:7:22-76
 uses-permission#android.permission.ACCESS_COARSE_LOCATION
-ADDED from C:\Android\Github\ZNTSpeaker\WificonnectorLib\AndroidManifest.xml:8:5-80
+ADDED from E:\yuyan\GitCode\ZNTSpeaker\WificonnectorLib\AndroidManifest.xml:8:5-80
 	android:name
-		ADDED from C:\Android\Github\ZNTSpeaker\WificonnectorLib\AndroidManifest.xml:8:22-78
+		ADDED from E:\yuyan\GitCode\ZNTSpeaker\WificonnectorLib\AndroidManifest.xml:8:22-78

@@ -50,7 +50,7 @@ public class MyBitmapUtil
 			return null;
 		
 		final BitmapFactory.Options options = new BitmapFactory.Options();
-		/*只加载基�?信息,并不真正解码图片*/
+
 		options.inJustDecodeBounds = true;
 		
 		BitmapFactory.decodeFile(fileUrl, options);
@@ -71,7 +71,7 @@ public class MyBitmapUtil
 		
 		int[] size = calculateSize(options.outWidth, options.outHeight, width, height);
 		
-		/*计算缩放�?*/
+
 		options.inSampleSize = getSampleSize(options, size[0], size[1]);
 		options.inJustDecodeBounds = false;
 		Bitmap bm1 = null;
@@ -110,7 +110,6 @@ public class MyBitmapUtil
 						Thread.sleep(600);
 						options.inSampleSize += 1;
 						
-						/*内存不足的情况下尝试在sdcard�?辟空间存储内�?*/
 						options.inTempStorage = new byte[12 * 1024];
 						options.inJustDecodeBounds = false;
 						options.inDither = true;
@@ -123,7 +122,6 @@ public class MyBitmapUtil
 						catch (OutOfMemoryError e4) 
 						{
 							LogFactory.createLog().e("MyBitmapUtisl_e4-->" + e.getMessage());
-							/*实在不行了返回null,解码失败*/
 							Runtime.getRuntime().runFinalization();
 							bm1 = null;
 						}
@@ -188,7 +186,6 @@ public class MyBitmapUtil
 		
 		int[] size = calculateSize(options.outWidth, options.outHeight, width, height);
 		
-		/*计算缩放�?*/
 		options.inSampleSize = getSampleSize(options, size[0], size[1]);
 		
 		options.inJustDecodeBounds = false;
@@ -256,7 +253,6 @@ public class MyBitmapUtil
 			 return null;
 		 ByteArrayOutputStream baos = new ByteArrayOutputStream();
 		 
-		 /*质量压缩方法，这�?100表示不压缩，把压缩后的数据存放到baos�?*/
 		 image.compress(Bitmap.CompressFormat.PNG, 100, baos);
 		 
 		 if(size > 0)
@@ -276,7 +272,7 @@ public class MyBitmapUtil
 			 {	
 				 重置baos即清空baos
 				 baos.reset();
-				 这里压缩options%，把压缩后的数据存放到baos�?
+				 这里压缩options%，把压缩后的数据存放到baos�?
 				 image.compress(Bitmap.CompressFormat.PNG, options, baos);
 				 try
 				 {
@@ -286,7 +282,7 @@ public class MyBitmapUtil
 				 {
 					// TODO: handle exception
 				 }
-				 每次都减�?10
+				 每次都减�?10
 				 options -= 10;
 				 if(options <= 0)
 				 {
@@ -299,7 +295,7 @@ public class MyBitmapUtil
 		 Bitmap bitmap = null;
 		 try 
 		 {
-			 /*把压缩后的数据baos存放到ByteArrayInputStream�?*/
+			 /*把压缩后的数据baos存放到ByteArrayInputStream�?*/
 			 ByteArrayInputStream isBm = new ByteArrayInputStream(baos.toByteArray());
 			 FileOutputStream fos = new FileOutputStream(file);
 			 fos.write(baos.toByteArray());
@@ -338,7 +334,7 @@ public class MyBitmapUtil
 			 
 			 ByteArrayOutputStream baos = new ByteArrayOutputStream();
 			 
-			 /*质量压缩方法，这�?100表示不压缩，把压缩后的数据存放到baos�?*/
+			 /*质量压缩方法，这�?100表示不压缩，把压缩后的数据存放到baos�?*/
 			 image.compress(Bitmap.CompressFormat.PNG, 100, baos);
 			 /*int options = 100;
 			 int len = 0;
@@ -353,12 +349,12 @@ public class MyBitmapUtil
 			 循环判断如果压缩后图片是否大于sizekb,大于继续压缩	
 			 while( len > size * 1024) 
 			 {	
-				 每次都减�?10
+				 每次都减�?10
 				 options -= 10;
 				 
 				 重置baos即清空baos
 				 baos.reset();
-				 这里压缩options%，把压缩后的数据存放到baos�?
+				 这里压缩options%，把压缩后的数据存放到baos�?
 				 image.compress(Bitmap.CompressFormat.PNG, options, baos);
 				 try
 				 {
@@ -376,7 +372,7 @@ public class MyBitmapUtil
 				 }
 			 }*/
 			 
-			 /*把压缩后的数据baos存放到ByteArrayInputStream�?*/
+			 /*把压缩后的数据baos存放到ByteArrayInputStream�?*/
 			 isBm = new ByteArrayInputStream(baos.toByteArray());
 	 	}
 		 catch (OutOfMemoryError e) 
@@ -409,7 +405,7 @@ public class MyBitmapUtil
 		
 		int width = old.getWidth();
 		int height = old.getHeight();
-		// 设置想要的大�?
+		// 设置想要的大�?
 		int newWidth = newHeight * width / height;
 
 		// 计算缩放比例
@@ -446,7 +442,7 @@ public class MyBitmapUtil
 	{
 		int width = old.getWidth();
 		int height = old.getHeight();
-		// 设置想要的大�?
+		// 设置想要的大�?
         int newHeight = newWidth * height / width;
 		// 计算缩放比例
 		float scaleWidth = ((float) newWidth) / width;
@@ -469,9 +465,9 @@ public class MyBitmapUtil
 	}
 	
 	/**
-     * 读取图片属�?�：旋转的角�?
+     * 读取图片属�?�：旋转的角�?
      * @param path 图片绝对路径
-     * @return degree旋转的角�?
+     * @return degree旋转的角�?
      */
     public static int readPictureDegree(String path) 
     {
@@ -523,7 +519,7 @@ public class MyBitmapUtil
 		matrix.postRotate(degree);//
 		if(oldBimap != null && !oldBimap.isRecycled())
 		{
-			//创建新图�?
+			//创建新图�?
 			Bitmap resizedBitmap = Bitmap.createBitmap(oldBimap, 0, 0, oldBimap.getWidth(), oldBimap.getHeight(), matrix,true);
 			/*if(oldBimap != null && !oldBimap.isRecycled())
 				oldBimap.recycle();*/
@@ -533,7 +529,7 @@ public class MyBitmapUtil
 	}
 	
 	/**
-	* @Description: 保存bitmap到本�?
+	* @Description: 保存bitmap到本�?
 	* @param @param mBitmap
 	* @param @param fileUrl
 	* @param @return   
@@ -619,7 +615,7 @@ public class MyBitmapUtil
 				inSampleSize++;
 			}
 			
-			/*�?测是否有足够的内存对缩放倍数进行缩放,不行则继续缩�?*/
+			/*�?测是否有足够的内存对缩放倍数进行缩放,不行则继续缩�?*/
 			while(!checkBitmapFitsInMemory(reqWidth / inSampleSize, reqHeight / inSampleSize, options.inPreferredConfig))
 			{
 				inSampleSize++;
@@ -640,7 +636,7 @@ public class MyBitmapUtil
 	}
 
 	/**
-	* @Description: �?测当前是否有足够的内存进行读取bitmap
+	* @Description: �?测当前是否有足够的内存进行读取bitmap
 	* @param @param bmpwidth
 	* @param @param bmpheight
 	* @param @param config
@@ -655,7 +651,7 @@ public class MyBitmapUtil
 	}
 	
 	/**
-	* @Description: 按照宽高计算bitmap�?占内存大�?
+	* @Description: 按照宽高计算bitmap�?占内存大�?
 	* @param @param bmpwidth
 	* @param @param bmpheight
 	* @param @param config
@@ -669,7 +665,7 @@ public class MyBitmapUtil
 	}
 
 	/**
-	* @Description: 计算bitmap�?占空�?,单位bytes
+	* @Description: 计算bitmap�?占空�?,单位bytes
 	* @param @param bitmap
 	* @param @param config
 	* @param @return   
@@ -681,7 +677,7 @@ public class MyBitmapUtil
 	{
 		int size = 1;
 		
-		//3.1或�?�以�? 
+		//3.1或�?�以�? 
 		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB_MR1) 
 		{
 			size = bitmap.getByteCount() * getBytesxPixel(config)>>10;
@@ -695,7 +691,7 @@ public class MyBitmapUtil
 	}
 
 	/**
-	* @Description: 按照不同格式计算�?占字节数
+	* @Description: 按照不同格式计算�?占字节数
 	* @param @param config
 	* @param @return   
 	* @return int 
@@ -705,7 +701,7 @@ public class MyBitmapUtil
 	{
 		int bytesxPixel = 1;
 		
-		/*3.1或�?�以�?*/ 
+		/*3.1或�?�以�?*/ 
 		switch (config) 
 		{
 		case RGB_565:
@@ -723,8 +719,8 @@ public class MyBitmapUtil
 	}
 	
 	/**
-	* @Description: 根据图片大小和目标大小�?�按照图片的宽高比计算新的图片大�?
-	* 				根据目标大小的大的那个�?�max计算，保留大�?
+	* @Description: 根据图片大小和目标大小�?�按照图片的宽高比计算新的图片大�?
+	* 				根据目标大小的大的那个�?�max计算，保留大�?
 	* @param @param w
 	* @param @param h
 	* @param @param target_W
@@ -773,12 +769,12 @@ public class MyBitmapUtil
 	
 	/** 
      * 获取视频的缩略图 
-     * 先�?�过ThumbnailUtils来创建一个视频的缩略图，然后再利用ThumbnailUtils来生成指定大小的缩略图�?? 
-     * 如果想要的缩略图的宽和高都小于MICRO_KIND，则类型要使用MICRO_KIND作为kind的�?�，这样会节省内存�?? 
-     * @param videoPath 视频的路�? 
+     * 先�?�过ThumbnailUtils来创建一个视频的缩略图，然后再利用ThumbnailUtils来生成指定大小的缩略图�?? 
+     * 如果想要的缩略图的宽和高都小于MICRO_KIND，则类型要使用MICRO_KIND作为kind的�?�，这样会节省内存�?? 
+     * @param videoPath 视频的路�? 
      * @param width 指定输出视频缩略图的宽度 
-     * @param height 指定输出视频缩略图的高度�? 
-     * @param kind 参照MediaStore.Images.Thumbnails类中的常量MINI_KIND和MICRO_KIND�? 
+     * @param height 指定输出视频缩略图的高度�? 
+     * @param kind 参照MediaStore.Images.Thumbnails类中的常量MINI_KIND和MICRO_KIND�? 
      *            其中，MINI_KIND: 512 x 384，MICRO_KIND: 96 x 96 
      * @return 指定大小的视频缩略图 
      */  

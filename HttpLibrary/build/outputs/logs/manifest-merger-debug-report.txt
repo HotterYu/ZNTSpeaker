@@ -1,11 +1,11 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Android\Github\ZNTSpeaker\HttpLibrary\AndroidManifest.xml:1:1-5:12
-INJECTED from C:\Android\Github\ZNTSpeaker\HttpLibrary\AndroidManifest.xml:1:1-5:12
-INJECTED from C:\Android\Github\ZNTSpeaker\HttpLibrary\AndroidManifest.xml:1:1-5:12
+ADDED from E:\yuyan\GitCode\ZNTSpeaker\HttpLibrary\AndroidManifest.xml:1:1-5:12
+INJECTED from E:\yuyan\GitCode\ZNTSpeaker\HttpLibrary\AndroidManifest.xml:1:1-5:12
+INJECTED from E:\yuyan\GitCode\ZNTSpeaker\HttpLibrary\AndroidManifest.xml:1:1-5:12
 	package
-		ADDED from C:\Android\Github\ZNTSpeaker\HttpLibrary\AndroidManifest.xml:1:11-40
-		INJECTED from C:\Android\Github\ZNTSpeaker\HttpLibrary\AndroidManifest.xml
-		INJECTED from C:\Android\Github\ZNTSpeaker\HttpLibrary\AndroidManifest.xml
+		ADDED from E:\yuyan\GitCode\ZNTSpeaker\HttpLibrary\AndroidManifest.xml:1:11-40
+		INJECTED from E:\yuyan\GitCode\ZNTSpeaker\HttpLibrary\AndroidManifest.xml
+		INJECTED from E:\yuyan\GitCode\ZNTSpeaker\HttpLibrary\AndroidManifest.xml
 	xmlns:android
-		ADDED from C:\Android\Github\ZNTSpeaker\HttpLibrary\AndroidManifest.xml:2:11-69
+		ADDED from E:\yuyan\GitCode\ZNTSpeaker\HttpLibrary\AndroidManifest.xml:2:11-69

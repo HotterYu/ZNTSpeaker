@@ -1,16 +1,12 @@
 package com.znt.speaker.activity;
 
-import java.text.DecimalFormat;
-import java.util.List;
-
-import android.Manifest;
+import android.annotation.SuppressLint;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.content.pm.PackageManager;
 import android.hardware.usb.UsbDevice;
 import android.hardware.usb.UsbManager;
 import android.media.MediaPlayer;
@@ -34,7 +30,6 @@ import com.znt.diange.mina.entity.DeviceInfor;
 import com.znt.diange.mina.entity.DeviceStatusInfor;
 import com.znt.diange.mina.entity.SongInfor;
 import com.znt.diange.mina.entity.StaticIpInfor;
-import com.znt.permission.PermissionUtil;
 import com.znt.push.entity.PushModelConstant;
 import com.znt.push.v.IDevStatusView;
 import com.znt.speaker.R;
@@ -71,6 +66,9 @@ import com.znt.utils.NetWorkUtils;
 import com.znt.utils.ShellUtils;
 import com.znt.utils.SystemUtils;
 import com.znt.utils.ViewUtils;
+
+import java.text.DecimalFormat;
+import java.util.List;
 
 public class MainActivity extends BaseActivity implements IHttpRequestView, INetWorkView, 
 														IDevStatusView, ISDCardMountView,
@@ -112,6 +110,7 @@ public class MainActivity extends BaseActivity implements IHttpRequestView, INet
 	private final int MSG_UPDATE_POSITION = 100;
 	private final int MSG_UPDATE_TIME = 101;
 	
+	@SuppressLint("HandlerLeak")
 	private Handler mHandler = new Handler()
 	{
 		public void handleMessage(android.os.Message msg) 

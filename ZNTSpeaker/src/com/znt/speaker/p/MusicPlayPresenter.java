@@ -1,10 +1,5 @@
 package com.znt.speaker.p;
 
-import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-
 import android.app.Activity;
 import android.media.MediaPlayer;
 import android.media.MediaPlayer.OnBufferingUpdateListener;
@@ -15,17 +10,20 @@ import android.text.TextUtils;
 import android.util.Log;
 
 import com.znt.diange.mina.entity.SongInfor;
-import com.znt.download.entity.FileDownLoadManager;
 import com.znt.speaker.R;
 import com.znt.speaker.db.DBManager;
-import com.znt.speaker.entity.DownloadFileInfo;
 import com.znt.speaker.entity.LocalDataEntity;
 import com.znt.speaker.factory.UIManager;
 import com.znt.speaker.player.MusicPlayEngineImpl;
 import com.znt.speaker.player.PlayErrorCheck;
 import com.znt.speaker.player.PlayerEngineListener;
 
-public class MusicPlayPresenter implements OnBufferingUpdateListener, OnSeekCompleteListener,OnErrorListener
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
+public class MusicPlayPresenter implements OnBufferingUpdateListener, OnSeekCompleteListener,OnErrorListener,MusicPlayEngineImpl.OnImagePlayListener
 {
 	private Activity activity = null;
 	private UIManager mUIManager = null;
@@ -35,7 +33,16 @@ public class MusicPlayPresenter implements OnBufferingUpdateListener, OnSeekComp
 	
 	private SongInfor songInforPlay = null;
 	private List<SongInfor> playList = new ArrayList<SongInfor>();
-	
+
+	@Override
+	public void onImagePlay(SongInfor tempInfo) {
+		if(!isFileExsit(tempInfo))
+		{
+			if(mOnMediaPlayCallBack != null)
+				mOnMediaPlayCallBack.onMediaPlayStart(tempInfo);
+		}
+	}
+
 	public interface OnMediaPlayCallBack
 	{
 		void onMediaPlayStart(SongInfor songInfor);
@@ -56,6 +63,7 @@ public class MusicPlayPresenter implements OnBufferingUpdateListener, OnSeekComp
 		mPlayerEngineImpl = new MusicPlayEngineImpl(activity);
 		mPlayerEngineImpl.setOnBuffUpdateListener(this);
 		mPlayerEngineImpl.setOnSeekCompleteListener(this);
+		mPlayerEngineImpl.setOnImagePlayListener(this);
 		mPlayEngineListener = new MusicPlayEngineListener();
 		mPlayerEngineImpl.setPlayerListener(mPlayEngineListener);
 		mPlayerEngineImpl.setUiManager(mUIManager);
@@ -132,7 +140,7 @@ public class MusicPlayPresenter implements OnBufferingUpdateListener, OnSeekComp
 			return activity.getResources().getString(R.string.media_play_loading);
 		if(!TextUtils.isEmpty(mPlayerEngineImpl.getError()))
 			return mPlayerEngineImpl.getError();
-		if(!mPlayerEngineImpl.isPlaying())
+		if(!mPlayerEngineImpl.isPlaying() && !mUIManager.getRatioImageView().isShown())
 			return "";
 		return tempInfor.getMediaName();
 	}
@@ -300,9 +308,8 @@ public class MusicPlayPresenter implements OnBufferingUpdateListener, OnSeekComp
 	{
 		songInforPlay = playList.get(0);
 		DBManager.INSTANCE.deleteSongById(songInforPlay);
-		
-		mPlayerEngineImpl.playMedia(songInforPlay);
-		updatePlayView();
+
+		playMedia();
 	}
 	private void startPlaySpeakerMusic(List<SongInfor> playList)
 	{
@@ -320,8 +327,7 @@ public class MusicPlayPresenter implements OnBufferingUpdateListener, OnSeekComp
 					songInforPlay = getPlaySongInfor();
 				if(songInforPlay != null)
 				{
-					mPlayerEngineImpl.playMedia(songInforPlay);
-					updatePlayView();
+					playMedia();
 				}
 			}
 			else
@@ -333,7 +339,14 @@ public class MusicPlayPresenter implements OnBufferingUpdateListener, OnSeekComp
 		catch (Exception e) 
 		{
 			// TODO: handle exception
+			Log.e("", e.getMessage());
 		}
+	}
+
+	private void playMedia()
+	{
+		mPlayerEngineImpl.playMedia(songInforPlay);
+		updatePlayView();
 	}
 	
 	private SongInfor getPlaySongInfor()
@@ -371,7 +384,6 @@ public class MusicPlayPresenter implements OnBufferingUpdateListener, OnSeekComp
 	private void updatePlayView()
 	{
 		activity.runOnUiThread(new Runnable() {
-			
 			@Override
 			public void run() {
 				// TODO Auto-generated method stub

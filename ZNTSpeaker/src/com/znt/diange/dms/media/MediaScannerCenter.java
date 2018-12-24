@@ -1,14 +1,5 @@
 package com.znt.diange.dms.media;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileFilter;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.StringTokenizer;
-
 import android.content.Context;
 import android.database.Cursor;
 import android.os.Environment;
@@ -19,6 +10,15 @@ import com.znt.diange.mina.entity.SongInfor;
 import com.znt.speaker.db.DBManager;
 import com.znt.utils.CommonLog;
 import com.znt.utils.LogFactory;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileFilter;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.StringTokenizer;
 
 public class MediaScannerCenter 
 {
@@ -169,6 +169,20 @@ public class MediaScannerCenter
 		}
 		return false;
 	}
+
+	public static boolean isPicture(String path)
+	{
+		if(path == null || path.length() == 0)
+			return false;
+		if(path.toLowerCase().endsWith(".jpg") ||
+				path.toLowerCase().endsWith(".png") ||
+				path.toLowerCase().endsWith(".bmp") ||
+				path.toLowerCase().endsWith(".gif"))
+		{
+			return true;
+		}
+		return false;
+	}
 	
 	private boolean isTempFile(String path)
 	{
@@ -235,10 +249,9 @@ public class MediaScannerCenter
 					return false;
 				}
 				
-				/*if(file.length() < 1024 * 1024)//杩囨护灏忎簬1M鐨勬枃浠�
-					return false;*/
+
 				String path = file.getAbsolutePath();
-				if(isMusic(path) || isVideo(path) || isTempFile(path))
+				if(isMusic(path) || isVideo(path) || isTempFile(path) || isPicture(path))
 				{
 					MusicManager.getInstance().addMusic(file, sourceType);
 					listener.mediaScan(AUDIO_TYPE, path, getNameFromPath(path));
@@ -303,9 +316,8 @@ public class MediaScannerCenter
 					iLocalMusicScanListener.onScanStart();
 				
 				MusicManager.getInstance().clearMusic();
-				//if(getAndroidOSVersion() >= 19)//4.4浠ヤ笂鐗堟湰锛屾墜鏈哄瓨鍌ㄤ笉鑳芥壂鎻忥紝鍙兘閫氳繃濯掍綋搴撹幏寰�
-				//scanMusic(mListener, this);//鍏堜粠鏁版嵁搴撲腑璇诲彇
-				getMusicByScan(mListener, this);//鎵弿鏂瑰紡锛岄槻姝㈡紡鎺夌殑
+
+				getMusicByScan(mListener, this);
 				
 				if(iLocalMusicScanListener != null)
 					iLocalMusicScanListener.onScanFinish();

@@ -1,16 +1,14 @@
 
-package com.znt.speaker.factory; 
+package com.znt.speaker.factory;
 
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Matrix;
 import android.location.LocationManager;
 import android.provider.Settings;
 import android.text.TextUtils;
-import android.util.DisplayMetrics;
 import android.view.Surface;
 import android.view.TextureView;
 import android.view.View;
@@ -22,8 +20,8 @@ import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.RadioButton;
-import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
@@ -81,6 +79,8 @@ public class UIManager implements OnClickListener, OnSeekBarChangeListener
 	public TextView tvCurTime = null;
 	public TextView tv_speed = null;
 	
+	private ImageView mRatioImageView;
+	private View viewImageShow;
 	private TextureVideoPlayer textureView;
 	private Surface surface = null;
 	private View viewMusicPlayBg = null;
@@ -171,7 +171,7 @@ public class UIManager implements OnClickListener, OnSeekBarChangeListener
     			{
     				if(TextUtils.isEmpty(wifiPwd))
         			{
-        				Toast.makeText(activity, "请输入激活码，在手机APP上登录查看", 0).show();
+        				Toast.makeText(activity, "请输入激活码，在手机APP上登录查看", Toast.LENGTH_SHORT).show();
         				return;
         			}
         			if(onBindDeviceListener != null)
@@ -181,7 +181,7 @@ public class UIManager implements OnClickListener, OnSeekBarChangeListener
     			{
     				if(TextUtils.isEmpty(wifiName))
         			{
-        				Toast.makeText(activity, "请输入要连接的WIFI名称", 0).show();
+        				Toast.makeText(activity, "请输入要连接的WIFI名称", Toast.LENGTH_SHORT).show();
         				return;
         			}
         			if(onSetWifiListener != null)
@@ -473,6 +473,7 @@ public class UIManager implements OnClickListener, OnSeekBarChangeListener
 		
 		//setSurfaceViewOritation();
 	}
+
 	public void releaseTextureView()
 	{
 		if(textureView != null)
@@ -563,8 +564,34 @@ public class UIManager implements OnClickListener, OnSeekBarChangeListener
 		
 		String code = LocalDataEntity.newInstance(activity).getDeviceCode();
 		if(TextUtils.isEmpty(code))
-			Toast.makeText(activity, "未获取到设备编号，请先联网", 1).show();
+			Toast.makeText(activity, "未获取到设备编号，请先联网", Toast.LENGTH_SHORT).show();
 		tvCodeHint.setText("v " + SystemUtils.getVersionName(activity) + " id:  " + code);
+	}
+
+	public void initRatioImageView()
+	{
+		mRatioImageView = (ImageView) activity.findViewById(R.id.ratioImageView);
+		viewImageShow = activity.findViewById(R.id.image_show_bg);
+
+	}
+	public void showRatioImageView(boolean show)
+	{
+		if(mRatioImageView == null)
+			return;
+		if(show)
+		{
+			viewImageShow.setVisibility(View.VISIBLE);
+			mRatioImageView.setVisibility(View.VISIBLE);
+		}
+		else
+		{
+			mRatioImageView.setVisibility(View.GONE);
+			viewImageShow.setVisibility(View.GONE);
+		}
+	}
+	public ImageView getRatioImageView()
+	{
+		return mRatioImageView;
 	}
 	
 	public void showPrepareLoadView(boolean isShow)

@@ -1,6 +1,6 @@
 /*
  * This file is auto-generated.  DO NOT MODIFY.
- * Original file: C:\\Android\\Github\\ZNTSpeaker\\ZNTDownLoadModel\\src\\com\\znt\\download\\IDownloadAidlInterface.aidl
+ * Original file: E:\\yuyan\\GitCode\\ZNTSpeaker\\ZNTDownLoadModel\\src\\com\\znt\\download\\IDownloadAidlInterface.aidl
  */
 package com.znt.download;
 public interface IDownloadAidlInterface extends android.os.IInterface
