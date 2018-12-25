@@ -1,10 +1,6 @@
 package com.znt.push;
 
 
-import java.util.List;
-
-import org.json.JSONObject;
-
 import android.app.ActivityManager;
 import android.app.ActivityManager.RunningAppProcessInfo;
 import android.app.Service;
@@ -16,7 +12,6 @@ import android.os.RemoteException;
 import android.text.TextUtils;
 import android.util.Log;
 
-import com.znt.diange.mina.entity.SongInfor;
 import com.znt.push.entity.PushModelConstant;
 import com.znt.push.http.HttpRequestID;
 import com.znt.push.p.HttpPresenter;
@@ -25,6 +20,10 @@ import com.znt.push.update.UpdateManager.SpaceCheckListener;
 import com.znt.push.utils.StringUtils;
 import com.znt.push.utils.SystemUtils;
 import com.znt.push.v.IHttpRequestView;
+
+import org.json.JSONObject;
+
+import java.util.List;
 
 public class ZNTPushService extends Service implements IHttpRequestView, SpaceCheckListener
 {
@@ -255,14 +254,6 @@ public class ZNTPushService extends Service implements IHttpRequestView, SpaceCh
 			if(fnetInfo == null)
 				fnetInfo = "";
 			
-			/*if((fplayingSongType != playingSongType) || !(fplayingSong.equals(playingSong)) || !(fnetInfo.equals(netInfo)))
-			{
-				playingSongType = fplayingSongType;
-				playingSong = fplayingSong;
-				netInfo = fnetInfo;
-				
-				mHttpPresenter.getDevStatus(devId, playSeek, playingSong, playingSongType, netInfo);
-			}*/
 			devId = fdevId;
 			playingSongType = fplayingSongType;
 			playingSong = fplayingSong;
@@ -287,7 +278,7 @@ public class ZNTPushService extends Service implements IHttpRequestView, SpaceCh
 		}
 		else if(requestId == HttpRequestID.REGISTER)
 		{
-			Log.e("ZNTPushService", "ע�Ὺʼ...");
+
 		}
 	}
 	@Override

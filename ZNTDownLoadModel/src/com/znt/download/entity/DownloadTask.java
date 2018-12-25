@@ -2,6 +2,7 @@ package com.znt.download.entity;
 
 import android.os.AsyncTask;
 import android.os.Environment;
+import android.text.TextUtils;
 import android.util.Log;
 
 import com.znt.diange.mina.entity.SongInfor;
@@ -62,6 +63,9 @@ public class DownloadTask extends AsyncTask<String,Integer,Integer>
 
     private String getDownloadDir()
     {
+        if(TextUtils.isEmpty(ZNTDownloadService.STORAGE_DIR))
+            ZNTDownloadService.STORAGE_DIR = Environment.getExternalStorageDirectory() + "/";
+
         return ZNTDownloadService.STORAGE_DIR;
     }
 

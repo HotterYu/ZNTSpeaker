@@ -1170,7 +1170,9 @@ public class HttpRequestModel extends HttpAPI
     		if(response.isSuccessful())
         	{
         		String string = response.body().string();
-        		
+        		if(!TextUtils.isEmpty(string))
+					Constant.PLAN_GET_STATUS = "string:" + string.length() ;
+
     			try
     			{
     				JSONObject jsonObject = new JSONObject(string);
@@ -1280,7 +1282,11 @@ public class HttpRequestModel extends HttpAPI
     			}
         	}
     		else
-    			iGetCurPllanCallBack.requestFail(requestId);
+			{
+				Constant.PLAN_GET_STATUS = response.toString();
+				iGetCurPllanCallBack.requestFail(requestId);
+			}
+
 		} 
     	catch (Exception e) 
     	{

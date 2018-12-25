@@ -136,7 +136,7 @@ public class MusicPlayEngineImpl extends AbstractMediaPlayEngine implements Surf
 				if(mUimanager.getRatioImageView() == null)
 					mUimanager.initRatioImageView();
 				mUimanager.showRatioImageView(true);
-				Glide.with( activity ).load(msg.obj).diskCacheStrategy(DiskCacheStrategy.ALL).fitCenter().into( mUimanager.getRatioImageView() );
+				Glide.with( activity ).load(msg.obj).diskCacheStrategy(DiskCacheStrategy.ALL).into( mUimanager.getRatioImageView() );
 			}
 			else if(msg.what == MSG_IMG_HIDE_PROCESS)
 			{

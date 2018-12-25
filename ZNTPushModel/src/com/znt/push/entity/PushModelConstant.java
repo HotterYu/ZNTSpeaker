@@ -1,10 +1,10 @@
 
 package com.znt.push.entity; 
 
+import android.net.wifi.ScanResult;
+
 import java.util.ArrayList;
 import java.util.List;
-
-import android.net.wifi.ScanResult;
 
 /** 
  * @ClassName: Constant 
@@ -40,14 +40,7 @@ public class PushModelConstant
 	
 	public static List<ScanResult> wifiList = new ArrayList<ScanResult>();
 	
-	
-	
-	
-	
-	
-	
-	
-	
+
 	public static final int CALL_BACK_WIFI_CONNECT_START = 1000;
 	public static final int CALL_BACK_WIFI_CONNECT_FAIL = 1001;
 	public static final int CALL_BACK_WIFI_CONNECT_SUCCESS = 1002;

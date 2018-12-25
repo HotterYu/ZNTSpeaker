@@ -1,8 +1,5 @@
 package com.jflavio1.wificonnector;
 
-import java.lang.reflect.Method;
-import java.util.List;
-
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -20,6 +17,9 @@ import com.jflavio1.wificonnector.interfaces.ConnectionResultListener;
 import com.jflavio1.wificonnector.interfaces.RemoveWifiListener;
 import com.jflavio1.wificonnector.interfaces.ShowWifiListener;
 import com.jflavio1.wificonnector.interfaces.WifiStateListener;
+
+import java.lang.reflect.Method;
+import java.util.List;
 
 /**
  * Created by JoseFlavio on 17/11/2016.
@@ -210,7 +210,8 @@ public class WifiConnector
 
     public void setScanResult(ScanResult scanResult, String password) 
     {
-        setWifiConfiguration(scanResult.SSID, scanResult.BSSID, getWifiSecurityType(scanResult), password);
+        if(scanResult != null)
+            setWifiConfiguration(scanResult.SSID, scanResult.BSSID, getWifiSecurityType(scanResult), password);
     }
 
     public void setWifiConfiguration(String SSID, String BSSID, String securityType, String password) 
@@ -642,7 +643,7 @@ public class WifiConnector
     public void connectToWifi(ConnectionResultListener connectionResultListener) 
     {
         this.connectionResultListener = connectionResultListener;
-        if (isConnectedToBSSID(wifiConfiguration.BSSID))
+        if (wifiConfiguration != null && isConnectedToBSSID(wifiConfiguration.BSSID))
         {
             connectionResultListener.errorConnect(SAME_NETWORK);
         } 
@@ -671,7 +672,7 @@ public class WifiConnector
      */
     public void connectToWifi() 
     {
-        if (isConnectedToBSSID(wifiConfiguration.BSSID)) 
+        if (wifiConfiguration != null && isConnectedToBSSID(wifiConfiguration.BSSID))
         {
             connectionResultListener.errorConnect(SAME_NETWORK);
         } 

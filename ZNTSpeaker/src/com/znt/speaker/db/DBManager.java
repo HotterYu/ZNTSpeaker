@@ -648,11 +648,7 @@ public class DBManager extends MyDbHelper
     		 cur.close();*/
     	 deleteAll(TBL_SONG_RECORD);
      }
-     /**
-      * 鍒犻櫎闊充箰
-      * @param id
-      * @return
-      */
+
      public synchronized int deleteSongById(SongInfor infor)
      {
     	 if(infor == null)

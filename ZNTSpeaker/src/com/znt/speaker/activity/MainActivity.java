@@ -1,5 +1,6 @@
 package com.znt.speaker.activity;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
@@ -17,6 +18,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
+import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -50,6 +52,8 @@ import com.znt.speaker.p.HttpPresenter;
 import com.znt.speaker.p.MusicPlayPresenter;
 import com.znt.speaker.p.MusicPlayPresenter.OnMediaPlayCallBack;
 import com.znt.speaker.p.SDCardMountPresenter;
+import com.znt.speaker.permission.PermissionHelper;
+import com.znt.speaker.permission.PermissionInterface;
 import com.znt.speaker.player.UpdateTimer;
 import com.znt.speaker.prcmanager.ZNTDownloadServiceManager;
 import com.znt.speaker.prcmanager.ZNTDownloadServiceManager.DownlaodCallBack;
@@ -77,6 +81,7 @@ public class MainActivity extends BaseActivity implements IHttpRequestView, INet
 														,OnBindDeviceListener
 														,DownlaodCallBack
 														,OnMediaPlayCallBack
+														,PermissionInterface
 {
 	
 	private UIManager mUIManager;
@@ -90,6 +95,8 @@ public class MainActivity extends BaseActivity implements IHttpRequestView, INet
 	
 	private LocationFactory locationFactory = null;
 	private CurPlanFactory curPlanFactory = null;
+
+	private PermissionHelper mPermissionHelper;
 	
 	private SDCardMountPresenter mSDCardMountPresenter = null;
 	
@@ -222,19 +229,9 @@ public class MainActivity extends BaseActivity implements IHttpRequestView, INet
 		{
 			// TODO: handle exception
 		}
-		
-		/*if (Build.VERSION.SDK_INT >= 23) {
-            int REQUEST_CODE_CONTACT = 101;
-            String[] permissions = {Manifest.permission.WRITE_EXTERNAL_STORAGE};
-            //验证是否许可权限
-            for (String str : permissions) {
-                if (this.checkSelfPermission(str) != PackageManager.PERMISSION_GRANTED) {
-                    //申请权限
-                    this.requestPermissions(permissions, REQUEST_CODE_CONTACT);
-                    return;
-                }
-            }
-        }*/
+
+		mPermissionHelper = new PermissionHelper(this, this);
+		//mPermissionHelper.requestPermissions();
 		
 		mUpdateTimer = new UpdateTimer(getApplicationContext());
 		mUpdateTimer.setHandler(mHandler, MSG_UPDATE_TIME);
@@ -650,7 +647,8 @@ public class MainActivity extends BaseActivity implements IHttpRequestView, INet
 	String mac = "";
 	private String getNetInfo()
 	{
-		try 
+
+		try
 		{
 			int localPlanCount = DBManager.INSTANCE.getLocalPlanCount();
 			String netType = "";
@@ -673,8 +671,8 @@ public class MainActivity extends BaseActivity implements IHttpRequestView, INet
 			else
 				playSize = "播放列表:" + musicPlayPresenter.getPlayListSize();
 			if(musicPlayPresenter.getCurPlaySong() == null)
-				playSize = playSize + "   播放NULL"; 
-			
+				playSize = playSize + "   播放NULL";
+			playSize = playSize + Constant.PLAN_GET_STATUS;
 			int rotation = SystemUtils.getScreenRotation(getApplicationContext());
 			//return space + " " + netType + " " + SystemUtils.getScreenOritation(getApplicationContext()) + "  " + rebootCount;
 			return space + " " + netType + "  " + rotation + "   " + SystemUtils.getIP()+ "  mac地址:"+ mac + "\n PlayList:"+playSize + "  " + rebootCount + "   localPlanCount:"+localPlanCount;
@@ -1498,5 +1496,55 @@ public class MainActivity extends BaseActivity implements IHttpRequestView, INet
 		// TODO Auto-generated method stub
 		mZNTDownloadServiceManager.addSonginfor(songInfor);
 		updateParamsForPush(true);
+	}
+
+	@Override
+	public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+		if(mPermissionHelper.requestPermissionsResult(requestCode, permissions, grantResults)){
+			//权限请求结果，并已经处理了该回调
+			return;
+		}
+		super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+	}
+
+	@Override
+	public int getPermissionsRequestCode() {
+		return 10000;
+	}
+
+	@Override
+	public String[] getPermissions() {
+		return new String[]{
+				Manifest.permission.WRITE_EXTERNAL_STORAGE,
+				Manifest.permission.READ_EXTERNAL_STORAGE,
+				Manifest.permission.ACCESS_WIFI_STATE,
+				Manifest.permission.CHANGE_WIFI_STATE,
+				Manifest.permission.ACCESS_FINE_LOCATION
+
+		};
+	}
+	@Override
+	public void requestPermissionsSuccess()
+	{
+		//权限请求用户已经全部允许
+		try
+		{
+			initData();
+		}
+		catch (Exception e)
+		{
+			if(e == null)
+				showToast("初始化失败");
+			else
+				showToast("初始化失败："+e.getMessage());
+			e.printStackTrace();
+		}
+	}
+
+	@Override
+	public void requestPermissionsFail() {
+		//权限请求不被用户允许。可以提示并退出或者提示权限的用途并重新发起权限申请。
+		mPermissionHelper.requestPermissions();
+		//finish();
 	}
 }

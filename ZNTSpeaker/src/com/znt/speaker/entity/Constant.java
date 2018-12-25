@@ -1,10 +1,10 @@
 
 package com.znt.speaker.entity; 
 
+import android.net.wifi.ScanResult;
+
 import java.util.ArrayList;
 import java.util.List;
-
-import android.net.wifi.ScanResult;
 
 /** 
  * @ClassName: Constant 
@@ -41,5 +41,7 @@ public class Constant
 	public static boolean isBoxVersion = true;
 	
 	public static List<ScanResult> wifiList = new ArrayList<ScanResult>();
+
+	public static String PLAN_GET_STATUS = "";
 }
  

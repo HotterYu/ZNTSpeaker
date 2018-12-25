@@ -288,7 +288,7 @@ public class ZNTWifiService extends Service implements WifiConnectorModel
 						Log.e("", "successfulConnect-->"+SSID);
 					}
 				}
-				Toast.makeText(getApplicationContext(), "You are connected to " + scanResult.SSID + "!!", Toast.LENGTH_SHORT).show();
+				Toast.makeText(getApplicationContext(), "You are connected to " + SSID + "!!", Toast.LENGTH_SHORT).show();
 			}
 
 			@Override
@@ -447,8 +447,8 @@ public class ZNTWifiService extends Service implements WifiConnectorModel
 		if(wifiIndex < DBManager.INSTANCE.getWifiCount())
 		{
 			WifiInfor tempInfor = getWifiInforByIndex();
-			doConnectWifi(tempInfor.getWifiName(), tempInfor.getWifiPwd());
 			wifiIndex ++;
+			doConnectWifi(tempInfor.getWifiName(), tempInfor.getWifiPwd());
 			Log.e("", "********************正在连接第" + wifiIndex + " 个 wifi-->"+ tempInfor.getWifiName());
 
 		}
@@ -470,6 +470,8 @@ public class ZNTWifiService extends Service implements WifiConnectorModel
 			}
 		}
 	}
+
+	private volatile int wifiReconnectCount = 0;
 
 	private int offLineCount = 0;
 	private void checkWifiStateWhenOffLine()
