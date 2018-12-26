@@ -1170,8 +1170,6 @@ public class HttpRequestModel extends HttpAPI
     		if(response.isSuccessful())
         	{
         		String string = response.body().string();
-        		if(!TextUtils.isEmpty(string))
-					Constant.PLAN_GET_STATUS = "string:" + string.length() ;
 
     			try
     			{
@@ -1180,6 +1178,7 @@ public class HttpRequestModel extends HttpAPI
     				if(result == 0)
     				{
     					String info = jsonObject.getString(RESULT_INFO);
+
     					if(TextUtils.isEmpty(info))
     					{
     						iGetCurPllanCallBack.requestSuccess(null, requestId);
@@ -1187,40 +1186,22 @@ public class HttpRequestModel extends HttpAPI
     					}
     					curPlanInfor = new CurPlanInfor();
     					DBManager.INSTANCE.deleteAllPlan();
-    					
     					JSONObject json = new JSONObject(info);
-    					/*String total = getInforFromJason(json, "total");
-    					if(!TextUtils.isEmpty(total))
-    						httpResult.setTotal(Integer.parseInt(total));*/
-    					//String cycleList = getInforFromJason(json, "cycleList");
     					String endDate = getInforFromJason(json, "endDate");
     					String id = getInforFromJason(json, "id");
-    					//String memberId = getInforFromJason(json, "memberId");
-    					//String planFlag = getInforFromJason(json, "planFlag");
     					String planName = getInforFromJason(json, "planName");
-    					//String planType = getInforFromJason(json, "planType");
-    					//String publishTime = getInforFromJason(json, "publishTime");
     					String startDate = getInforFromJason(json, "startDate");
-    					//String status = getInforFromJason(json, "status");
-    					//String terminalList = getInforFromJason(json, "terminalList");
-    					//String tlist = getInforFromJason(json, "tlist");
-    					
     					if(!TextUtils.isEmpty(startDate))
     					{
-    						//long dateLong = Long.parseLong(startDate);
     						curPlanInfor.setStartDate(startDate);
-    						//planInfor.setStartDate(DateUtils.getStringTimeHead(dateLong));
     					}
     					if(!TextUtils.isEmpty(endDate))
     					{
-    						//long dateLong = Long.parseLong(endDate);
     						curPlanInfor.setEndDate(endDate);
-    						//planInfor.setEndDate(DateUtils.getStringTimeHead(dateLong));
     					}
     					curPlanInfor.setPlanName(planName);
     					curPlanInfor.setPlanId(id);
-    					
-    					
+
     					String pslist = getInforFromJason(json, "pslist");
     					JSONArray jsonArray = new JSONArray(pslist);
     					int len = jsonArray.length();
@@ -1230,26 +1211,20 @@ public class HttpRequestModel extends HttpAPI
     						CurPlanSubInfor curSubPlanInfor = new CurPlanSubInfor();
     						
     						JSONObject json1 = (JSONObject) jsonArray.get(i);
-    						//String cycleType = getInforFromJason(json1, "cycleType");
     						String endTime = getInforFromJason(json1, "endTime");
     						String id1 = getInforFromJason(json1, "id");
-    						//String musicCategoryList = getInforFromJason(json1, "musicCategoryList");
-    						//String publishId = getInforFromJason(json1, "publishId");
     						String startTime = getInforFromJason(json1, "startTime");
     						
     						if(!TextUtils.isEmpty(startTime) && startTime.contains(":"))
     						{
-    							//int tempS = DateUtils.timeToInt(startTime, ":");
     							curSubPlanInfor.setStartTime(startTime);
     						}
     						if(!TextUtils.isEmpty(endTime) && endTime.contains(":"))
     						{
-    							//int tempE = DateUtils.timeToInt(endTime, ":");
     							curSubPlanInfor.setEndTime(endTime);
     						}
     						curSubPlanInfor.setPlanId(id1);
     						curPlanInfor.addSubPlanInfor(curSubPlanInfor);
-    						
     						List<SongInfor> tempList = getScheduleMusics(id1);
     						if(tempList != null)
     						{
@@ -1266,7 +1241,7 @@ public class HttpRequestModel extends HttpAPI
     							break;
     						}
     					}
-    					
+
     					if(getListResult)
     						iGetCurPllanCallBack.requestSuccess(curPlanInfor, requestId);
     					else
@@ -1283,13 +1258,13 @@ public class HttpRequestModel extends HttpAPI
         	}
     		else
 			{
-				Constant.PLAN_GET_STATUS = response.toString();
 				iGetCurPllanCallBack.requestFail(requestId);
 			}
 
 		} 
     	catch (Exception e) 
     	{
+
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			iGetCurPllanCallBack.requestFail(requestId);
@@ -1307,8 +1282,10 @@ public class HttpRequestModel extends HttpAPI
     	try 
     	{
 			Response response = OkHttpUtils.get().url(GET_SCHEDULE_MUSICS).id(HttpRequestID.GET_SCHEDULE_MUSICS).params(params).build().execute();
+
 			if(response.isSuccessful())
 	    	{
+
 	    		String string = response.body().string();
 	    		try
 	    		{
@@ -1326,32 +1303,47 @@ public class HttpRequestModel extends HttpAPI
 						JSONArray jsonArray = new JSONArray(listInfo);
 						int size = jsonArray.length();
 						tempList = new ArrayList<SongInfor>();
-						for(int i=0;i<size;i++)
-						{
-							JSONObject json = jsonArray.getJSONObject(i);
-							String musicAlbum = getInforFromJason(json, "musicAlbum");
-							String musicId = getInforFromJason(json, "musicId");
-							String musicUrl = getInforFromJason(json, "musicUrl");
-							String musicName = getInforFromJason(json, "musicName");
-							String musicSing = getInforFromJason(json, "musicSing");
-							if(!TextUtils.isEmpty(musicUrl))
-								musicUrl = UrlUtils.decodeUrl(musicUrl);
-							SongInfor tempInfor = new SongInfor();
-							String musicInfoId = getInforFromJason(json, "musicInfoId");
-							tempInfor.setMediaId(musicInfoId);
-							tempInfor.setResId(musicId);
-							tempInfor.setMediaName(musicName);
-							tempInfor.setMediaUrl(musicUrl);
-							tempInfor.setArtist(musicSing);
-							tempInfor.setAlbumName(musicAlbum);
-							tempList.add(tempInfor);
-							DBManager.INSTANCE.addCurPlanMusic(tempInfor, planScheId);
-							
+						Constant.PLAN_GET_STATUS = Constant.PLAN_GET_STATUS + "14（" + size +"),";
+						try {
+							for(int i=0;i<size;i++)
+							{
+								JSONObject json = jsonArray.getJSONObject(i);
+								String musicAlbum = getInforFromJason(json, "musicAlbum");
+								String musicId = getInforFromJason(json, "musicId");
+								String musicUrl = getInforFromJason(json, "musicUrl");
+								String musicName = getInforFromJason(json, "musicName");
+								String musicSing = getInforFromJason(json, "musicSing");
+								if(!TextUtils.isEmpty(musicUrl))
+									musicUrl = UrlUtils.decodeUrl(musicUrl);
+								SongInfor tempInfor = new SongInfor();
+								String musicInfoId = getInforFromJason(json, "musicInfoId");
+								tempInfor.setMediaId(musicInfoId);
+								tempInfor.setResId(musicId);
+								tempInfor.setMediaName(musicName);
+								tempInfor.setMediaUrl(musicUrl);
+								tempInfor.setArtist(musicSing);
+								tempInfor.setAlbumName(musicAlbum);
+								tempList.add(tempInfor);
+								DBManager.INSTANCE.addCurPlanMusic(tempInfor, planScheId);
+
+							}
+						} catch (Exception e) {
+							if(e == null)
+								Constant.PLAN_GET_STATUS = Constant.PLAN_GET_STATUS + "18（error),";
+							else
+								Constant.PLAN_GET_STATUS = Constant.PLAN_GET_STATUS + "18（" + e.getMessage() +"),";
+							e.printStackTrace();
 						}
+
+						Constant.PLAN_GET_STATUS = Constant.PLAN_GET_STATUS + "15（" + tempList.size() +"),";
 					}
 	    		}
 	    		catch (Exception e) 
 	    		{
+	    			if(e == null)
+						Constant.PLAN_GET_STATUS = Constant.PLAN_GET_STATUS + "16（error),";
+	    			else
+						Constant.PLAN_GET_STATUS = Constant.PLAN_GET_STATUS + "16（" + e.getMessage() +"),";
 	    			// TODO Auto-generated catch block
 	    			e.printStackTrace();
 	    			return null;
@@ -1360,6 +1352,10 @@ public class HttpRequestModel extends HttpAPI
 		} 
     	catch (Exception e) 
     	{
+			if(e == null)
+				Constant.PLAN_GET_STATUS = Constant.PLAN_GET_STATUS + "17（error),";
+			else
+				Constant.PLAN_GET_STATUS = Constant.PLAN_GET_STATUS + "17（" + e.getMessage() +"),";
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return null;
