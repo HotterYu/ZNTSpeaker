@@ -11,6 +11,7 @@
       <module fileurl="file://$PROJECT_DIR$/ZNTPushModel/ZNTPushModel.iml" filepath="$PROJECT_DIR$/ZNTPushModel/ZNTPushModel.iml" />
       <module fileurl="file://$PROJECT_DIR$/ZNTSpeaker.iml" filepath="$PROJECT_DIR$/ZNTSpeaker.iml" />
       <module fileurl="file://$PROJECT_DIR$/ZNTSpeaker/ZNTSpeaker-ZNTSpeaker.iml" filepath="$PROJECT_DIR$/ZNTSpeaker/ZNTSpeaker-ZNTSpeaker.iml" />
+      <module fileurl="file://$PROJECT_DIR$/placeholder/placeholder.iml" filepath="$PROJECT_DIR$/placeholder/placeholder.iml" />
     </modules>
   </component>
 </project>

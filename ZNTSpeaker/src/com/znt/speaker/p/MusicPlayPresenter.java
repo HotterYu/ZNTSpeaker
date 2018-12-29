@@ -140,7 +140,7 @@ public class MusicPlayPresenter implements OnBufferingUpdateListener, OnSeekComp
 			return activity.getResources().getString(R.string.media_play_loading);
 		if(!TextUtils.isEmpty(mPlayerEngineImpl.getError()))
 			return mPlayerEngineImpl.getError();
-		if(!mPlayerEngineImpl.isPlaying() && !mUIManager.getRatioImageView().isShown())
+		if(!mPlayerEngineImpl.isPlaying() && !mUIManager.isBannerViewShow())
 			return "";
 		return tempInfor.getMediaName();
 	}
@@ -155,17 +155,20 @@ public class MusicPlayPresenter implements OnBufferingUpdateListener, OnSeekComp
 	private int checkDelayCount = 0;
 	public void checkDelay()
 	{
-		if(checkDelayCount <= 18)
+
+		if(mPlayerEngineImpl == null || !mPlayerEngineImpl.isPlaying())
+			return;
+		if(playList.size() <= 1)
+			return;
+
+		if(checkDelayCount <= 30)
 		{
 			checkDelayCount ++;
 			return;
 		}
 		else
 			checkDelayCount = 0;
-		
-		if(mPlayerEngineImpl == null)
-			return;
-		
+
 		int pos = getCurPosition();
 		boolean ret = isDelay(pos);
 		if (ret)

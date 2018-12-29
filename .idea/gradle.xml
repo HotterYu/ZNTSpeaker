@@ -16,6 +16,7 @@
             <option value="$PROJECT_DIR$/ZNTDownLoadModel" />
             <option value="$PROJECT_DIR$/ZNTPushModel" />
             <option value="$PROJECT_DIR$/ZNTSpeaker" />
+            <option value="$PROJECT_DIR$/placeholder" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

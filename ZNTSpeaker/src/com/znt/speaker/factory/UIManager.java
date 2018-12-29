@@ -6,8 +6,10 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.location.LocationManager;
 import android.provider.Settings;
+import android.support.v4.app.ActivityCompat;
 import android.text.TextUtils;
 import android.view.Surface;
 import android.view.TextureView;
@@ -27,6 +29,15 @@ import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.load.resource.drawable.GlideDrawable;
+import com.bumptech.glide.request.RequestListener;
+import com.bumptech.glide.request.target.Target;
+import com.youth.banner.Banner;
+import com.youth.banner.BannerConfig;
+import com.youth.banner.listener.OnBannerClickListener;
+import com.youth.banner.loader.ImageLoader;
 import com.znt.diange.mina.entity.DeviceInfor;
 import com.znt.diange.mina.entity.SongInfor;
 import com.znt.speaker.R;
@@ -37,6 +48,11 @@ import com.znt.speaker.prcmanager.ZNTWifiServiceManager;
 import com.znt.utils.DateUtils;
 import com.znt.utils.FileUtils;
 import com.znt.utils.SystemUtils;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import ling.placeholder.CorpDrawableBuilder;
 
 /** 
  * @ClassName: UIManager 
@@ -79,8 +95,7 @@ public class UIManager implements OnClickListener, OnSeekBarChangeListener
 	public TextView tvCurTime = null;
 	public TextView tv_speed = null;
 	
-	private ImageView mRatioImageView;
-	private View viewImageShow;
+
 	private TextureVideoPlayer textureView;
 	private Surface surface = null;
 	private View viewMusicPlayBg = null;
@@ -568,32 +583,129 @@ public class UIManager implements OnClickListener, OnSeekBarChangeListener
 		tvCodeHint.setText("v " + SystemUtils.getVersionName(activity) + " id:  " + code);
 	}
 
-	public void initRatioImageView()
+	private Banner banner = null;
+	private List<String> mediaList = new ArrayList<>();
+	public void updateImgList(List<String> tempList)
 	{
-		mRatioImageView = (ImageView) activity.findViewById(R.id.ratioImageView);
-		viewImageShow = activity.findViewById(R.id.image_show_bg);
-
+		mediaList.clear();
+		if(tempList != null && tempList.size() > 0)
+			mediaList.addAll(tempList);
+		startImagePlay();
 	}
-	public void showRatioImageView(boolean show)
+	public void updateImgList(String url)
 	{
-		if(mRatioImageView == null)
+
+		if(!FileUtils.isPicture(url))
 			return;
-		if(show)
-		{
-			viewImageShow.setVisibility(View.VISIBLE);
-			mRatioImageView.setVisibility(View.VISIBLE);
-		}
+		if(mediaList.size() == 0)
+			mediaList.add(url);
 		else
 		{
-			mRatioImageView.setVisibility(View.GONE);
-			viewImageShow.setVisibility(View.GONE);
+			boolean ifHasUrl = false;
+			for(int i=0;i<mediaList.size();i++)
+			{
+				String tempUrl = mediaList.get(i);
+				if(tempUrl.equals(url))
+					ifHasUrl = true;
+			}
+			if(!ifHasUrl)
+				mediaList.add(url);
+		}
+		if(mediaList != null && mediaList.size() > 0)
+			startImagePlay();
+
+	}
+	public void initBannerView()
+	{
+		if(banner == null)
+		{
+			banner = (Banner) activity.findViewById(R.id.banner);
+			banner.setOnBannerClickListener(new OnBannerClickListener() {
+				@Override
+				public void OnBannerClick(int position) {
+					//onImageClickProcess();
+				}
+			});
 		}
 	}
-	public ImageView getRatioImageView()
+
+	public void startImagePlay()
 	{
-		return mRatioImageView;
+		initBannerView();
+		banner.setVisibility(View.VISIBLE);
+		//设置图片加载器
+		banner.setImageLoader(new GlideImageLoader());
+		//设置自动轮播，默认为true
+		banner.isAutoPlay(true);
+		//设置轮播时间
+		banner.setDelayTime((int) 10000);
+		//设置指示器位置（当banner模式中有指示器时）
+		banner.setBannerStyle(BannerConfig.NOT_INDICATOR);
+		//设置banner动画效果
+		//banner.setBannerAnimation(Transformer.DepthPage);
+		banner.setOffscreenPageLimit(1);
+
+		//设置图片集合
+		banner.setImages(mediaList);
+		//banner设置方法全部调用完毕时最后调用
+		banner.start();
+
 	}
-	
+
+	public void stopImagePlay()
+	{
+		banner.setVisibility(View.GONE);
+		banner.stopAutoPlay();
+	}
+
+	public boolean isBannerViewShow()
+	{
+		return banner != null && banner.isShown();
+	}
+	public class GlideImageLoader extends ImageLoader {
+		@Override
+		public void displayImage(Context context, Object path, ImageView imageView) {
+
+			imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+			//Glide 加载图片简单用法
+			Glide.with(activity).load((String) path)
+					.skipMemoryCache(true)
+					.diskCacheStrategy(DiskCacheStrategy.NONE)
+					.placeholder(CorpDrawableBuilder.build(ActivityCompat.getDrawable(activity, R.drawable.icon_default_load), Color.BLACK))
+					.listener(new RequestListener<String, GlideDrawable>() {
+						@Override
+						public boolean onException(Exception e, String model,
+												   Target<GlideDrawable> target,
+												   boolean isFirstResource) {
+							// 可替换成进度条
+							//Toast.makeText(activity, "图片加载失败", Toast.LENGTH_SHORT).show();
+							return false;
+						}
+
+						@Override
+						public boolean onResourceReady(GlideDrawable resource, String model,
+													   Target<GlideDrawable> target,
+													   boolean isFromMemoryCache,
+													   boolean isFirstResource) {
+							// 图片加载完成，取消进度条
+							//Toast.makeText(activity, "图片加载成功", Toast.LENGTH_SHORT).show();
+							return false;
+						}
+					}).into(imageView);
+		}
+
+		//提供createImageView 方法，如果不用可以不重写这个方法，主要是方便自定义ImageView的创建
+		@Override
+		public ImageView createImageView(Context context) {
+			//使用fresco，需要创建它提供的ImageView，当然你也可以用自己自定义的具有图片加载功能的ImageView
+
+			return super.createImageView(context);
+		}
+	}
+	public void loadImage(String url)
+	{
+
+	}
 	public void showPrepareLoadView(boolean isShow)
 	{
 		if (isShow)

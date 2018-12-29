@@ -65,6 +65,7 @@ import com.znt.speaker.v.IMusicReceiverView;
 import com.znt.speaker.v.INetWorkView;
 import com.znt.speaker.v.ISDCardMountView;
 import com.znt.utils.DateUtils;
+import com.znt.utils.FileUtils;
 import com.znt.utils.MacUtils;
 import com.znt.utils.NetWorkUtils;
 import com.znt.utils.ShellUtils;
@@ -72,6 +73,7 @@ import com.znt.utils.SystemUtils;
 import com.znt.utils.ViewUtils;
 
 import java.text.DecimalFormat;
+import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends BaseActivity implements IHttpRequestView, INetWorkView, 
@@ -949,6 +951,9 @@ public class MainActivity extends BaseActivity implements IHttpRequestView, INet
 		
 		if(tempList.size() > 0)
 		{
+
+			doImageProecess(tempList);
+
 			musicPlayPresenter.addPlayList(tempList);
 			musicPlayPresenter.startPlaySong();
 		}
@@ -957,6 +962,26 @@ public class MainActivity extends BaseActivity implements IHttpRequestView, INet
 		
 		//getCurPlan();//获取播放计划
 		
+	}
+
+	private void doImageProecess(List<SongInfor> tempList)
+	{
+		final List<String> imgList = new ArrayList<>();
+		for(int i=0;i<tempList.size();i++)
+		{
+			String temp = tempList.get(i).getMediaUrl();
+			if(FileUtils.isPicture(temp))
+				imgList.add(temp);
+		}
+		if(imgList.size() > 0)
+		{
+			mHandler.post(new Runnable() {
+				@Override
+				public void run() {
+					mUIManager.updateImgList(imgList);
+				}
+			});
+		}
 	}
 	
 	public void closeAll()

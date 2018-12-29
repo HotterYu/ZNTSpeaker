@@ -25,8 +25,8 @@ public class NetWorkSpeedUtils {
     {  
         long nowTotalRxBytes = getTotalRxBytes();  
         long nowTimeStamp = System.currentTimeMillis();  
-        long speed = ((nowTotalRxBytes - lastTotalRxBytes) * 1000 / (nowTimeStamp - lastTimeStamp));//ºÁÃë×ª»»  
-        long speed2 = ((nowTotalRxBytes - lastTotalRxBytes) * 1000 % (nowTimeStamp - lastTimeStamp));//ºÁÃë×ª»»  
+        long speed = ((nowTotalRxBytes - lastTotalRxBytes) * 1000 / (nowTimeStamp - lastTimeStamp));
+        long speed2 = ((nowTotalRxBytes - lastTotalRxBytes) * 1000 % (nowTimeStamp - lastTimeStamp));
   
         String speed2Str = String.valueOf(speed2);
         if(speed2Str.length() >= 2)

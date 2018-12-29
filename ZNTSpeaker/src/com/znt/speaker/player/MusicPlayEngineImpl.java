@@ -14,8 +14,6 @@ import android.util.Log;
 import android.view.Surface;
 import android.view.TextureView.SurfaceTextureListener;
 
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.znt.diange.mina.entity.PlayState;
 import com.znt.diange.mina.entity.SongInfor;
 import com.znt.speaker.entity.LocalDataEntity;
@@ -133,14 +131,13 @@ public class MusicPlayEngineImpl extends AbstractMediaPlayEngine implements Surf
 			super.handleMessage(msg);
 			if(msg.what == MSG_IMG_SHOW_PROCESS)
 			{
-				if(mUimanager.getRatioImageView() == null)
-					mUimanager.initRatioImageView();
-				mUimanager.showRatioImageView(true);
-				Glide.with( activity ).load(msg.obj).diskCacheStrategy(DiskCacheStrategy.ALL).into( mUimanager.getRatioImageView() );
+				if(!mUimanager.isBannerViewShow())
+					mUimanager.initBannerView();
+				mUimanager.updateImgList((String) msg.obj);
 			}
 			else if(msg.what == MSG_IMG_HIDE_PROCESS)
 			{
-				mUimanager.showRatioImageView(false);
+				mUimanager.stopImagePlay();
 			}
 			else if(msg.what == MSG_VIDE_SHOW_PROCESS)
 			{
@@ -167,19 +164,20 @@ public class MusicPlayEngineImpl extends AbstractMediaPlayEngine implements Surf
 	{
 		String urlPlay = getMusicPlayUrL(mMediaInfo);
 
-		if(FileUtils.isPicture(urlPlay))
+		/*if(FileUtils.isPicture(urlPlay))
 		{
 			ViewUtils.sendMessage(mHandler,MSG_IMG_SHOW_PROCESS, urlPlay);
 			if(mOnImagePlayListener != null)
 				mOnImagePlayListener.onImagePlay(mMediaInfo);
 			setSongInforPlay(mMediaInfo);
 		}
-		else
+		else*/
 		{
 			try
 			{
 
-				ViewUtils.sendMessage(mHandler,MSG_IMG_HIDE_PROCESS, null);
+				if(FileUtils.isVideo(urlPlay))//如果是视频就隐藏图片
+					ViewUtils.sendMessage(mHandler,MSG_IMG_HIDE_PROCESS, null);
 
 				loadStartTime = System.currentTimeMillis();
 				isPreparing = true;

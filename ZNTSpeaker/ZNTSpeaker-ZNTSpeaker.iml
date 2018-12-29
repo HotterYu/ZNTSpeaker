@@ -155,6 +155,7 @@
     <orderEntry type="module" module-name="HttpLibrary" />
     <orderEntry type="module" module-name="ZNTDownLoadModel" />
     <orderEntry type="module" module-name="WificonnectorLib" />
+    <orderEntry type="module" module-name="placeholder" />
     <orderEntry type="module" module-name="WifiSpeakerInfor" />
   </component>
 </module>
