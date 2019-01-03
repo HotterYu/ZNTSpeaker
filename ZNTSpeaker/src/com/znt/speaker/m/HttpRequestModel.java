@@ -1,21 +1,5 @@
 package com.znt.speaker.m;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import okhttp3.Call;
-import okhttp3.CookieJar;
-import okhttp3.Request;
-import okhttp3.Response;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.graphics.Bitmap;
@@ -56,6 +40,22 @@ import com.znt.utils.NetWorkUtils;
 import com.znt.utils.ShellUtils;
 import com.znt.utils.SystemUtils;
 import com.znt.utils.UrlUtils;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import okhttp3.Call;
+import okhttp3.CookieJar;
+import okhttp3.Request;
+import okhttp3.Response;
 
 @SuppressLint("UseSparseArrays")
 public class HttpRequestModel extends HttpAPI
@@ -198,10 +198,7 @@ public class HttpRequestModel extends HttpAPI
 		});*/
     }
 	
-	/**
-	 * 注册
-	 * @param params
-	 */
+
 	public void register()
     {
 		int requestId = HttpRequestID.REGISTER;
@@ -407,10 +404,7 @@ public class HttpRequestModel extends HttpAPI
 		});
 	}
 	
-	/**
-	 * 更新设备信息
-	 * @param params
-	 */
+
 	public void updateDeviceInfor(String wifiName, String wifiPassword)
 	{
 		int requestId = HttpRequestID.UPDATE_SPEAKER_INFOR;
@@ -664,10 +658,7 @@ public class HttpRequestModel extends HttpAPI
 		});
 	}
 	
-	/**
-	 * 检查更新
-	 * @param params
-	 */
+
 	public void checkUpdate()
 	{
 		
@@ -722,10 +713,7 @@ public class HttpRequestModel extends HttpAPI
 			}
 		});
 	}
-	/**
-	 * 获取状态信息
-	 * @param params
-	 */
+
 	public void getDevStatus(int playSeek, String playingSong, int playingSongType, String netSpeed, String id)
 	{
 		int requestId = HttpRequestID.GET_DEVICE_STATUS;
@@ -803,10 +791,7 @@ public class HttpRequestModel extends HttpAPI
 			}
 		});
 	}
-	/**
-	 * 获取状态信息
-	 * @param params
-	 */
+
 	public void getPushMusics()
 	{
 		
@@ -870,10 +855,7 @@ public class HttpRequestModel extends HttpAPI
 	}
 	
 	private int getPlanMusicsRunningCount = 0;
-	/**
-	 * 获取当前播放歌曲列表
-	 * @param params
-	 */
+
 	public void getPlanMusics()
 	{
 		int requestId = HttpRequestID.GET_PLAN_MUSICS;
@@ -963,10 +945,7 @@ public class HttpRequestModel extends HttpAPI
 			}
 		});
 	}
-	/**
-	 * 初始化设备
-	 * @param params
-	 */
+
 	public void initTerminal()
 	{
 		
@@ -1027,10 +1006,7 @@ public class HttpRequestModel extends HttpAPI
 		});
 	}
 	
-	/**
-	 * 获取当前系统时间
-	 * @param params
-	 */
+
 	public void getCurTime()
 	{
 		
@@ -1082,10 +1058,7 @@ public class HttpRequestModel extends HttpAPI
 			}
 		});
 	}
-	/**
-	 * 获取当前歌曲的播放位置
-	 * @param params
-	 */
+
 	public void getCurMusicPos()
 	{
 		int requestId = HttpRequestID.GET_CUR_MUSIC_POS;
@@ -1160,8 +1133,6 @@ public class HttpRequestModel extends HttpAPI
 		
 		getCurPlanRunningCount = 0;
 		
-		Constant.CUR_ALL_MEDIA_COUNT = 0;
-		
 		iHttpRequestView.requestStart(requestId);
     	CurPlanInfor curPlanInfor = null;
     	try 
@@ -1233,7 +1204,6 @@ public class HttpRequestModel extends HttpAPI
         						DBManager.INSTANCE.addCurPlanSub(curSubPlanInfor);
         						getListResult = true;
         						
-        						Constant.CUR_ALL_MEDIA_COUNT += tempList.size();
     						}
     						else
     						{

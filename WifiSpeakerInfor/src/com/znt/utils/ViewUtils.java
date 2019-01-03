@@ -1,8 +1,5 @@
 package com.znt.utils; 
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 import android.app.Activity;
 import android.content.ComponentName;
 import android.content.Context;
@@ -24,6 +21,9 @@ import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /** 
  * @ClassName: MyViewUtils 
@@ -121,14 +121,7 @@ public class ViewUtils
         intent.setComponent(componetName);  
         context.startActivity(intent);
 
-        //�?要在配置文件中对activity做如下配�?
-        /*<activity
-        android:name="com.neldtv.activity.HelpActivity">
-        <intent-filter>
-            <action android:name="android.intent.action.VIEW" />
-            <category android:name="android.intent.category.DEFAULT" />
-            <category android:name="android.intent.category.BROWSABLE" />
-        </intent-filter>*/
+
 	}
 	
 	
@@ -225,7 +218,7 @@ public class ViewUtils
     }
 	
     /**
-	* @Description: 发�?�handler消息
+	* @Description: 发�?�handler消息
 	* @param @param handler
 	* @param @param obj
 	* @param @param what   
@@ -250,14 +243,13 @@ public class ViewUtils
 	}
 	
 	/**
-     * 设置子字符串为红�?
+     * 设置子字符串为红�?
      * @param text
      * @param colorText
      * @return
      */
     public static SpannableString setColorText(String text, String colorText)
     {
-        //创建�?�? SpannableString对象    
         SpannableString msp = new SpannableString(text);
         Pattern p=Pattern.compile(colorText);
         Matcher matcher=p.matcher(text);
@@ -279,7 +271,7 @@ public class ViewUtils
      */
     public static SpannableString setColorText(String text, String colorText, float colorTextSize)
     {
-        //创建�?�? SpannableString对象    
+        //创建�?�? SpannableString对象    
         SpannableString msp = new SpannableString(text);
         Pattern p = Pattern.compile(colorText);
         Matcher matcher = p.matcher(text);
@@ -297,7 +289,7 @@ public class ViewUtils
     }
     public static SpannableString setColorText(String text, String colorText, float colorTextSize, int color)
     {
-    	//创建�?�? SpannableString对象    
+    	//创建�?�? SpannableString对象    
     	SpannableString msp = new SpannableString(text);
     	Pattern p = Pattern.compile(colorText);
     	Matcher matcher = p.matcher(text);
@@ -334,7 +326,7 @@ public class ViewUtils
 	}
     
 	/**
-	 * 获取状�?�栏高度
+	 * 获取状�?�栏高度
 	 * 
 	 * @return
 	 */

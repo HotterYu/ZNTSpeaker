@@ -113,7 +113,7 @@ public class SystemUtils
 	
 	public static String getScreenOritation(Context activity)
 	{
-		Configuration mConfiguration = activity.getResources().getConfiguration(); //获取设置的配置信�?
+		Configuration mConfiguration = activity.getResources().getConfiguration();
 		int ori = mConfiguration.orientation ; //获取屏幕方向
 
 		if(ori == mConfiguration.ORIENTATION_LANDSCAPE)
@@ -131,35 +131,7 @@ public class SystemUtils
 		return "未知";
 	}
 	
-	/**
-	 * 进行截取屏幕  
-	 * @param pActivity
-	 * @return bitmap
-	 */
-	public static Bitmap takeScreenShot(Activity activity)
-	{
-		Bitmap bitmap=null;
-		View view = activity.getWindow().getDecorView();
-		// 设置是否可以进行绘图缓存
-		view.setDrawingCacheEnabled(true);
-		// 如果绘图缓存无法，强制构建绘图缓�?
-		view.buildDrawingCache();
-	    // 返回这个缓存视图 
-		bitmap = view.getDrawingCache();
-		
-		// 获取状�?�栏高度
-		Rect frame = new Rect();
-		// 测量屏幕宽和�?
-		view.getWindowVisibleDisplayFrame(frame);
-		int stautsHeight = frame.top;//状�?�栏的高�?
-		
-		int width = activity.getWindowManager().getDefaultDisplay().getWidth();
-		int height = activity.getWindowManager().getDefaultDisplay().getHeight();
-		// 根据坐标点和�?要的宽和高创建bitmap
-		bitmap = Bitmap.createBitmap(bitmap, 0, stautsHeight, width, height-stautsHeight);
-		return bitmap;
-	}
-	
+
 	/**
 	* @Description: 获取机身存储可以空间
 	* @param @return   
@@ -175,12 +147,7 @@ public class SystemUtils
 	    return availableBlocks*blockSize;
 	}
 	 
-	/**
-	* @Description: 获取机身总大�?
-	* @param @return   
-	* @return long 
-	* @throws
-	 */
+
 	public static long getTotalInternalMemorySize()
 	{
     	File path = Environment.getDataDirectory();
@@ -190,23 +157,13 @@ public class SystemUtils
     	return totalBlocks*blockSize;
 	}
 	   
-	/**
-	* @Description: �?测是否有外部存储设备
-	* @param @return   
-	* @return boolean 
-	* @throws
-	 */
+
 	public static boolean externalMemoryAvailable()
 	{
     	return android.os.Environment.getExternalStorageState().equals(android.os.Environment.MEDIA_MOUNTED);
 	}
 	 
-	/**
-	* @Description: 获取外部存储设备可用空间
-	* @param @return   
-	* @return long 
-	* @throws
-	 */
+
 	public static long getAvailableExternalMemorySize()
 	{
     	if(externalMemoryAvailable())
@@ -225,12 +182,7 @@ public class SystemUtils
     	}
 	}
 	    
-	/**
-	* @Description: 获取外部存储设备总空�?
-	* @param @return   
-	* @return long 
-	* @throws
-	 */
+
 	public static long getTotalExternalMemorySize()
 	{
     	if(externalMemoryAvailable())
@@ -261,33 +213,18 @@ public class SystemUtils
         }  
     }
 	
-	/**
-	* @Description: 获取存储设备可用空间
-	* @param @return   
-	* @return String 
-	* @throws
-	 */
+
 	public static String getAvailabeMemorySize()
 	{
 		return StringUtils.getFormatSize(getAvailableExternalMemorySize());
 	}
-	/**
-	* @Description: 获取存储设备总容�?
-	* @param @return   
-	* @return String 
-	* @throws
-	 */
+
 	public static String getTotalMemorySize()
 	{
 		return StringUtils.getFormatSize(getTotalExternalMemorySize());
 	}
 	
-	/**
-	* @Description: 获取�?有的存储设备列表
-	* @param @return   
-	* @return ArrayList<String> 
-	* @throws
-	 */
+
 	public static ArrayList<String> getStorageDirectoriesArrayList()
     {
         ArrayList<String> list = new ArrayList<String>();
@@ -341,13 +278,7 @@ public class SystemUtils
         return list;
     }
 	
-	/**
-	* @Description: 判断当前目录是否可用
-	* @param @param file
-	* @param @return   
-	* @return boolean 
-	* @throws
-	 */
+
 	public static boolean isStorageAvailable(File file)
 	{
 		if(getSDspace(file)[1] > 0)
@@ -355,13 +286,7 @@ public class SystemUtils
 		return false;
 	}
 	
-	/**
-	* @Description: 获取本地缓存目录
-	* @param @param uniqueName
-	* @param @return   
-	* @return File 
-	* @throws
-	 */
+
 	public static File getAvailableDir(Context context, String uniqueName) 
 	{
 		/*获取外部存储设备列表*/
@@ -379,17 +304,11 @@ public class SystemUtils
 					return new File(sdList.get(i) + File.separator);
 			}
 		}
-		/*如果没有外设就使用内部存�?*/
+		/*如果没有外设就使用内部存�?*/
 		return context.getCacheDir();
 	}
 	
-	/**
-	* @Description: 获取本地存储设备存储空间
-	* @param @param file
-	* @param @return   
-	* @return long[] 
-	* @throws
-	 */
+
 	public static long[] getSDspace(File file)
 	{
 		StatFs statfs = new StatFs(file.getAbsolutePath());
@@ -397,9 +316,9 @@ public class SystemUtils
 		long[] result = new long[3];
 		
 		long blocSize = statfs.getBlockSize(); 
-		//获取BLOCK数量 
+
 		long totalBlocks = statfs.getBlockCount(); 
-		//己使用的Block的数�? 
+
 		long availaBlock = statfs.getAvailableBlocks(); 
 		
 		String total = StringUtils.getFormatSize(totalBlocks*blocSize); 
@@ -413,10 +332,7 @@ public class SystemUtils
 	}
 	
 	
-	/**
-	 * 获取当前android系统的sdk版本�?
-	 * @return
-	 */
+
 	public static int getAndroidSDKVersion() 
 	{
 		int version = 0;
@@ -424,27 +340,16 @@ public class SystemUtils
 		return version;
 	}
 	
-	/**
-	* @Description: 获取版本信息
-	* @param @param activity
-	* @param @return
-	* @param @throws Exception   
-	* @return String 
-	* @throws
-	 */
+
 	public static PackageInfo getPkgInfo(Activity activity) throws Exception
     {
-       // 获取packagemanager的实�?
        PackageManager packageManager = activity.getPackageManager();
-       // getPackageName()是你当前类的包名�?0代表是获取版本信�?
        PackageInfo packInfo = packageManager.getPackageInfo(activity.getPackageName(),0);
        return packInfo;
     }
 	public static PackageInfo getPkgInfo(Context activity) throws Exception
 	{
-		// 获取packagemanager的实�?
 		PackageManager packageManager = activity.getPackageManager();
-		// getPackageName()是你当前类的包名�?0代表是获取版本信�?
 		PackageInfo packInfo = packageManager.getPackageInfo(activity.getPackageName(),0);
 		return packInfo;
 	}
@@ -457,12 +362,7 @@ public class SystemUtils
 	}
 	
 	
-	/**
-	* @Description: 获取设备ip地址
-	* @param @return   
-	* @return String 
-	* @throws
-	 */
+
 	public static String getIP() 
 	{
 	    String IP = null;
@@ -496,18 +396,12 @@ public class SystemUtils
 	    return IP;
 	}
 	
-	/**
-	* @Description: 获取当前连接的WIFI的ssid
-	* @param @param activity
-	* @param @return   
-	* @return String 
-	* @throws
-	 */
+
 	public static String getConnectWifiSsid(Activity activity)
 	{
 		if(activity == null)
 			return "";
-		WifiManager wifiManager = (WifiManager)activity.getSystemService(activity.WIFI_SERVICE);
+		WifiManager wifiManager = (WifiManager)activity.getApplicationContext().getSystemService(activity.WIFI_SERVICE);
 		WifiInfo wifiInfo = wifiManager.getConnectionInfo();
 		String ssid = wifiInfo.getSSID();
 		if(ssid == null)
@@ -537,7 +431,7 @@ public class SystemUtils
 	{
 		if(activity == null)
 			return "";
-		WifiManager wifiManager = (WifiManager)activity.getSystemService(activity.WIFI_SERVICE);
+		WifiManager wifiManager = (WifiManager)activity.getApplicationContext().getSystemService(activity.WIFI_SERVICE);
 		WifiInfo wifiInfo = wifiManager.getConnectionInfo();
 		String bssid = wifiInfo.getBSSID();
 		if(bssid == null)
@@ -592,7 +486,7 @@ public class SystemUtils
         
         //该应用的包名
         String pkg = info.activityInfo.packageName;
-        //应用的主activity�?
+        //应用的主activity�?
         String cls = info.activityInfo.name;
         
         ComponentName componet = new ComponentName(pkg, cls);
@@ -603,7 +497,7 @@ public class SystemUtils
 	}
 	
 	/** 
-     * �?测网络是否连�? 
+     * �?测网络是否连�? 
      *  
      * @return 
      */ 
@@ -642,7 +536,7 @@ public class SystemUtils
     }
    
     /** 
-     * �?�?3G是否连接 
+     * �?�?3G是否连接 
      *  
      * @return 
      */ 
@@ -662,7 +556,7 @@ public class SystemUtils
     }  
    
     /** 
-     * �?测GPS是否打开 
+     * �?测GPS是否打开 
      *  
      * @return 
      */ 
@@ -681,7 +575,7 @@ public class SystemUtils
     }  
     
     /**
-    * @Description: �?般用于获取apikey，如�?<meta-data android:name="api_key" android:value="fjYoOGjPsZmRHj8eub0X95Up" />
+    * @Description: �?般用于获取apikey，如�?<meta-data android:name="api_key" android:value="fjYoOGjPsZmRHj8eub0X95Up" />
     * @param @param context
     * @param @param metaKey
     * @param @return   
@@ -747,12 +641,12 @@ public class SystemUtils
         {
             Enumeration<NetworkInterface> en = NetworkInterface
                     .getNetworkInterfaces();
-            // 遍历�?用的网络接口
+            // 遍历�?用的网络接口
             while (en.hasMoreElements())
             {
-                NetworkInterface nif = en.nextElement();// 得到每一个网络接口绑定的�?有ip
+                NetworkInterface nif = en.nextElement();// 得到每一个网络接口绑定的�?有ip
                 Enumeration<InetAddress> inet = nif.getInetAddresses();
-                // 遍历每一个接口绑定的�?有ip
+                // 遍历每一个接口绑定的�?有ip
                 while (inet.hasMoreElements())
                 {
                     InetAddress ip = inet.nextElement();
@@ -779,14 +673,14 @@ public class SystemUtils
     public String getLocalMac(Activity activity)
     {
         String mac = "";
-        // 获取wifi管理�?
+        // 获取wifi管理�?
         WifiManager wifiMng = (WifiManager) activity.getSystemService(Context.WIFI_SERVICE);
         WifiInfo wifiInfor = wifiMng.getConnectionInfo();
         mac = wifiInfor.getMacAddress();
         return mac;
     }
     
-    /**隐藏软键�?**/
+    /**隐藏软键�?**/
     public static void closeSoftInput(Activity activity)
     {
         View view = activity.getWindow().peekDecorView();
@@ -796,12 +690,12 @@ public class SystemUtils
         }
     }
     
-  //版本�?
+  //版本�?
     public static String getVersionName(Context context) {
   	    return getPackageInfo(context).versionName;
   	}
   	 
-  	//版本�?
+  	//版本�?
     public static int getVersionCode(Context context) {
   	    return getPackageInfo(context).versionCode;
   	}

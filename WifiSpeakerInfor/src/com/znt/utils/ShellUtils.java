@@ -55,7 +55,7 @@ public class ShellUtils
 	
 	public static void shutDown()
 	{
-			//Process proc =Runtime.getRuntime().exec(new String[]{"su","-c","shutdown"}); //关机
+			//Process proc =Runtime.getRuntime().exec(new String[]{"su","-c","shutdown"}); //锟截伙拷
 			Process proc;
 			try {
 				proc = Runtime.getRuntime().exec(new String[]{"su","-c","reboot -p"});
@@ -63,7 +63,7 @@ public class ShellUtils
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-			} //关机
+			}
 			
 	}
 	public static void reboot()
@@ -78,7 +78,7 @@ public class ShellUtils
 		{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} //关机
+		} //锟截伙拷
 		
 		
 	}

@@ -38,6 +38,7 @@ import com.znt.speaker.R;
 import com.znt.speaker.db.DBManager;
 import com.znt.speaker.entity.Constant;
 import com.znt.speaker.entity.LocalDataEntity;
+import com.znt.speaker.entity.PlayListFilter;
 import com.znt.speaker.factory.CurPlanFactory;
 import com.znt.speaker.factory.LocationFactory;
 import com.znt.speaker.factory.MediaScanFactory;
@@ -65,7 +66,6 @@ import com.znt.speaker.v.IMusicReceiverView;
 import com.znt.speaker.v.INetWorkView;
 import com.znt.speaker.v.ISDCardMountView;
 import com.znt.utils.DateUtils;
-import com.znt.utils.FileUtils;
 import com.znt.utils.MacUtils;
 import com.znt.utils.NetWorkUtils;
 import com.znt.utils.ShellUtils;
@@ -73,7 +73,6 @@ import com.znt.utils.SystemUtils;
 import com.znt.utils.ViewUtils;
 
 import java.text.DecimalFormat;
-import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends BaseActivity implements IHttpRequestView, INetWorkView, 
@@ -232,7 +231,7 @@ public class MainActivity extends BaseActivity implements IHttpRequestView, INet
 			// TODO: handle exception
 		}
 
-		mPermissionHelper = new PermissionHelper(this, this);
+		//mPermissionHelper = new PermissionHelper(this, this);
 		//mPermissionHelper.requestPermissions();
 		
 		mUpdateTimer = new UpdateTimer(getApplicationContext());
@@ -664,20 +663,10 @@ public class MainActivity extends BaseActivity implements IHttpRequestView, INet
 			
 			if(TextUtils.isEmpty(mac))
 				mac = MacUtils.getMac(getApplicationContext());
-			
-			String playSize = "";
-			if(musicPlayPresenter.isPlayListNone())
-			{
-				playSize = "沒有播放列表，getServer:" + Constant.CUR_ALL_MEDIA_COUNT + " getLocal:"+Constant.GET_CUR_MEDIA_FROM_LOCAL_RESULT;
-			}
-			else
-				playSize = "播放列表:" + musicPlayPresenter.getPlayListSize();
-			if(musicPlayPresenter.getCurPlaySong() == null)
-				playSize = playSize + "   播放NULL";
-			playSize = playSize + Constant.PLAN_GET_STATUS;
+
 			int rotation = SystemUtils.getScreenRotation(getApplicationContext());
 			//return space + " " + netType + " " + SystemUtils.getScreenOritation(getApplicationContext()) + "  " + rebootCount;
-			return space + " " + netType + "  " + rotation + "   " + SystemUtils.getIP()+ "  mac地址:"+ mac + "\n PlayList:"+playSize + "  " + rebootCount + "   localPlanCount:"+localPlanCount;
+			return space + " " + netType + "  " + rotation + "   " + SystemUtils.getIP()+ "  mac地址:"+ mac + "  " + rebootCount + "   localPlanCount:"+localPlanCount;
 		} 
 		catch (Exception e) 
 		{
@@ -807,20 +796,16 @@ public class MainActivity extends BaseActivity implements IHttpRequestView, INet
 			}
 			else if(!TextUtils.isEmpty(planTime) && !planTime.equals(localPlanTime))
 			{
-				//getCurPlan();
-				getCurPlayMusicsFromLocal(false);
-				
-				/*getLocalData().setPlanId(planId);
-				getLocalData().setMusicUpdateTime(musicUpdateTime);
-				getLocalData().setPlanTime(planTime);*/
+				getCurPlan();
+				//getCurPlayMusicsFromLocal(false);
 			}
-			else 
+			/*else
 			{
 				if(musicPlayPresenter.isPlayListNone())
 				{
 					getCurMusics();
 				}
-			}
+			}*/
 		}
 	}
 	
@@ -856,7 +841,7 @@ public class MainActivity extends BaseActivity implements IHttpRequestView, INet
 		else
 		{
 			curPlanRuninngCount ++;
-			if(curPlanRuninngCount > 15)
+			if(curPlanRuninngCount > 8)
 			{
 				curPlanRuninngCount = 0;
 				isGetCurPlanRunning = false;
@@ -952,9 +937,12 @@ public class MainActivity extends BaseActivity implements IHttpRequestView, INet
 		if(tempList.size() > 0)
 		{
 
-			doImageProecess(tempList);
+			PlayListFilter mPlayListFilter = new PlayListFilter();
+			mPlayListFilter.setSrcList(tempList);
 
-			musicPlayPresenter.addPlayList(tempList);
+			doImageProecess(mPlayListFilter);
+
+			musicPlayPresenter.addPlayList(mPlayListFilter.getMediaList());
 			musicPlayPresenter.startPlaySong();
 		}
 		
@@ -964,24 +952,15 @@ public class MainActivity extends BaseActivity implements IHttpRequestView, INet
 		
 	}
 
-	private void doImageProecess(List<SongInfor> tempList)
+	private void doImageProecess(final PlayListFilter mPlayListFilter)
 	{
-		final List<String> imgList = new ArrayList<>();
-		for(int i=0;i<tempList.size();i++)
-		{
-			String temp = tempList.get(i).getMediaUrl();
-			if(FileUtils.isPicture(temp))
-				imgList.add(temp);
-		}
-		if(imgList.size() > 0)
-		{
-			mHandler.post(new Runnable() {
-				@Override
-				public void run() {
-					mUIManager.updateImgList(imgList);
-				}
-			});
-		}
+
+		mHandler.post(new Runnable() {
+			@Override
+			public void run() {
+				mUIManager.updateImgList(mPlayListFilter);
+			}
+		});
 	}
 	
 	public void closeAll()
@@ -1163,7 +1142,7 @@ public class MainActivity extends BaseActivity implements IHttpRequestView, INet
 		}
 		else if(requestId == HttpRequestID.GET_CUR_PLAN)
 		{
-			isGetCurPlanRunning = true;
+
 			mHandler.post(new Runnable() 
 			{
 				@Override
@@ -1255,8 +1234,11 @@ public class MainActivity extends BaseActivity implements IHttpRequestView, INet
 			{
 				String planId = curDeviceStatusInfor.getPlanId();
 				String musicUpdateTime = curDeviceStatusInfor.getMusicLastUpdate();
+				String planTime = curDeviceStatusInfor.getPlanTime();
+
 				getLocalData().setPlanId(planId);
 				getLocalData().setMusicUpdateTime(musicUpdateTime);
+				getLocalData().setPlanTime(planTime);
 			}
 			isGetCurPlanRunning = false;
 			isGetCurPlanFinished = true;
@@ -1308,7 +1290,6 @@ public class MainActivity extends BaseActivity implements IHttpRequestView, INet
 	
 	private void getCurPlayMusicsFromLocal(boolean isOffline )
 	{
-		Constant.GET_CUR_MEDIA_FROM_LOCAL_RESULT = "";
 		List<SongInfor> tempList = curPlanFactory.getCurPlanMusics(isOffline);
 		if(tempList != null)
 		{

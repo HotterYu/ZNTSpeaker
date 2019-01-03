@@ -13,6 +13,9 @@
         android:label="Tests for com.znt.diange.wifispeakerinfor.test"
         android:targetPackage="com.znt.diange.wifispeakerinfor.test" />
 
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
     <application android:debuggable="true" >
         <uses-library android:name="android.test.runner" />
     </application>

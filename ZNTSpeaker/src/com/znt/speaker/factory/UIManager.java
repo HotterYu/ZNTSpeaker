@@ -10,6 +10,7 @@ import android.graphics.Color;
 import android.location.LocationManager;
 import android.provider.Settings;
 import android.support.v4.app.ActivityCompat;
+import android.support.v4.view.ViewPager;
 import android.text.TextUtils;
 import android.view.Surface;
 import android.view.TextureView;
@@ -43,14 +44,12 @@ import com.znt.diange.mina.entity.SongInfor;
 import com.znt.speaker.R;
 import com.znt.speaker.entity.Constant;
 import com.znt.speaker.entity.LocalDataEntity;
+import com.znt.speaker.entity.PlayListFilter;
 import com.znt.speaker.player.TextureVideoPlayer;
 import com.znt.speaker.prcmanager.ZNTWifiServiceManager;
 import com.znt.utils.DateUtils;
 import com.znt.utils.FileUtils;
 import com.znt.utils.SystemUtils;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import ling.placeholder.CorpDrawableBuilder;
 
@@ -584,37 +583,42 @@ public class UIManager implements OnClickListener, OnSeekBarChangeListener
 	}
 
 	private Banner banner = null;
-	private List<String> mediaList = new ArrayList<>();
-	public void updateImgList(List<String> tempList)
+	private PlayListFilter mPlayListFilter = new PlayListFilter();
+	public void updateImgList(PlayListFilter mPlayListFilter)
 	{
-		mediaList.clear();
-		if(tempList != null && tempList.size() > 0)
-			mediaList.addAll(tempList);
-		startImagePlay();
+		this.mPlayListFilter = mPlayListFilter;
+		if(mPlayListFilter.getImgUrls() != null && mPlayListFilter.getImgUrls().size() > 0)
+		{
+			startImagePlay();
+		}
+		else
+			stopImagePlay();
 	}
 	public void updateImgList(String url)
 	{
 
 		if(!FileUtils.isPicture(url))
 			return;
-		if(mediaList.size() == 0)
-			mediaList.add(url);
+		if(mPlayListFilter.getImgUrls().size() == 0)
+			mPlayListFilter.getImgUrls().add(url);
 		else
 		{
 			boolean ifHasUrl = false;
-			for(int i=0;i<mediaList.size();i++)
+			for(int i=0;i<mPlayListFilter.getImgUrls().size();i++)
 			{
-				String tempUrl = mediaList.get(i);
+				String tempUrl = mPlayListFilter.getImgUrls().get(i);
 				if(tempUrl.equals(url))
 					ifHasUrl = true;
 			}
 			if(!ifHasUrl)
-				mediaList.add(url);
+				mPlayListFilter.getImgUrls().add(url);
 		}
-		if(mediaList != null && mediaList.size() > 0)
+		if(mPlayListFilter.getImgUrls() != null && mPlayListFilter.getImgUrls().size() > 0)
 			startImagePlay();
 
 	}
+
+	private int curPosition = 0;
 	public void initBannerView()
 	{
 		if(banner == null)
@@ -624,6 +628,22 @@ public class UIManager implements OnClickListener, OnSeekBarChangeListener
 				@Override
 				public void OnBannerClick(int position) {
 					//onImageClickProcess();
+				}
+			});
+			banner.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+				@Override
+				public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+				}
+
+				@Override
+				public void onPageSelected(int position) {
+					curPosition = position;
+				}
+
+				@Override
+				public void onPageScrollStateChanged(int state) {
+
 				}
 			});
 		}
@@ -646,16 +666,24 @@ public class UIManager implements OnClickListener, OnSeekBarChangeListener
 		banner.setOffscreenPageLimit(1);
 
 		//设置图片集合
-		banner.setImages(mediaList);
+		banner.setImages(mPlayListFilter.getImgUrls());
 		//banner设置方法全部调用完毕时最后调用
 		banner.start();
 
 	}
 
+	public String getCurImgName()
+	{
+		return mPlayListFilter.getCurImgName(curPosition);
+	}
+
 	public void stopImagePlay()
 	{
-		banner.setVisibility(View.GONE);
-		banner.stopAutoPlay();
+		if(banner != null)
+		{
+			banner.setVisibility(View.GONE);
+			banner.stopAutoPlay();
+		}
 	}
 
 	public boolean isBannerViewShow()

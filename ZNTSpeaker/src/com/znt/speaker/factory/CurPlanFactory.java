@@ -1,8 +1,5 @@
 package com.znt.speaker.factory;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import android.app.Activity;
 import android.text.TextUtils;
 
@@ -10,9 +7,11 @@ import com.znt.diange.mina.entity.CurPlanInfor;
 import com.znt.diange.mina.entity.CurPlanSubInfor;
 import com.znt.diange.mina.entity.SongInfor;
 import com.znt.speaker.db.DBManager;
-import com.znt.speaker.entity.Constant;
 import com.znt.speaker.entity.LocalDataEntity;
 import com.znt.utils.DateUtils;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class CurPlanFactory 
 {
@@ -38,21 +37,17 @@ public class CurPlanFactory
 		List<SongInfor> tempList = new ArrayList<SongInfor>();
 		
 		
-		if(isOffline)
+		if(isOffline)//掉线的，只获取本地的列表
 		{
-			tempList = getCurPlanMusicsFromLocal(DBManager.FILE_TYPE_LOCAL);
-			if(tempList == null)
-				Constant.GET_CUR_MEDIA_FROM_LOCAL_RESULT = "offline:null";
-			else
-				Constant.GET_CUR_MEDIA_FROM_LOCAL_RESULT = "offline:"+tempList.size();
+			tempList = getCurPlanMusicsFromMem();
+			if(tempList == null || tempList.size() == 0)
+				tempList = getCurPlanMusicsFromLocal(DBManager.FILE_TYPE_LOCAL);
 		}
-		else
+		else//在线的,获取全部的播放列表
 		{
-			tempList = getCurPlanMusicsFromLocal(DBManager.FILE_TYPE_ALL);
-			if(tempList == null)
-				Constant.GET_CUR_MEDIA_FROM_LOCAL_RESULT = "online:null";
-			else
-				Constant.GET_CUR_MEDIA_FROM_LOCAL_RESULT = "online:"+tempList.size();
+			tempList = getCurPlanMusicsFromMem();
+			if(tempList == null || tempList.size() == 0)
+				tempList = getCurPlanMusicsFromLocal(DBManager.FILE_TYPE_ALL);
 		}
 		return tempList;
 	}
@@ -88,40 +83,19 @@ public class CurPlanFactory
  		     	String curTimeShort = DateUtils.getEndDateFromLong(mUIManager.getCurTime());
  		     	long curTimeShortLong = DateUtils.timeToInt(curTimeShort, ":");
  		     	
- 		     	/*Date dateDate = new Date(mUIManager.getCurTime());
- 		     	String s = DateUtils.dateToStrLong(dateDate);*/
- 		     	
- 				
  				if(isTimeOverlap(sLong, eLong, curTimeShortLong))
  				{
  					songList = curPlanSubInfor.getSongList();
- 					/*String curPlanTime = LocalDataEntity.newInstance(activity).getPlayTime();
- 					if(!curPlanTime.equals(startTime))
- 					{
- 						//songList = getSongListByPlanId(tempId, false);
- 						songList = curPlanSubInfor.getSongList();
- 						
- 						LocalDataEntity.newInstance(activity).setPlanTime(startTime);
- 					}
- 					else//
- 					{
- 						songList = null;
- 						//LogFactory.createLog().e("*&&&*&*&*&*&*&*&-->curPlanTime" + curPlanTime + "  startTime-->"+startTime);
- 						//showToast("*&&&*&*&*&*&*&*&-->curPlanTime" + curPlanTime + "  startTime-->"+startTime);
- 					}*/
+
  					break;
  				}
  				else
  				{
- 					//songList = new ArrayList<SongInfor>();
- 					//LogFactory.createLog().e("*&&&*&*&*&*&*&*&-->sLong" + sLong + "  eLong-->"+eLong + "  curTimeShortLong-->"+curTimeShortLong);
- 					//showToast("*&&&*&*&*&*&*&*&-->sLong" + sLong + "  eLong-->"+eLong + "  curTimeShortLong-->"+curTimeShortLong);
  				}
  			}
  			else
  			{
- 				//songList = new ArrayList<SongInfor>();
- 				//showToast("*&&&*&*&*&*&*&*&-->startTime" + startTime + "  endTime-->"+endTime);
+
  			}
      		
      	 }
@@ -135,11 +109,7 @@ public class CurPlanFactory
 		return false;
 	}
 	
-	/**
-	 * 浠庢湰鍦拌幏鍙�
-	 * @param curTime
-	 * @return
-	 */
+
 	private List<SongInfor> getCurPlanMusicsFromLocal(int fileTye)
 	{
 		if(isCheckFromLocalRunning)

@@ -4,6 +4,7 @@ dependencies {
     compile fileTree(dir: 'libs', include: '*.jar')
     compile project(':WifiSpeakerInfor')
     compile project(':ZNTDownLoadModel')
+
 }
 
 android {

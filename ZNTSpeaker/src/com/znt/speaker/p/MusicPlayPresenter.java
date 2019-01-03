@@ -134,7 +134,7 @@ public class MusicPlayPresenter implements OnBufferingUpdateListener, OnSeekComp
 	public String getCurPlaySongName()
 	{
 		SongInfor tempInfor = getCurPlaySong();
-		if(tempInfor == null)
+		if(tempInfor == null && !mUIManager.isBannerViewShow())
 			return "";
 		if(mPlayerEngineImpl.isLoading())
 			return activity.getResources().getString(R.string.media_play_loading);
@@ -142,6 +142,18 @@ public class MusicPlayPresenter implements OnBufferingUpdateListener, OnSeekComp
 			return mPlayerEngineImpl.getError();
 		if(!mPlayerEngineImpl.isPlaying() && !mUIManager.isBannerViewShow())
 			return "";
+
+		if(mUIManager.isBannerViewShow())
+		{
+			String imgName = mUIManager.getCurImgName();
+			if(!TextUtils.isEmpty(imgName))
+			{
+				if(tempInfor != null)
+					return tempInfor.getMediaName() +"\n IMG:" + imgName;
+				else
+					return "IMG:" + imgName;
+			}
+		}
 		return tempInfor.getMediaName();
 	}
 	public int getCurPlaySongType()

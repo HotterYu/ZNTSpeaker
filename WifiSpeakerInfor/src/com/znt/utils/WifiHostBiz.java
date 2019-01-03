@@ -6,11 +6,7 @@ import android.content.Context;
 import android.net.wifi.WifiConfiguration;
 import android.net.wifi.WifiManager;
 
-/** 
- * WIFI热点业务�? 
- * @author wlh 
- * 
- */  
+
 public class WifiHostBiz {  
   
     private final String TAG = "WifiHostBiz";  
@@ -33,8 +29,7 @@ public class WifiHostBiz {
         wifiManager = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);  
     }  
   
-    /**判断热点�?启状�?*/  
-    public boolean isWifiApEnabled() {  
+    public boolean isWifiApEnabled() {
         return getWifiApState() == WIFI_AP_STATE.WIFI_AP_STATE_ENABLED;  
     }  
   
@@ -59,36 +54,6 @@ public class WifiHostBiz {
         WIFI_AP_STATE_DISABLING, WIFI_AP_STATE_DISABLED, WIFI_AP_STATE_ENABLING,  WIFI_AP_STATE_ENABLED, WIFI_AP_STATE_FAILED  
     }  
   
-    /** 
-     * wifi热点�?�? 
-     * @param enabled   true：打�?  false：关�? 
-     * @return  true：成�?  false：失�? 
-     */  
-    public boolean setWifiApEnabled(boolean enabled) {  
-        System.out.println(TAG + ":�?启热�?");  
-        if (enabled) { // disable WiFi in any case  
-            //wifi和热点不能同时打�?，所以打�?热点的时候需要关闭wifi  
-            wifiManager.setWifiEnabled(false);  
-            System.out.println(TAG + ":关闭wifi");  
-        }else{  
-            wifiManager.setWifiEnabled(true);  
-        }  
-        try {  
-            //热点的配置类  
-            WifiConfiguration apConfig = new WifiConfiguration();  
-            //配置热点的名�?(可以在名字后面加点随机数�?么的)  
-            apConfig.SSID = WIFI_HOST_SSID;  
-            //配置热点的密�?  
-            apConfig.preSharedKey = WIFI_HOST_PRESHARED_KEY;  
-            //安全：WPA2_PSK  
-            apConfig.allowedKeyManagement.set(WifiConfiguration.KeyMgmt.WPA_PSK);  
-            //通过反射调用设置热点  
-            Method method = wifiManager.getClass().getMethod(  
-                    "setWifiApEnabled", WifiConfiguration.class, Boolean.TYPE);  
-            //返回热点打开状�??  
-            return (Boolean) method.invoke(wifiManager, apConfig, enabled);  
-        } catch (Exception e) {  
-            return false;  
-        }  
-    }  
+
+
 }  

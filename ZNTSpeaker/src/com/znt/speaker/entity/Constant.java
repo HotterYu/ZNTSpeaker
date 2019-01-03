@@ -35,9 +35,6 @@ public class Constant
 	
 	public volatile static int STATUS_CHECK_TIME_MAX = 12;
 	
-	public volatile static int CUR_ALL_MEDIA_COUNT = 0;
-	public volatile static String GET_CUR_MEDIA_FROM_LOCAL_RESULT = "";
-	
 	public static boolean isBoxVersion = true;
 	
 	public static List<ScanResult> wifiList = new ArrayList<ScanResult>();
