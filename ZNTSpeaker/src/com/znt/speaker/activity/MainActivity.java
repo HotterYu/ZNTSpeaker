@@ -665,8 +665,7 @@ public class MainActivity extends BaseActivity implements IHttpRequestView, INet
 				mac = MacUtils.getMac(getApplicationContext());
 
 			int rotation = SystemUtils.getScreenRotation(getApplicationContext());
-			//return space + " " + netType + " " + SystemUtils.getScreenOritation(getApplicationContext()) + "  " + rebootCount;
-			return space + " " + netType + "  " + rotation + "   " + SystemUtils.getIP()+ "  mac地址:"+ mac + "  " + rebootCount + "   localPlanCount:"+localPlanCount;
+			return space + " " + netType + "  " + rotation + "   " + SystemUtils.getIP()+ "  mac地址:"+ mac + "  " + rebootCount + "   localPlanCount:"+localPlanCount + "  PlanStatus:" + Constant.PLAN_GET_STATUS ;
 		} 
 		catch (Exception e) 
 		{

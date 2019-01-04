@@ -4,8 +4,6 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.znt.diange.mina.entity.SongInfor;
-
 public class CurPlanSubInfor implements Serializable
 {
 	/**
@@ -56,7 +54,8 @@ public class CurPlanSubInfor implements Serializable
 	
 	public void setSongList(List<SongInfor> songList)
 	{
-		this.songList = songList;
+		this.songList.clear();
+		this.songList.addAll(songList);
 	}
 	public List<SongInfor> getSongList()
 	{

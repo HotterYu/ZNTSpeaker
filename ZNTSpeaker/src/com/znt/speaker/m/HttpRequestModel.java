@@ -62,7 +62,7 @@ public class HttpRequestModel extends HttpAPI
 {
 	
 	private final String mBaseUrl = "";
-	private final int MAX_PAGE_SIZE = 300;
+	private final int MAX_PAGE_SIZE = 25;
 	private Activity activity = null;
 	private IHttpRequestView iHttpRequestView = null;
 	
@@ -1117,6 +1117,7 @@ public class HttpRequestModel extends HttpAPI
 	}
 
 	private int getCurPlanRunningCount = 0;
+	private int scheduleMusicPageNum = 1;
     /**
      * 获取当前的播放计划
      * @param params
@@ -1196,14 +1197,17 @@ public class HttpRequestModel extends HttpAPI
     						}
     						curSubPlanInfor.setPlanId(id1);
     						curPlanInfor.addSubPlanInfor(curSubPlanInfor);
-    						List<SongInfor> tempList = getScheduleMusics(id1);
-    						if(tempList != null)
+
+							//List<SongInfor> tempList = getScheduleMusics(id1);
+							scheduleMusicPageNum = 1;
+							tempScheduleMusics.clear();
+    						getScheduleMusics(id1);
+    						if(tempScheduleMusics.size() > 0)
     						{
-    							curSubPlanInfor.setSongList(tempList);
+    							curSubPlanInfor.setSongList(tempScheduleMusics);
         						curPlanInfor.addSubPlanInfor(curSubPlanInfor);
         						DBManager.INSTANCE.addCurPlanSub(curSubPlanInfor);
         						getListResult = true;
-        						
     						}
     						else
     						{
@@ -1240,11 +1244,15 @@ public class HttpRequestModel extends HttpAPI
 			iGetCurPllanCallBack.requestFail(requestId);
 		}
     }
-    
-    private List<SongInfor> getScheduleMusics(String planScheId)
+
+    /*private List<SongInfor> getScheduleMusics(String planScheId)
+	{
+
+	}*/
+	private List<SongInfor> tempScheduleMusics = new ArrayList<SongInfor>();
+    private void getScheduleMusics(String planScheId)
     {
-    	List<SongInfor> tempList = new ArrayList<SongInfor>();
-    	int scheduleMusicPageNum = 1;
+
     	Map<String, String> params = new HashMap<String, String>();
     	params.put("planScheId", planScheId);
     	params.put("pageSize", MAX_PAGE_SIZE + "");
@@ -1272,9 +1280,9 @@ public class HttpRequestModel extends HttpAPI
 						String listInfo = getInforFromJason(jsonObject1, "infoList");
 						JSONArray jsonArray = new JSONArray(listInfo);
 						int size = jsonArray.length();
-						tempList = new ArrayList<SongInfor>();
 						Constant.PLAN_GET_STATUS = Constant.PLAN_GET_STATUS + "14（" + size +"),";
-						try {
+						try
+						{
 							for(int i=0;i<size;i++)
 							{
 								JSONObject json = jsonArray.getJSONObject(i);
@@ -1293,11 +1301,18 @@ public class HttpRequestModel extends HttpAPI
 								tempInfor.setMediaUrl(musicUrl);
 								tempInfor.setArtist(musicSing);
 								tempInfor.setAlbumName(musicAlbum);
-								tempList.add(tempInfor);
+								tempScheduleMusics.add(tempInfor);
 								DBManager.INSTANCE.addCurPlanMusic(tempInfor, planScheId);
 
 							}
-						} catch (Exception e) {
+							if(tempScheduleMusics.size() < totalInt)
+							{
+								scheduleMusicPageNum ++;
+								getScheduleMusics(planScheId);
+							}
+						}
+						catch (Exception e)
+						{
 							if(e == null)
 								Constant.PLAN_GET_STATUS = Constant.PLAN_GET_STATUS + "18（error),";
 							else
@@ -1305,7 +1320,7 @@ public class HttpRequestModel extends HttpAPI
 							e.printStackTrace();
 						}
 
-						Constant.PLAN_GET_STATUS = Constant.PLAN_GET_STATUS + "15（" + tempList.size() +"),";
+						Constant.PLAN_GET_STATUS = Constant.PLAN_GET_STATUS + "15（" + tempScheduleMusics.size() +"),";
 					}
 	    		}
 	    		catch (Exception e) 
@@ -1316,7 +1331,6 @@ public class HttpRequestModel extends HttpAPI
 						Constant.PLAN_GET_STATUS = Constant.PLAN_GET_STATUS + "16（" + e.getMessage() +"),";
 	    			// TODO Auto-generated catch block
 	    			e.printStackTrace();
-	    			return null;
 	    		}
 	    	}
 		} 
@@ -1328,11 +1342,7 @@ public class HttpRequestModel extends HttpAPI
 				Constant.PLAN_GET_STATUS = Constant.PLAN_GET_STATUS + "17（" + e.getMessage() +"),";
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			return null;
 		}
-    	
-    	
-    	return tempList;
     }
     
     /*private int scheduleMusicPageNum = 1;
