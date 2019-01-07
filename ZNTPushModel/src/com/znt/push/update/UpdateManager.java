@@ -1,12 +1,11 @@
 package com.znt.push.update;
 
-import java.io.File;
-import java.util.List;
-
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Handler;
+import android.support.v4.content.FileProvider;
 
 import com.znt.push.email.EmailSenderManager;
 import com.znt.push.entity.DownloadFileInfo;
@@ -14,6 +13,9 @@ import com.znt.push.entity.PushModelConstant;
 import com.znt.push.utils.ApkTools;
 import com.znt.push.utils.SystemUtils;
 import com.znt.push.utils.ViewUtils;
+
+import java.io.File;
+import java.util.List;
 
 public class UpdateManager implements ApkDownloadListener
 {
@@ -164,11 +166,20 @@ public class UpdateManager implements ApkDownloadListener
 	
 	private void installByClick()
 	{
-		// 鏍稿績鏄笅闈㈠嚑鍙ヤ唬鐮�  
-        Intent intent = new Intent(Intent.ACTION_VIEW);  
-        intent.setDataAndType(Uri.fromFile(apkFile),  
-                "application/vnd.android.package-archive");  
-        activity.startActivity(intent);  
+		Intent intent = new Intent(Intent.ACTION_VIEW);
+		intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+			intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+			Uri contentUri = FileProvider.getUriForFile(
+					activity
+					, "com.znt.speaker.fileprovider"
+					, apkFile);
+			intent.setDataAndType(contentUri, "application/vnd.android.package-archive");
+		} else {
+
+			intent.setDataAndType(Uri.fromFile(apkFile), "application/vnd.android.package-archive");
+		}
+		activity.startActivity(intent);
 	}
 	
 	private void installByAuto()

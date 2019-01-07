@@ -33,7 +33,7 @@ import com.znt.diange.mina.entity.SongInfor;
  * @ClassName: MyFileUtils 
  * @Description: TODO
  * @author yan.yu 
- * @date 2014-2-11 涓嬪�?4:41:52  
+ * @date 2014-2-11 涓嬪�?4:41:52  
  */
 public class FileUtils
 {
@@ -60,8 +60,8 @@ public class FileUtils
 	
 	/**
 	* @Description: 鑾峰彇鐩綍涓嬬殑鏂囦欢(鏈湴鏂囦欢鎵弿鏂瑰紡)
-	* @param @param fileList  鑾峰彇鐨勬枃浠跺垪琛�?
-	* @param @param type 0, 鍥剧墖锛�?1锛岄煶棰戯紱2锛岃棰�?
+	* @param @param fileList  鑾峰彇鐨勬枃浠跺垪琛�?
+	* @param @param type 0, 鍥剧墖锛�?1锛岄煶棰戯紱2锛岃棰�?
 	* @param @param path   鐩綍璺緞
 	* @return void 
 	* @throws
@@ -83,11 +83,11 @@ public class FileUtils
 					return false;
 				}
 				boolean result = false;
-				if(type == 0)//鍥剧�?
+				if(type == 0)//鍥剧�?
 					result = isPicture(pathname.getAbsolutePath());
-				else if(type == 1)//闊抽�?
+				else if(type == 1)//闊抽�?
 					result = isMusic(pathname.getAbsolutePath());
-				else if(type == 2)//瑙嗛�?
+				else if(type == 2)//瑙嗛�?
 					result = isVideo(pathname.getAbsolutePath());	
 				if(result)
 				{
@@ -99,7 +99,7 @@ public class FileUtils
 	}
 	
 	/**
-	* @Description: MP4鏂囦�?
+	* @Description: MP4鏂囦�?
 	* @param @param path
 	* @param @return   
 	* @return boolean 
@@ -218,10 +218,10 @@ public class FileUtils
 	}
 	
 	/**
-	* @Description: 鍒犻櫎鏈�?湴鍗曚釜鏂囦�?
+	* @Description: 鍒犻櫎鏈�?湴鍗曚釜鏂囦�?
 	* @param @param file
 	* @param @return   
-	* @return int 0,鍒犻櫎鎴愬姛锛�1锛屾枃浠朵笉瀛樺湪锛�?2锛屽垹闄ゅけ璐�
+	* @return int 0,鍒犻櫎鎴愬姛锛�1锛屾枃浠朵笉瀛樺湪锛�?2锛屽垹闄ゅけ璐�
 	* @throws
 	 */
 	public static int deleteFile(File file)
@@ -234,10 +234,10 @@ public class FileUtils
 		return 0;
 	}
 	/**
-	* @Description: 鍒犻櫎鏈�?湴澶氫釜鏂囦�?
+	* @Description: 鍒犻櫎鏈�?湴澶氫釜鏂囦�?
 	* @param @param files
 	* @param @return   
-	* @return int 0,鍒犻櫎鎴愬姛锛�1锛屾枃浠朵笉瀛樺湪锛�?2锛屽垹闄ゅけ璐�
+	* @return int 0,鍒犻櫎鎴愬姛锛�1锛屾枃浠朵笉瀛樺湪锛�?2锛屽垹闄ゅけ璐�
 	* @throws
 	 */
 	public static int deleteFile(List<File> files)
@@ -255,10 +255,10 @@ public class FileUtils
 	}
 	
 	/**
-	* @Description: 鍒犻櫎鏈�?湴鐩綍
+	* @Description: 鍒犻櫎鏈�?湴鐩綍
 	* @param @param file
 	* @param @return   
-	* @return int 0,鍒犻櫎鎴愬姛锛�1锛屾枃浠朵笉瀛樺湪锛�?2锛屽垹闄ゅけ璐�
+	* @return int 0,鍒犻櫎鎴愬姛锛�1锛屾枃浠朵笉瀛樺湪锛�?2锛屽垹闄ゅけ璐�
 	* @throws
 	 */
 	public static int deleteFolder(File file)
@@ -341,7 +341,7 @@ public class FileUtils
 	}
 	
 	/**
-	* @Description: 鎵撳紑�?�夎鍖呮枃浠�
+	* @Description: 鎵撳紑�?�夎鍖呮枃浠�
 	* @param @param activity
 	* @param @param file   
 	* @return void 
@@ -352,15 +352,24 @@ public class FileUtils
         // TODO Auto-generated method stub
 		if(file == null || !file.exists())
 			return;
-        Intent intent = new Intent();
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        intent.setAction(android.content.Intent.ACTION_VIEW);
-        intent.setDataAndType(Uri.fromFile(file),"application/vnd.android.package-archive");
-        activity.startActivity(intent);
+		Intent intent = new Intent(Intent.ACTION_VIEW);
+		intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+			intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+			Uri contentUri = FileProvider.getUriForFile(
+					activity
+					, "com.znt.speaker.fileprovider"
+					, apkFile);
+			intent.setDataAndType(contentUri, "application/vnd.android.package-archive");
+		} else {
+
+			intent.setDataAndType(Uri.fromFile(apkFile), "application/vnd.android.package-archive");
+		}
+		activity.startActivity(intent);
 	}
 	
 	/** 
-     * 澶嶅埗鍗曚釜鏂囦�? 
+     * 澶嶅埗鍗曚釜鏂囦�? 
      * @param oldPath String 鍘熸枃浠惰矾寰� 濡傦細c:/fqf.txt 
      * @param newPath String 澶嶅埗鍚庤矾寰� 濡傦細f:/fqf.txt 
      * @return boolean 
@@ -374,7 +383,7 @@ public class FileUtils
            int byteread = 0; 
            File oldfile = new File(oldPath); 
            if (oldfile.exists()) 
-           { //鏂囦欢�?�樺湪鏃�? 
+           { //鏂囦欢�?�樺湪鏃�? 
         	   FileInputStream inStream = new FileInputStream(oldPath); //璇诲叆鍘熸枃浠� 
                File newFile = new File(newPath);
                if(!newFile.exists())
@@ -384,7 +393,7 @@ public class FileUtils
                byte[] buffer = new byte[1024 * 4]; 
                while ( (byteread = inStream.read(buffer)) != -1) 
                { 
-                   bytesum += byteread; //瀛楄妭鏁�? 鏂囦欢澶у�? 
+                   bytesum += byteread; //瀛楄妭鏁�? 鏂囦欢澶у�? 
                    bos.write(buffer, 0, byteread); 
                } 
                bos.flush(); 
@@ -415,7 +424,7 @@ public class FileUtils
 	   boolean isok = true;
        try 
        { 
-           (new File(newPath)).mkdirs(); //濡傛灉鏂囦欢澶�?�笉瀛樺�? 鍒欏缓绔嬫柊鏂囦欢澶�? 
+           (new File(newPath)).mkdirs(); //濡傛灉鏂囦欢澶�?�笉瀛樺�? 鍒欏缓绔嬫柊鏂囦欢澶�? 
            File oldFile = new File(oldPath); 
            String[] file= oldFile.list(); 
            File temp=null; 
@@ -448,7 +457,7 @@ public class FileUtils
                } 
                if(temp.isDirectory())
                {
-            	   //濡傛灉鏄瓙鏂囦欢澶�? 
+            	   //濡傛灉鏄瓙鏂囦欢澶�? 
                    copyFolder(oldPath + "/"+ file[i],newPath + "/" + file[i]); 
                } 
            } 
@@ -461,7 +470,7 @@ public class FileUtils
    }
    
    /**
-   * @Description: 鍐欐暟鎹埌鏂囦欢涓�?
+   * @Description: 鍐欐暟鎹埌鏂囦欢涓�?
    * @param @param filePath
    * @param @param content
    * @param @return   
@@ -497,7 +506,7 @@ public class FileUtils
 	}
    
    /**
-   * @Description: 浠庢枃浠朵腑鑾峰彇娴�?
+   * @Description: 浠庢枃浠朵腑鑾峰彇娴�?
    * @param @param filePath
    * @param @return   
    * @return InputStream 
@@ -526,7 +535,7 @@ public class FileUtils
    }
    
    /**
-   * @Description: 鑾峰彇鏈畨瑁卆pk鐨勫浘鏍�?
+   * @Description: 鑾峰彇鏈畨瑁卆pk鐨勫浘鏍�?
    * @param @param context
    * @param @param apkPath
    * @param @return   
@@ -615,7 +624,7 @@ public class FileUtils
 	         			{
 	         				time = Integer.parseInt(duration);
 	         			}
-	         			if(time > 10 * 1000 && time < 10 * 60 * 1000)//10绉掍互涓婂苟涓�10鍒嗛挓浠ヤ笅鐨勬枃浠�?
+	         			if(time > 10 * 1000 && time < 10 * 60 * 1000)//10绉掍互涓婂苟涓�10鍒嗛挓浠ヤ笅鐨勬枃浠�?
 	         			{
 	         				SongInfor infor = new SongInfor();
 		         			infor.setMediaName(name);

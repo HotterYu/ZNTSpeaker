@@ -107,18 +107,31 @@
     <orderEntry type="jdk" jdkName="Android API 24 Platform" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="__local_aars__:E.\yuyan\GitCode\ZNTSpeaker\WifiSpeakerInfor\libs\android-xml-json.jar:unspecified@jar" level="project" />
+    <orderEntry type="library" name="android.arch.core:common:1.1.0@jar" level="project" />
     <orderEntry type="library" name="__local_aars__:E.\yuyan\GitCode\ZNTSpeaker\WifiSpeakerInfor\libs\mail.jar:unspecified@jar" level="project" />
-    <orderEntry type="library" name="__local_aars__:E.\yuyan\GitCode\ZNTSpeaker\WifiSpeakerInfor\libs\AMap_Services_V2.3.0.jar:unspecified@jar" level="project" />
-    <orderEntry type="library" name="__local_aars__:E.\yuyan\GitCode\ZNTSpeaker\WifiSpeakerInfor\libs\additionnal.jar:unspecified@jar" level="project" />
-    <orderEntry type="library" name="__local_aars__:E.\yuyan\GitCode\ZNTSpeaker\WifiSpeakerInfor\libs\Android_Location_V1.3.0.jar:unspecified@jar" level="project" />
-    <orderEntry type="library" name="__local_aars__:E.\yuyan\GitCode\ZNTSpeaker\WifiSpeakerInfor\libs\gson-2.8.0.jar:unspecified@jar" level="project" />
     <orderEntry type="library" name="__local_aars__:E.\yuyan\GitCode\ZNTSpeaker\WifiSpeakerInfor\libs\activation.jar:unspecified@jar" level="project" />
     <orderEntry type="library" name="__local_aars__:E.\yuyan\GitCode\ZNTSpeaker\HttpLibrary\libs\okio-1.8.0.jar:unspecified@jar" level="project" />
     <orderEntry type="library" name="__local_aars__:E.\yuyan\GitCode\ZNTSpeaker\WifiSpeakerInfor\libs\slf4j-api-1.6.6.jar:unspecified@jar" level="project" />
     <orderEntry type="library" name="__local_aars__:E.\yuyan\GitCode\ZNTSpeaker\HttpLibrary\libs\okhttp-3.3.1.jar:unspecified@jar" level="project" />
     <orderEntry type="library" name="__local_aars__:E.\yuyan\GitCode\ZNTSpeaker\WifiSpeakerInfor\libs\commons-email-1.2.jar:unspecified@jar" level="project" />
     <orderEntry type="library" name="__local_aars__:E.\yuyan\GitCode\ZNTSpeaker\WifiSpeakerInfor\libs\mina-core-2.0.7.jar:unspecified@jar" level="project" />
+    <orderEntry type="library" name="android.arch.lifecycle:runtime-1.1.0" level="project" />
+    <orderEntry type="library" name="android.arch.lifecycle:common:1.1.0@jar" level="project" />
+    <orderEntry type="library" name="com.android.support:support-core-ui-27.1.1" level="project" />
+    <orderEntry type="library" name="com.android.support:support-compat-27.1.1" level="project" />
+    <orderEntry type="library" name="android.arch.lifecycle:viewmodel-1.1.0" level="project" />
+    <orderEntry type="library" name="__local_aars__:E.\yuyan\GitCode\ZNTSpeaker\WifiSpeakerInfor\libs\AMap_Services_V2.3.0.jar:unspecified@jar" level="project" />
+    <orderEntry type="library" name="android.arch.lifecycle:livedata-core-1.1.0" level="project" />
+    <orderEntry type="library" name="__local_aars__:E.\yuyan\GitCode\ZNTSpeaker\WifiSpeakerInfor\libs\additionnal.jar:unspecified@jar" level="project" />
+    <orderEntry type="library" name="__local_aars__:E.\yuyan\GitCode\ZNTSpeaker\WifiSpeakerInfor\libs\Android_Location_V1.3.0.jar:unspecified@jar" level="project" />
+    <orderEntry type="library" name="__local_aars__:E.\yuyan\GitCode\ZNTSpeaker\WifiSpeakerInfor\libs\gson-2.8.0.jar:unspecified@jar" level="project" />
+    <orderEntry type="library" name="com.android.support:support-core-utils-27.1.1" level="project" />
+    <orderEntry type="library" name="com.android.support:support-fragment-27.1.1" level="project" />
+    <orderEntry type="library" name="com.android.support:support-media-compat-27.1.1" level="project" />
     <orderEntry type="library" name="__local_aars__:E.\yuyan\GitCode\ZNTSpeaker\WifiSpeakerInfor\libs\AMap_2DMap_V2.3.0.jar:unspecified@jar" level="project" />
+    <orderEntry type="library" name="com.android.support:support-annotations:27.1.1@jar" level="project" />
+    <orderEntry type="library" name="com.android.support:support-v4-27.1.1" level="project" />
+    <orderEntry type="library" name="android.arch.core:runtime-1.1.0" level="project" />
     <orderEntry type="module" module-name="PersistentCookieJar" />
     <orderEntry type="module" module-name="HttpLibrary" />
     <orderEntry type="module" module-name="ZNTDownLoadModel" />
