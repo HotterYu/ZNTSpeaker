@@ -1916,6 +1916,10 @@
         "source": "C:\\Users\\prize\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\dba42aa3fa588b776800c00ba7ca4091\\res\\drawable-mdpi-v4\\abc_ic_commit_search_api_mtrl_alpha.png"
     },
     {
+        "merged": "E:\\yuyan\\GitCode\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\xml_provider_paths.xml.flat",
+        "source": "E:\\yuyan\\GitCode\\ZNTSpeaker\\ZNTSpeaker\\res\\xml\\provider_paths.xml"
+    },
+    {
         "merged": "E:\\yuyan\\GitCode\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\drawable_abc_list_selector_background_transition_holo_dark.xml.flat",
         "source": "C:\\Users\\prize\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\dba42aa3fa588b776800c00ba7ca4091\\res\\drawable\\abc_list_selector_background_transition_holo_dark.xml"
     },
