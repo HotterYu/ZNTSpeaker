@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="3"><dataSet config="main"><source path="E:\yuyan\GitCode\ZNTSpeaker\WificonnectorSample\src\main\jniLibs"/></dataSet><dataSet config="release"><source path="E:\yuyan\GitCode\ZNTSpeaker\WificonnectorSample\build-types\release\jniLibs"/></dataSet></merger>

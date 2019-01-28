@@ -32,7 +32,7 @@ public class PushModelConstant
 	
 	public static int UPDATE_TYPE = 0;
 	
-	public volatile static int STATUS_CHECK_TIME_MAX = 8;
+	public volatile static int STATUS_CHECK_TIME_MAX = 12;
 	
 	public static long minRemainSize = 1024 * 1024 * 300;
 	

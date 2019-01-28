@@ -62,7 +62,7 @@ public class HttpRequestModel extends HttpAPI
 {
 	
 	private final String mBaseUrl = "";
-	private final int MAX_PAGE_SIZE = 25;
+	private final int MAX_PAGE_SIZE = 20;
 	private Activity activity = null;
 	private IHttpRequestView iHttpRequestView = null;
 	

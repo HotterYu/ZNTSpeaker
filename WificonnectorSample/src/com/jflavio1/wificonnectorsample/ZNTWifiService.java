@@ -33,6 +33,7 @@ import com.znt.wifimoidel.netset.WifiAdmin;
 
 import org.json.JSONArray;
 
+import java.lang.reflect.Constructor;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -403,18 +404,26 @@ public class ZNTWifiService extends Service implements WifiConnectorModel
 		try
 		{
 			ScanResult scanResult = getScanResultByWifiName(wifiName);
-			/*if(scanResult == null)
+			if(scanResult == null)
 			{
-				scanForWifiNetworks();
-				scanResult = new ScanResult();
-				scanResult.SSID = wifiName;
-				if(TextUtils.isEmpty(wifiPwd))
-					scanResult.capabilities = "[ESS]";
-				else
-					scanResult.capabilities = "[WPA-PSK-CCMP+TKIP][WPA2-PSK-CCMP+TKIP][ESS]";
-				mWifiAdmin.addNetwork(wifiName, wifiPwd);
-			}*/
-			connectToWifiAccessPoint(scanResult, wifiPwd);
+
+				try {
+					Constructor<ScanResult> ctor = ScanResult.class.getDeclaredConstructor(ScanResult.class);
+					ctor.setAccessible(true);
+					ScanResult sr = ctor.newInstance(scanResult);
+					sr.SSID = wifiName;
+					sr.BSSID = wifiName;
+					if(TextUtils.isEmpty(wifiPwd))
+						sr.capabilities = "[ESS]";
+					else
+						sr.capabilities = "[WPA-PSK-CCMP+TKIP][WPA2-PSK-CCMP+TKIP][ESS]";
+					mWifiAdmin.addNetwork(wifiName, wifiPwd);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+			else
+				connectToWifiAccessPoint(scanResult, wifiPwd);
 		}
 		catch (Exception e)
 		{

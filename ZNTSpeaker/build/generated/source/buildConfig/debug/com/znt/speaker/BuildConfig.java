@@ -8,6 +8,6 @@ public final class BuildConfig {
   public static final String APPLICATION_ID = "com.znt.speaker";
   public static final String BUILD_TYPE = "debug";
   public static final String FLAVOR = "";
-  public static final int VERSION_CODE = 267;
-  public static final String VERSION_NAME = "4.7.7";
+  public static final int VERSION_CODE = 268;
+  public static final String VERSION_NAME = "4.7.8";
 }

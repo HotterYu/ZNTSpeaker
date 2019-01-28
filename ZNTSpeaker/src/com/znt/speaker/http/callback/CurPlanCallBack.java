@@ -1,23 +1,20 @@
 package com.znt.speaker.http.callback;
 
-import java.io.IOException;
-
-import okhttp3.Response;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import android.content.Context;
 import android.text.TextUtils;
 
 import com.zhy.http.okhttp.callback.Callback;
-import com.znt.diange.email.EmailSender;
 import com.znt.diange.mina.entity.CurPlanInfor;
 import com.znt.diange.mina.entity.CurPlanSubInfor;
 import com.znt.push.email.EmailSenderManager;
 import com.znt.speaker.db.DBManager;
-import com.znt.speaker.entity.LocalDataEntity;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.io.IOException;
+
+import okhttp3.Response;
 
 public abstract class CurPlanCallBack extends Callback<CurPlanInfor>
 {
@@ -50,40 +47,22 @@ public abstract class CurPlanCallBack extends Callback<CurPlanInfor>
 					}
 					curPlanInfor = new CurPlanInfor();
 					DBManager.INSTANCE.deleteAllPlan();
-					
 					JSONObject json = new JSONObject(info);
-					/*String total = getInforFromJason(json, "total");
-					if(!TextUtils.isEmpty(total))
-						httpResult.setTotal(Integer.parseInt(total));*/
-					//String cycleList = getInforFromJason(json, "cycleList");
 					String endDate = getInforFromJason(json, "endDate");
 					String id = getInforFromJason(json, "id");
-					//String memberId = getInforFromJason(json, "memberId");
-					//String planFlag = getInforFromJason(json, "planFlag");
 					String planName = getInforFromJason(json, "planName");
-					//String planType = getInforFromJason(json, "planType");
-					//String publishTime = getInforFromJason(json, "publishTime");
 					String startDate = getInforFromJason(json, "startDate");
-					//String status = getInforFromJason(json, "status");
-					//String terminalList = getInforFromJason(json, "terminalList");
-					//String tlist = getInforFromJason(json, "tlist");
-					
+
 					if(!TextUtils.isEmpty(startDate))
 					{
-						//long dateLong = Long.parseLong(startDate);
 						curPlanInfor.setStartDate(startDate);
-						//planInfor.setStartDate(DateUtils.getStringTimeHead(dateLong));
 					}
 					if(!TextUtils.isEmpty(endDate))
 					{
-						//long dateLong = Long.parseLong(endDate);
 						curPlanInfor.setEndDate(endDate);
-						//planInfor.setEndDate(DateUtils.getStringTimeHead(dateLong));
 					}
 					curPlanInfor.setPlanName(planName);
 					curPlanInfor.setPlanId(id);
-					
-					
 					String pslist = getInforFromJason(json, "pslist");
 					JSONArray jsonArray = new JSONArray(pslist);
 					int len = jsonArray.length();
@@ -92,21 +71,16 @@ public abstract class CurPlanCallBack extends Callback<CurPlanInfor>
 						CurPlanSubInfor curSubPlanInfor = new CurPlanSubInfor();
 						
 						JSONObject json1 = (JSONObject) jsonArray.get(i);
-						//String cycleType = getInforFromJason(json1, "cycleType");
 						String endTime = getInforFromJason(json1, "endTime");
 						String id1 = getInforFromJason(json1, "id");
-						//String musicCategoryList = getInforFromJason(json1, "musicCategoryList");
-						//String publishId = getInforFromJason(json1, "publishId");
 						String startTime = getInforFromJason(json1, "startTime");
 						
 						if(!TextUtils.isEmpty(startTime) && startTime.contains(":"))
 						{
-							//int tempS = DateUtils.timeToInt(startTime, ":");
 							curSubPlanInfor.setStartTime(startTime);
 						}
 						if(!TextUtils.isEmpty(endTime) && endTime.contains(":"))
 						{
-							//int tempE = DateUtils.timeToInt(endTime, ":");
 							curSubPlanInfor.setEndTime(endTime);
 						}
 						curSubPlanInfor.setPlanId(id1);

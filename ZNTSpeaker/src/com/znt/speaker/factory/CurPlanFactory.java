@@ -41,7 +41,7 @@ public class CurPlanFactory
 		{
 			tempList = getCurPlanMusicsFromMem();
 			if(tempList == null || tempList.size() == 0)
-				tempList = getCurPlanMusicsFromLocal(DBManager.FILE_TYPE_LOCAL);
+				tempList = getCurPlanMusicsFromLocal(DBManager.FILE_TYPE_ALL);
 		}
 		else//在线的,获取全部的播放列表
 		{
