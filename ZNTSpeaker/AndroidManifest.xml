@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.znt.speaker"
-    android:versionCode="268"
-    android:versionName="4.7.8"
+    android:versionCode="279"
+    android:versionName="4.8.9"
     android:installLocation="preferExternal"
     >
 
@@ -99,7 +99,7 @@
         
 
         <service
-            android:name="com.jflavio1.wificonnectorsample.ZNTWifiService"
+            android:name="com.znt.wifimodel.ZNTWifiService"
             android:enabled="true"
             android:exported="true"
             android:permission="1000"

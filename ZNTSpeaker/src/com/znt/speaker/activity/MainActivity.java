@@ -231,8 +231,8 @@ public class MainActivity extends BaseActivity implements IHttpRequestView, INet
 			// TODO: handle exception
 		}
 
-		//mPermissionHelper = new PermissionHelper(this, this);
-		//mPermissionHelper.requestPermissions();
+		mPermissionHelper = new PermissionHelper(this, this);
+		mPermissionHelper.requestPermissions();
 		
 		mUpdateTimer = new UpdateTimer(getApplicationContext());
 		mUpdateTimer.setHandler(mHandler, MSG_UPDATE_TIME);
@@ -456,7 +456,7 @@ public class MainActivity extends BaseActivity implements IHttpRequestView, INet
 	{
 		try 
 		{
-			destroyWifiService();
+			//destroyWifiService();
 			mZNTWifiServiceManager = new ZNTWifiServiceManager(getApplication(), this);
 			mUIManager.setZNTWifiServiceManager(mZNTWifiServiceManager);
 			mZNTWifiServiceManager.bindService();
@@ -854,7 +854,7 @@ public class MainActivity extends BaseActivity implements IHttpRequestView, INet
 	
 	private void checkWifiAndConnectWifi(DeviceStatusInfor devStatus)
 	{
-		String wifiName = devStatus.getWifiName();
+		/*String wifiName = devStatus.getWifiName();
 		if(!TextUtils.isEmpty(wifiName))
 		{
 			String localWifiName = mZNTWifiServiceManager.getCurConnectWifiName();
@@ -881,7 +881,7 @@ public class MainActivity extends BaseActivity implements IHttpRequestView, INet
 					httpPresenter.updateWifiInfor(wifiName, devStatus.getWifiPwd(), HttpRequestModel.WIFI_CONFIG_EXIST);
 				}
 			}
-		}
+		}*/
 	}
 	
 	private boolean doGetPushMusic(DeviceStatusInfor devStatus)

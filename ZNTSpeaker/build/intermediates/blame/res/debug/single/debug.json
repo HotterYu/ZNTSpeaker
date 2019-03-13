@@ -76,10 +76,6 @@
         "source": "E:\\yuyan\\GitCode\\ZNTSpeaker\\ZNTSpeaker\\res\\drawable-hdpi\\wifi_signal_2.png"
     },
     {
-        "merged": "E:\\yuyan\\GitCode\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\layout_accesspoint_item.xml.flat",
-        "source": "E:\\yuyan\\GitCode\\ZNTSpeaker\\WificonnectorSample\\build\\intermediates\\packaged_res\\debug\\layout\\accesspoint_item.xml"
-    },
-    {
         "merged": "E:\\yuyan\\GitCode\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\anim_design_snackbar_out.xml.flat",
         "source": "C:\\Users\\prize\\.gradle\\caches\\transforms-1\\files-1.1\\design-27.1.1.aar\\eabfa62a859452b634f1cf7b98d91604\\res\\anim\\design_snackbar_out.xml"
     },
@@ -122,10 +118,6 @@
     {
         "merged": "E:\\yuyan\\GitCode\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_list_selector_disabled_holo_light.9.png.flat",
         "source": "C:\\Users\\prize\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\dba42aa3fa588b776800c00ba7ca4091\\res\\drawable-mdpi-v4\\abc_list_selector_disabled_holo_light.9.png"
-    },
-    {
-        "merged": "E:\\yuyan\\GitCode\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\mipmap-anydpi-v26_ic_launcher.xml.flat",
-        "source": "E:\\yuyan\\GitCode\\ZNTSpeaker\\WificonnectorSample\\build\\intermediates\\packaged_res\\debug\\mipmap-anydpi-v26\\ic_launcher.xml"
     },
     {
         "merged": "E:\\yuyan\\GitCode\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_text_select_handle_right_mtrl_dark.png.flat",
@@ -268,10 +260,6 @@
         "source": "C:\\Users\\prize\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\dba42aa3fa588b776800c00ba7ca4091\\res\\drawable-xhdpi-v4\\abc_popup_background_mtrl_mult.9.png"
     },
     {
-        "merged": "E:\\yuyan\\GitCode\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_ic_launcher_background.png.flat",
-        "source": "E:\\yuyan\\GitCode\\ZNTSpeaker\\WificonnectorSample\\build\\intermediates\\packaged_res\\debug\\drawable-xhdpi-v4\\ic_launcher_background.png"
-    },
-    {
         "merged": "E:\\yuyan\\GitCode\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\layout-watch-v20_abc_alert_dialog_title_material.xml.flat",
         "source": "C:\\Users\\prize\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\dba42aa3fa588b776800c00ba7ca4091\\res\\layout-watch-v20\\abc_alert_dialog_title_material.xml"
     },
@@ -340,10 +328,6 @@
         "source": "C:\\Users\\prize\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\dba42aa3fa588b776800c00ba7ca4091\\res\\layout\\abc_tooltip.xml"
     },
     {
-        "merged": "E:\\yuyan\\GitCode\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_ic_launcher_background.png.flat",
-        "source": "E:\\yuyan\\GitCode\\ZNTSpeaker\\WificonnectorSample\\build\\intermediates\\packaged_res\\debug\\drawable-xxhdpi-v4\\ic_launcher_background.png"
-    },
-    {
         "merged": "E:\\yuyan\\GitCode\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_notification_bg_normal.9.png.flat",
         "source": "C:\\Users\\prize\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\f72e2071af738a649b71bf5573a25f57\\res\\drawable-xhdpi-v4\\notification_bg_normal.9.png"
     },
@@ -373,7 +357,7 @@
     },
     {
         "merged": "E:\\yuyan\\GitCode\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\raw_znt_wifi.db.flat",
-        "source": "E:\\yuyan\\GitCode\\ZNTSpeaker\\WificonnectorSample\\build\\intermediates\\packaged_res\\debug\\raw\\znt_wifi.db"
+        "source": "E:\\yuyan\\GitCode\\ZNTSpeaker\\WiFiModel\\build\\intermediates\\packaged_res\\debug\\raw\\znt_wifi.db"
     },
     {
         "merged": "E:\\yuyan\\GitCode\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\layout_progress_dialog.xml.flat",
@@ -420,10 +404,6 @@
         "source": "C:\\Users\\prize\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\dba42aa3fa588b776800c00ba7ca4091\\res\\drawable-xxxhdpi-v4\\abc_btn_switch_to_on_mtrl_00012.9.png"
     },
     {
-        "merged": "E:\\yuyan\\GitCode\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi-v4_ic_launcher_foreground.png.flat",
-        "source": "E:\\yuyan\\GitCode\\ZNTSpeaker\\WificonnectorSample\\build\\intermediates\\packaged_res\\debug\\mipmap-xxxhdpi-v4\\ic_launcher_foreground.png"
-    },
-    {
         "merged": "E:\\yuyan\\GitCode\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_btn_switch_to_on_mtrl_00012.9.png.flat",
         "source": "C:\\Users\\prize\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\dba42aa3fa588b776800c00ba7ca4091\\res\\drawable-xxhdpi-v4\\abc_btn_switch_to_on_mtrl_00012.9.png"
     },
@@ -440,16 +420,8 @@
         "source": "C:\\Users\\prize\\.gradle\\caches\\transforms-1\\files-1.1\\design-27.1.1.aar\\eabfa62a859452b634f1cf7b98d91604\\res\\drawable-xxxhdpi-v4\\design_ic_visibility.png"
     },
     {
-        "merged": "E:\\yuyan\\GitCode\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi-v4_ic_launcher_foreground.png.flat",
-        "source": "E:\\yuyan\\GitCode\\ZNTSpeaker\\WificonnectorSample\\build\\intermediates\\packaged_res\\debug\\mipmap-mdpi-v4\\ic_launcher_foreground.png"
-    },
-    {
         "merged": "E:\\yuyan\\GitCode\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\drawable_navigation_empty_icon.xml.flat",
         "source": "C:\\Users\\prize\\.gradle\\caches\\transforms-1\\files-1.1\\design-27.1.1.aar\\eabfa62a859452b634f1cf7b98d91604\\res\\drawable\\navigation_empty_icon.xml"
-    },
-    {
-        "merged": "E:\\yuyan\\GitCode\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi-v4_ic_launcher_foreground.png.flat",
-        "source": "E:\\yuyan\\GitCode\\ZNTSpeaker\\WificonnectorSample\\build\\intermediates\\packaged_res\\debug\\mipmap-hdpi-v4\\ic_launcher_foreground.png"
     },
     {
         "merged": "E:\\yuyan\\GitCode\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_ic_menu_copy_mtrl_am_alpha.png.flat",
@@ -532,10 +504,6 @@
         "source": "C:\\Users\\prize\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\dba42aa3fa588b776800c00ba7ca4091\\res\\drawable-hdpi-v4\\abc_textfield_activated_mtrl_alpha.9.png"
     },
     {
-        "merged": "E:\\yuyan\\GitCode\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
-        "source": "E:\\yuyan\\GitCode\\ZNTSpeaker\\WificonnectorSample\\build\\intermediates\\packaged_res\\debug\\mipmap-anydpi-v26\\ic_launcher_round.xml"
-    },
-    {
         "merged": "E:\\yuyan\\GitCode\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\drawable_black_background.xml.flat",
         "source": "C:\\Users\\prize\\.gradle\\caches\\transforms-1\\files-1.1\\banner-1.4.10.aar\\2fbca31ec840729cfc2dcce83a1254ca\\res\\drawable\\black_background.xml"
     },
@@ -554,10 +522,6 @@
     {
         "merged": "E:\\yuyan\\GitCode\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\anim_abc_grow_fade_in_from_bottom.xml.flat",
         "source": "C:\\Users\\prize\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\dba42aa3fa588b776800c00ba7ca4091\\res\\anim\\abc_grow_fade_in_from_bottom.xml"
-    },
-    {
-        "merged": "E:\\yuyan\\GitCode\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi-v4_ic_launcher.png.flat",
-        "source": "E:\\yuyan\\GitCode\\ZNTSpeaker\\WificonnectorSample\\build\\intermediates\\packaged_res\\debug\\mipmap-xhdpi-v4\\ic_launcher.png"
     },
     {
         "merged": "E:\\yuyan\\GitCode\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_ic_menu_paste_mtrl_am_alpha.png.flat",
@@ -688,10 +652,6 @@
         "source": "C:\\Users\\prize\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\dba42aa3fa588b776800c00ba7ca4091\\res\\drawable-hdpi-v4\\abc_ab_share_pack_mtrl_alpha.9.png"
     },
     {
-        "merged": "E:\\yuyan\\GitCode\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi-v4_ic_launcher_foreground.png.flat",
-        "source": "E:\\yuyan\\GitCode\\ZNTSpeaker\\WificonnectorSample\\build\\intermediates\\packaged_res\\debug\\mipmap-xhdpi-v4\\ic_launcher_foreground.png"
-    },
-    {
         "merged": "E:\\yuyan\\GitCode\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\drawable_abc_ic_arrow_drop_right_black_24dp.xml.flat",
         "source": "C:\\Users\\prize\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\dba42aa3fa588b776800c00ba7ca4091\\res\\drawable\\abc_ic_arrow_drop_right_black_24dp.xml"
     },
@@ -726,10 +686,6 @@
     {
         "merged": "E:\\yuyan\\GitCode\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_ic_star_half_black_48dp.png.flat",
         "source": "C:\\Users\\prize\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\dba42aa3fa588b776800c00ba7ca4091\\res\\drawable-mdpi-v4\\abc_ic_star_half_black_48dp.png"
-    },
-    {
-        "merged": "E:\\yuyan\\GitCode\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi-v4_ic_launcher_round.png.flat",
-        "source": "E:\\yuyan\\GitCode\\ZNTSpeaker\\WificonnectorSample\\build\\intermediates\\packaged_res\\debug\\mipmap-xhdpi-v4\\ic_launcher_round.png"
     },
     {
         "merged": "E:\\yuyan\\GitCode\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_text_select_handle_right_mtrl_dark.png.flat",
@@ -832,16 +788,8 @@
         "source": "C:\\Users\\prize\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\dba42aa3fa588b776800c00ba7ca4091\\res\\drawable-ldrtl-xhdpi-v17\\abc_ic_menu_cut_mtrl_alpha.png"
     },
     {
-        "merged": "E:\\yuyan\\GitCode\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi-v4_ic_launcher.png.flat",
-        "source": "E:\\yuyan\\GitCode\\ZNTSpeaker\\WificonnectorSample\\build\\intermediates\\packaged_res\\debug\\mipmap-xxhdpi-v4\\ic_launcher.png"
-    },
-    {
         "merged": "E:\\yuyan\\GitCode\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_notification_bg_normal.9.png.flat",
         "source": "C:\\Users\\prize\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\f72e2071af738a649b71bf5573a25f57\\res\\drawable-hdpi-v4\\notification_bg_normal.9.png"
-    },
-    {
-        "merged": "E:\\yuyan\\GitCode\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi-v4_ic_launcher_round.png.flat",
-        "source": "E:\\yuyan\\GitCode\\ZNTSpeaker\\WificonnectorSample\\build\\intermediates\\packaged_res\\debug\\mipmap-xxxhdpi-v4\\ic_launcher_round.png"
     },
     {
         "merged": "E:\\yuyan\\GitCode\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_text_select_handle_right_mtrl_light.png.flat",
@@ -898,10 +846,6 @@
     {
         "merged": "E:\\yuyan\\GitCode\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_list_selector_disabled_holo_light.9.png.flat",
         "source": "C:\\Users\\prize\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\dba42aa3fa588b776800c00ba7ca4091\\res\\drawable-xxhdpi-v4\\abc_list_selector_disabled_holo_light.9.png"
-    },
-    {
-        "merged": "E:\\yuyan\\GitCode\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_ic_launcher_background.png.flat",
-        "source": "E:\\yuyan\\GitCode\\ZNTSpeaker\\WificonnectorSample\\build\\intermediates\\packaged_res\\debug\\drawable-mdpi-v4\\ic_launcher_background.png"
     },
     {
         "merged": "E:\\yuyan\\GitCode\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_design_ic_visibility.png.flat",
@@ -972,16 +916,12 @@
         "source": "C:\\Users\\prize\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\dba42aa3fa588b776800c00ba7ca4091\\res\\drawable-ldrtl-hdpi-v17\\abc_ic_menu_cut_mtrl_alpha.png"
     },
     {
-        "merged": "E:\\yuyan\\GitCode\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\drawable_sel_btn_translucent_2.xml.flat",
-        "source": "E:\\yuyan\\GitCode\\ZNTSpeaker\\ZNTSpeaker\\res\\drawable\\sel_btn_translucent_2.xml"
-    },
-    {
         "merged": "E:\\yuyan\\GitCode\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\layout_abc_alert_dialog_button_bar_material.xml.flat",
         "source": "C:\\Users\\prize\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\dba42aa3fa588b776800c00ba7ca4091\\res\\layout\\abc_alert_dialog_button_bar_material.xml"
     },
     {
-        "merged": "E:\\yuyan\\GitCode\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4_ic_launcher_background.png.flat",
-        "source": "E:\\yuyan\\GitCode\\ZNTSpeaker\\WificonnectorSample\\build\\intermediates\\packaged_res\\debug\\drawable-xxxhdpi-v4\\ic_launcher_background.png"
+        "merged": "E:\\yuyan\\GitCode\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\drawable_sel_btn_translucent_2.xml.flat",
+        "source": "E:\\yuyan\\GitCode\\ZNTSpeaker\\ZNTSpeaker\\res\\drawable\\sel_btn_translucent_2.xml"
     },
     {
         "merged": "E:\\yuyan\\GitCode\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_btn_radio_to_on_mtrl_000.png.flat",
@@ -1040,16 +980,8 @@
         "source": "C:\\Users\\prize\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\dba42aa3fa588b776800c00ba7ca4091\\res\\drawable\\abc_seekbar_tick_mark_material.xml"
     },
     {
-        "merged": "E:\\yuyan\\GitCode\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_ic_launcher_background.png.flat",
-        "source": "E:\\yuyan\\GitCode\\ZNTSpeaker\\WificonnectorSample\\build\\intermediates\\packaged_res\\debug\\drawable-hdpi-v4\\ic_launcher_background.png"
-    },
-    {
         "merged": "E:\\yuyan\\GitCode\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4_abc_ic_star_half_black_16dp.png.flat",
         "source": "C:\\Users\\prize\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\dba42aa3fa588b776800c00ba7ca4091\\res\\drawable-xxxhdpi-v4\\abc_ic_star_half_black_16dp.png"
-    },
-    {
-        "merged": "E:\\yuyan\\GitCode\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi-v4_ic_launcher_background.png.flat",
-        "source": "E:\\yuyan\\GitCode\\ZNTSpeaker\\WificonnectorSample\\build\\intermediates\\packaged_res\\debug\\drawable-ldpi-v4\\ic_launcher_background.png"
     },
     {
         "merged": "E:\\yuyan\\GitCode\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\drawable_sel_btn_translucent_3.xml.flat",
@@ -1152,10 +1084,6 @@
         "source": "C:\\Users\\prize\\.gradle\\caches\\transforms-1\\files-1.1\\support-media-compat-27.1.1.aar\\ed642e29fde0c053917aef53feb3a006\\res\\layout\\notification_template_big_media_narrow.xml"
     },
     {
-        "merged": "E:\\yuyan\\GitCode\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\layout_dialog_connectwifi.xml.flat",
-        "source": "E:\\yuyan\\GitCode\\ZNTSpeaker\\WificonnectorSample\\build\\intermediates\\packaged_res\\debug\\layout\\dialog_connectwifi.xml"
-    },
-    {
         "merged": "E:\\yuyan\\GitCode\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\color-v23_abc_tint_default.xml.flat",
         "source": "C:\\Users\\prize\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\dba42aa3fa588b776800c00ba7ca4091\\res\\color-v23\\abc_tint_default.xml"
     },
@@ -1228,20 +1156,12 @@
         "source": "C:\\Users\\prize\\.gradle\\caches\\transforms-1\\files-1.1\\design-27.1.1.aar\\eabfa62a859452b634f1cf7b98d91604\\res\\layout\\design_navigation_item_subheader.xml"
     },
     {
-        "merged": "E:\\yuyan\\GitCode\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi-v4_ic_launcher_foreground.png.flat",
-        "source": "E:\\yuyan\\GitCode\\ZNTSpeaker\\WificonnectorSample\\build\\intermediates\\packaged_res\\debug\\mipmap-xxhdpi-v4\\ic_launcher_foreground.png"
-    },
-    {
         "merged": "E:\\yuyan\\GitCode\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\layout_abc_list_menu_item_checkbox.xml.flat",
         "source": "C:\\Users\\prize\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\dba42aa3fa588b776800c00ba7ca4091\\res\\layout\\abc_list_menu_item_checkbox.xml"
     },
     {
         "merged": "E:\\yuyan\\GitCode\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\drawable_input_disabled.9.png.flat",
         "source": "E:\\yuyan\\GitCode\\ZNTSpeaker\\ZNTSpeaker\\res\\drawable\\input_disabled.9.png"
-    },
-    {
-        "merged": "E:\\yuyan\\GitCode\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi-v4_ic_launcher.png.flat",
-        "source": "E:\\yuyan\\GitCode\\ZNTSpeaker\\WificonnectorSample\\build\\intermediates\\packaged_res\\debug\\mipmap-xxxhdpi-v4\\ic_launcher.png"
     },
     {
         "merged": "E:\\yuyan\\GitCode\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\drawable-v21_abc_btn_colored_material.xml.flat",
@@ -1264,10 +1184,6 @@
         "source": "C:\\Users\\prize\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\dba42aa3fa588b776800c00ba7ca4091\\res\\drawable-hdpi-v4\\abc_ic_star_black_16dp.png"
     },
     {
-        "merged": "E:\\yuyan\\GitCode\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi-v4_ic_launcher_round.png.flat",
-        "source": "E:\\yuyan\\GitCode\\ZNTSpeaker\\WificonnectorSample\\build\\intermediates\\packaged_res\\debug\\mipmap-mdpi-v4\\ic_launcher_round.png"
-    },
-    {
         "merged": "E:\\yuyan\\GitCode\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\drawable_btn_pause_n.png.flat",
         "source": "E:\\yuyan\\GitCode\\ZNTSpeaker\\ZNTSpeaker\\res\\drawable\\btn_pause_n.png"
     },
@@ -1280,16 +1196,16 @@
         "source": "C:\\Users\\prize\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\dba42aa3fa588b776800c00ba7ca4091\\res\\drawable-ldrtl-xxhdpi-v17\\abc_ic_menu_cut_mtrl_alpha.png"
     },
     {
-        "merged": "E:\\yuyan\\GitCode\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_scrubber_control_off_mtrl_alpha.png.flat",
-        "source": "C:\\Users\\prize\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\dba42aa3fa588b776800c00ba7ca4091\\res\\drawable-mdpi-v4\\abc_scrubber_control_off_mtrl_alpha.png"
+        "merged": "E:\\yuyan\\GitCode\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_menu_hardkey_panel_mtrl_mult.9.png.flat",
+        "source": "C:\\Users\\prize\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\dba42aa3fa588b776800c00ba7ca4091\\res\\drawable-mdpi-v4\\abc_menu_hardkey_panel_mtrl_mult.9.png"
     },
     {
         "merged": "E:\\yuyan\\GitCode\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_ic_menu_share_mtrl_alpha.png.flat",
         "source": "C:\\Users\\prize\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\dba42aa3fa588b776800c00ba7ca4091\\res\\drawable-xxhdpi-v4\\abc_ic_menu_share_mtrl_alpha.png"
     },
     {
-        "merged": "E:\\yuyan\\GitCode\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_menu_hardkey_panel_mtrl_mult.9.png.flat",
-        "source": "C:\\Users\\prize\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\dba42aa3fa588b776800c00ba7ca4091\\res\\drawable-mdpi-v4\\abc_menu_hardkey_panel_mtrl_mult.9.png"
+        "merged": "E:\\yuyan\\GitCode\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_scrubber_control_off_mtrl_alpha.png.flat",
+        "source": "C:\\Users\\prize\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\dba42aa3fa588b776800c00ba7ca4091\\res\\drawable-mdpi-v4\\abc_scrubber_control_off_mtrl_alpha.png"
     },
     {
         "merged": "E:\\yuyan\\GitCode\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\layout_abc_list_menu_item_icon.xml.flat",
@@ -1360,10 +1276,6 @@
         "source": "C:\\Users\\prize\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\dba42aa3fa588b776800c00ba7ca4091\\res\\drawable\\abc_item_background_holo_light.xml"
     },
     {
-        "merged": "E:\\yuyan\\GitCode\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21_ic_launcher_background.xml.flat",
-        "source": "E:\\yuyan\\GitCode\\ZNTSpeaker\\WificonnectorSample\\build\\intermediates\\packaged_res\\debug\\drawable-anydpi-v21\\ic_launcher_background.xml"
-    },
-    {
         "merged": "E:\\yuyan\\GitCode\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_spinner_mtrl_am_alpha.9.png.flat",
         "source": "C:\\Users\\prize\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\dba42aa3fa588b776800c00ba7ca4091\\res\\drawable-mdpi-v4\\abc_spinner_mtrl_am_alpha.9.png"
     },
@@ -1396,12 +1308,12 @@
         "source": "C:\\Users\\prize\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\dba42aa3fa588b776800c00ba7ca4091\\res\\drawable-xhdpi-v4\\abc_textfield_search_activated_mtrl_alpha.9.png"
     },
     {
-        "merged": "E:\\yuyan\\GitCode\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\color_abc_primary_text_disable_only_material_light.xml.flat",
-        "source": "C:\\Users\\prize\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\dba42aa3fa588b776800c00ba7ca4091\\res\\color\\abc_primary_text_disable_only_material_light.xml"
-    },
-    {
         "merged": "E:\\yuyan\\GitCode\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\layout_dialog_my_alert.xml.flat",
         "source": "E:\\yuyan\\GitCode\\ZNTSpeaker\\ZNTSpeaker\\res\\layout\\dialog_my_alert.xml"
+    },
+    {
+        "merged": "E:\\yuyan\\GitCode\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\color_abc_primary_text_disable_only_material_light.xml.flat",
+        "source": "C:\\Users\\prize\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\dba42aa3fa588b776800c00ba7ca4091\\res\\color\\abc_primary_text_disable_only_material_light.xml"
     },
     {
         "merged": "E:\\yuyan\\GitCode\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\layout_notification_media_action.xml.flat",
@@ -1469,7 +1381,7 @@
     },
     {
         "merged": "E:\\yuyan\\GitCode\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\layout_activity_main.xml.flat",
-        "source": "E:\\yuyan\\GitCode\\ZNTSpeaker\\WificonnectorSample\\build\\intermediates\\packaged_res\\debug\\layout\\activity_main.xml"
+        "source": "E:\\yuyan\\GitCode\\ZNTSpeaker\\ZNTDownLoadModel\\build\\intermediates\\packaged_res\\debug\\layout\\activity_main.xml"
     },
     {
         "merged": "E:\\yuyan\\GitCode\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\layout_notification_template_icon_group.xml.flat",
@@ -1510,10 +1422,6 @@
     {
         "merged": "E:\\yuyan\\GitCode\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\drawable_abc_edit_text_material.xml.flat",
         "source": "C:\\Users\\prize\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\dba42aa3fa588b776800c00ba7ca4091\\res\\drawable\\abc_edit_text_material.xml"
-    },
-    {
-        "merged": "E:\\yuyan\\GitCode\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi-v4_ic_launcher_round.png.flat",
-        "source": "E:\\yuyan\\GitCode\\ZNTSpeaker\\WificonnectorSample\\build\\intermediates\\packaged_res\\debug\\mipmap-xxhdpi-v4\\ic_launcher_round.png"
     },
     {
         "merged": "E:\\yuyan\\GitCode\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_list_focused_holo.9.png.flat",
@@ -1600,12 +1508,12 @@
         "source": "C:\\Users\\prize\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\dba42aa3fa588b776800c00ba7ca4091\\res\\anim\\abc_fade_in.xml"
     },
     {
-        "merged": "E:\\yuyan\\GitCode\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_list_selector_disabled_holo_light.9.png.flat",
-        "source": "C:\\Users\\prize\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\dba42aa3fa588b776800c00ba7ca4091\\res\\drawable-hdpi-v4\\abc_list_selector_disabled_holo_light.9.png"
-    },
-    {
         "merged": "E:\\yuyan\\GitCode\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\drawable_abc_ic_ab_back_material.xml.flat",
         "source": "C:\\Users\\prize\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\dba42aa3fa588b776800c00ba7ca4091\\res\\drawable\\abc_ic_ab_back_material.xml"
+    },
+    {
+        "merged": "E:\\yuyan\\GitCode\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_list_selector_disabled_holo_light.9.png.flat",
+        "source": "C:\\Users\\prize\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\dba42aa3fa588b776800c00ba7ca4091\\res\\drawable-hdpi-v4\\abc_list_selector_disabled_holo_light.9.png"
     },
     {
         "merged": "E:\\yuyan\\GitCode\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21_design_ic_visibility_off.xml.flat",
@@ -1868,10 +1776,6 @@
         "source": "C:\\Users\\prize\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\dba42aa3fa588b776800c00ba7ca4091\\res\\drawable\\abc_dialog_material_background.xml"
     },
     {
-        "merged": "E:\\yuyan\\GitCode\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi-v4_ic_launcher.png.flat",
-        "source": "E:\\yuyan\\GitCode\\ZNTSpeaker\\WificonnectorSample\\build\\intermediates\\packaged_res\\debug\\mipmap-hdpi-v4\\ic_launcher.png"
-    },
-    {
         "merged": "E:\\yuyan\\GitCode\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\drawable_abc_btn_colored_material.xml.flat",
         "source": "C:\\Users\\prize\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\dba42aa3fa588b776800c00ba7ca4091\\res\\drawable\\abc_btn_colored_material.xml"
     },
@@ -1890,10 +1794,6 @@
     {
         "merged": "E:\\yuyan\\GitCode\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_btn_switch_to_on_mtrl_00001.9.png.flat",
         "source": "C:\\Users\\prize\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\dba42aa3fa588b776800c00ba7ca4091\\res\\drawable-hdpi-v4\\abc_btn_switch_to_on_mtrl_00001.9.png"
-    },
-    {
-        "merged": "E:\\yuyan\\GitCode\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi-v4_ic_launcher.png.flat",
-        "source": "E:\\yuyan\\GitCode\\ZNTSpeaker\\WificonnectorSample\\build\\intermediates\\packaged_res\\debug\\mipmap-mdpi-v4\\ic_launcher.png"
     },
     {
         "merged": "E:\\yuyan\\GitCode\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\drawable-ldrtl-xhdpi-v17_abc_ic_menu_copy_mtrl_am_alpha.png.flat",
@@ -2018,10 +1918,6 @@
     {
         "merged": "E:\\yuyan\\GitCode\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_scrubber_control_to_pressed_mtrl_000.png.flat",
         "source": "C:\\Users\\prize\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\dba42aa3fa588b776800c00ba7ca4091\\res\\drawable-xhdpi-v4\\abc_scrubber_control_to_pressed_mtrl_000.png"
-    },
-    {
-        "merged": "E:\\yuyan\\GitCode\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi-v4_ic_launcher_round.png.flat",
-        "source": "E:\\yuyan\\GitCode\\ZNTSpeaker\\WificonnectorSample\\build\\intermediates\\packaged_res\\debug\\mipmap-hdpi-v4\\ic_launcher_round.png"
     },
     {
         "merged": "E:\\yuyan\\GitCode\\ZNTSpeaker\\ZNTSpeaker\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4_abc_scrubber_control_to_pressed_mtrl_000.png.flat",

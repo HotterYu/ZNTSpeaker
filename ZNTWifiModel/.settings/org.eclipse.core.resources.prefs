@@ -1,8 +1,0 @@
-eclipse.preferences.version=1
-encoding//src/com/znt/wifimodel/db/DBManager.java=UTF-8
-encoding//src/com/znt/wifimodel/db/MyDbHelper.java=UTF-8
-encoding//src/com/znt/wifimodel/entity/WifiLocalDataEntity.java=UTF-8
-encoding//src/com/znt/wifimodel/p/NetWorkPresenter.java=UTF-8
-encoding//src/com/znt/wifimodel/utils/NetWorkUtils.java=UTF-8
-encoding//src/com/znt/wifimodel/utils/SystemUtils.java=UTF-8
-encoding//src/com/znt/wifimoidel/netset/WifiAdmin.java=UTF-8

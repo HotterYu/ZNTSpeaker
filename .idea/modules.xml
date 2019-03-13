@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/HttpLibrary/HttpLibrary.iml" filepath="$PROJECT_DIR$/HttpLibrary/HttpLibrary.iml" />
       <module fileurl="file://$PROJECT_DIR$/PersistentCookieJar/PersistentCookieJar.iml" filepath="$PROJECT_DIR$/PersistentCookieJar/PersistentCookieJar.iml" />
+      <module fileurl="file://$PROJECT_DIR$/WiFiModel/WiFiModel.iml" filepath="$PROJECT_DIR$/WiFiModel/WiFiModel.iml" />
       <module fileurl="file://$PROJECT_DIR$/WifiSpeakerInfor/WifiSpeakerInfor.iml" filepath="$PROJECT_DIR$/WifiSpeakerInfor/WifiSpeakerInfor.iml" />
       <module fileurl="file://$PROJECT_DIR$/WificonnectorLib/WificonnectorLib.iml" filepath="$PROJECT_DIR$/WificonnectorLib/WificonnectorLib.iml" />
       <module fileurl="file://$PROJECT_DIR$/WificonnectorSample/WificonnectorSample.iml" filepath="$PROJECT_DIR$/WificonnectorSample/WificonnectorSample.iml" />
@@ -12,6 +13,7 @@
       <module fileurl="file://$PROJECT_DIR$/ZNTSpeaker.iml" filepath="$PROJECT_DIR$/ZNTSpeaker.iml" />
       <module fileurl="file://$PROJECT_DIR$/ZNTSpeaker/ZNTSpeaker-ZNTSpeaker.iml" filepath="$PROJECT_DIR$/ZNTSpeaker/ZNTSpeaker-ZNTSpeaker.iml" />
       <module fileurl="file://$PROJECT_DIR$/placeholder/placeholder.iml" filepath="$PROJECT_DIR$/placeholder/placeholder.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wifiutils/wifiutils.iml" filepath="$PROJECT_DIR$/wifiutils/wifiutils.iml" />
     </modules>
   </component>
 </project>

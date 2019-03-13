@@ -10,6 +10,7 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/HttpLibrary" />
             <option value="$PROJECT_DIR$/PersistentCookieJar" />
+            <option value="$PROJECT_DIR$/WiFiModel" />
             <option value="$PROJECT_DIR$/WifiSpeakerInfor" />
             <option value="$PROJECT_DIR$/WificonnectorLib" />
             <option value="$PROJECT_DIR$/WificonnectorSample" />
@@ -17,6 +18,7 @@
             <option value="$PROJECT_DIR$/ZNTPushModel" />
             <option value="$PROJECT_DIR$/ZNTSpeaker" />
             <option value="$PROJECT_DIR$/placeholder" />
+            <option value="$PROJECT_DIR$/wifiutils" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
