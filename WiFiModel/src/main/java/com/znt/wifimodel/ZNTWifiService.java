@@ -13,21 +13,21 @@ import android.util.Log;
 
 import com.znt.wifimodel.db.DBManager;
 import com.znt.wifimodel.entity.WifiLocalDataEntity;
-import com.znt.wifimodel.netset.NetWorkPresenter;
+import com.znt.wifimodel.netset.WifiPresenter;
 import com.znt.wifimodel.v.INetWorkView;
 
 public class ZNTWifiService extends Service implements INetWorkView
 {
-	
-	private String TAG = "ZNTWifiService";
-	
-    private ServiceBinder mBinder;
-    
-    private Context mContext = null;
-    
-    private NetWorkPresenter mNetWorkPresenter = null;
 
-    private Handler mHandler = new Handler()
+	private String TAG = "ZNTWifiService";
+
+	private ServiceBinder mBinder;
+
+	private Context mContext = null;
+
+	private WifiPresenter mNetWorkPresenter = null;
+
+	private Handler mHandler = new Handler()
 	{
 		@Override
 		public void handleMessage(Message msg) {
@@ -35,112 +35,112 @@ public class ZNTWifiService extends Service implements INetWorkView
 		}
 	};
 
-    public ZNTWifiService() 
-    {
-    	
-    }
-    
-    private final String DEFAULT_WIFI_NAME = "DianYinGuanJia";
+	public ZNTWifiService()
+	{
+
+	}
+
+	private final String DEFAULT_WIFI_NAME = "DianYinGuanJia";
 	private final String DEFAULT_WIFI_PWD = "zhunikeji";
-    private void setDefaultWifi()
-    {
-    	DBManager.INSTANCE.insertWifi("cstorebp", "51060018");
+	private void setDefaultWifi()
+	{
+		DBManager.INSTANCE.insertWifi("cstorebp", "51060018");
 		DBManager.INSTANCE.insertWifi("cstoreap", "51060018562");
 		DBManager.INSTANCE.insertWifi("dianyin", "12345678");
 		DBManager.INSTANCE.insertWifi(DEFAULT_WIFI_NAME, DEFAULT_WIFI_PWD);
-    }
-    private void showErrorLog(Exception e)
-    {
-    	if(e != null)
-    		Log.e(TAG, e.getMessage());
-    }
-    
-    @Override
-    public void onCreate() 
-    {
-    	// TODO Auto-generated method stub
-    	super.onCreate();
-    }
-    
-    @Override
-    public void onDestroy() 
-    {
-    	// TODO Auto-generated method stub
+	}
+	private void showErrorLog(Exception e)
+	{
+		if(e != null)
+			Log.e(TAG, e.getMessage());
+	}
+
+	@Override
+	public void onCreate()
+	{
+		// TODO Auto-generated method stub
+		super.onCreate();
+	}
+
+	@Override
+	public void onDestroy()
+	{
+		// TODO Auto-generated method stub
 		android.os.Process.killProcess(android.os.Process.myPid());
 		System.exit(0);
 		/*String s = null;
 		s.substring(0);*/
-    	super.onDestroy();
-    }
-    
-    @Override
-    public IBinder onBind(Intent intent) 
-    {
-        if (mBinder == null)
-            mBinder = new ServiceBinder();
-        if(mContext == null)
-        {
-        	try 
-        	{
-            	mContext = getApplicationContext();
+		super.onDestroy();
+	}
+
+	@Override
+	public IBinder onBind(Intent intent)
+	{
+		if (mBinder == null)
+			mBinder = new ServiceBinder();
+		if(mContext == null)
+		{
+			try
+			{
+				mContext = getApplicationContext();
 				mHandler.post(new Runnable() {
 					@Override
 					public void run() {
 						DBManager.init(mContext);
-						mNetWorkPresenter = new NetWorkPresenter(mContext, ZNTWifiService.this);
+						mNetWorkPresenter = new WifiPresenter(mContext, ZNTWifiService.this);
 
 						setDefaultWifi();
 					}
 				});
 
-    		}
-        	catch (Exception e) 
-        	{
-    			// TODO: handle exception
-        		showErrorLog(e);
-    		}
-        }
-        
-        return mBinder;
-    }
+			}
+			catch (Exception e)
+			{
+				// TODO: handle exception
+				showErrorLog(e);
+			}
+		}
 
-    final RemoteCallbackList<IWifiCallback> mCallbacks = new RemoteCallbackList <IWifiCallback>();
-    void callback(int val, String arg1, String arg2) 
-    {   
-        final int N = mCallbacks.beginBroadcast();  
-        for (int i=0; i<N; i++)
-        {   
-            try 
-            {  
-                mCallbacks.getBroadcastItem(i).actionPerformed(val, arg1, arg2);   
-            }  
-            catch (Exception e)
-            {   
-                // The RemoteCallbackList will take care of removing   
-                // the dead object for us.     
-            }  
-        }  
-        mCallbacks.finishBroadcast();  
-    }
+		return mBinder;
+	}
 
-    class ServiceBinder extends IWifiAidlInterface.Stub
-    {
+	final RemoteCallbackList<IWifiCallback> mCallbacks = new RemoteCallbackList <IWifiCallback>();
+	void callback(int val, String arg1, String arg2)
+	{
+		final int N = mCallbacks.beginBroadcast();
+		for (int i=0; i<N; i++)
+		{
+			try
+			{
+				mCallbacks.getBroadcastItem(i).actionPerformed(val, arg1, arg2);
+			}
+			catch (Exception e)
+			{
+				// The RemoteCallbackList will take care of removing
+				// the dead object for us.
+			}
+		}
+		mCallbacks.finishBroadcast();
+	}
 
-        public ServiceBinder() 
-        {
-            
-        }
+	class ServiceBinder extends IWifiAidlInterface.Stub
+	{
+
+		public ServiceBinder()
+		{
+
+		}
 
 		@Override
-		public void startConnectWifi(String wifiName, String wifiPwd) throws RemoteException 
+		public void startConnectWifi(String wifiName, String wifiPwd) throws RemoteException
 		{
 			// TODO Auto-generated method stub
-			try 
+			try
 			{
 				DBManager.INSTANCE.insertWifi(wifiName, wifiPwd);
-				
-				WifiLocalDataEntity.newInstance(mContext).updateWifi(wifiName, wifiPwd);
-				mNetWorkPresenter.connectCurWifi(wifiName, wifiPwd);
+
+				//WifiLocalDataEntity.newInstance(mContext).updateWifi(wifiName, wifiPwd);
+				mNetWorkPresenter.connectWifi(wifiName, wifiPwd);
 				//Log.e(TAG, "startConnectWifi -- >" + wifiName + "   " + wifiPwd);
 			}
 			catch (Exception e)
@@ -208,16 +208,25 @@ public class ZNTWifiService extends Service implements INetWorkView
 				{
 					if(mNetWorkPresenter != null)
 					{
-						mNetWorkPresenter.checkWifiState();
+						if(checkWifiInternalCount >= WIFI_STATE_CHECK_MAX)
+						{
+							mNetWorkPresenter.checkWifiState();
+							checkWifiInternalCount = 0;
+							if(WIFI_STATE_CHECK_MAX < 60)
+								WIFI_STATE_CHECK_MAX ++;
+						}
+						else
+							checkWifiInternalCount ++;
 					}
 				}
-				/*else
+				else
 				{
-					if(mNetWorkPresenter != null)
-						mNetWorkPresenter.stopCheckSSID();
-				}*/
-			} 
-			catch (Exception e) 
+					/*if(mNetWorkPresenter != null)
+						mNetWorkPresenter.stopCheckSSID();*/
+					WIFI_STATE_CHECK_MAX = 3;
+				}
+			}
+			catch (Exception e)
 			{
 				showErrorLog(e);
 			}
@@ -227,37 +236,45 @@ public class ZNTWifiService extends Service implements INetWorkView
 		public void registerCallback(IWifiCallback cb) throws RemoteException
 		{
 			// TODO Auto-generated method stub
-			if (cb != null) 
-			{   
-                mCallbacks.register(cb);  
-            }  
+			if (cb != null)
+			{
+				mCallbacks.register(cb);
+			}
 		}
 
 		@Override
 		public void unregisterCallback(IWifiCallback cb) throws RemoteException
 		{
-			if(cb != null) 
-			{  
-                mCallbacks.unregister(cb);  
-            }  
+			if(cb != null)
+			{
+				mCallbacks.unregister(cb);
+			}
 		}
-    }
-    
-    
+	}
+
+	private int WIFI_STATE_CHECK_MAX = 3;
+	private int checkWifiInternalCount = WIFI_STATE_CHECK_MAX;
+
+
 	@Override
-	public void connectWifiSatrt(String wifiName) 
+	public void openWifiFail() {
+		callback(com.znt.wifimodel.entity.WifiModelConstant.CALL_BACK_OPEN_WIFI_FAIL, null, null);
+	}
+
+	@Override
+	public void connectWifiSatrt(String wifiName)
 	{
 		// TODO Auto-generated method stub
 		callback(com.znt.wifimodel.entity.WifiModelConstant.CALL_BACK_WIFI_CONNECT_START, wifiName, null);
 	}
 	@Override
-	public void connectWifiFailed(String wifiName, String wifipwd) 
+	public void connectWifiFailed(String wifiName, String wifipwd)
 	{
 		// TODO Auto-generated method stub
 		callback(com.znt.wifimodel.entity.WifiModelConstant.CALL_BACK_WIFI_CONNECT_FAIL, wifiName, wifipwd);
 	}
 	@Override
-	public void connectWifiSuccess(String wifiName, String wifipwd) 
+	public void connectWifiSuccess(String wifiName, String wifipwd)
 	{
 		// TODO Auto-generated method stub
 		callback(com.znt.wifimodel.entity.WifiModelConstant.CALL_BACK_WIFI_CONNECT_SUCCESS, wifiName, wifipwd);

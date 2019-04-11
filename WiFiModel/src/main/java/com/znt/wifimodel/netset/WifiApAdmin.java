@@ -1,16 +1,14 @@
-/**   
- * @Title: WifiApAdmin.java
+/**
+
+@Title: WifiApAdmin.java
  * @Package com.example.wifitest
  * @Description: TODO
  * @author ychuang
  * @date 2015-1-4 上午9:52:56
  * @version V1.0   
- */
-package com.znt.wifimodel.netset;
 
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-import java.util.List;
+
+package com.znt.wifimodel.netset;
 
 import android.content.Context;
 import android.content.pm.PackageInfo;
@@ -18,11 +16,15 @@ import android.content.pm.PackageManager;
 import android.net.wifi.WifiConfiguration;
 import android.net.wifi.WifiManager;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.util.List;
+
 public class WifiApAdmin
 {
 	public static final String TAG = "WifiApAdmin";
 
-	public void closeWifiAp(Context context)
+	public  void closeWifiAp(Context context)
 	{
 		WifiManager wifiManager = (WifiManager) context
 				.getSystemService(Context.WIFI_SERVICE);
@@ -207,10 +209,10 @@ public class WifiApAdmin
 	
 
 	public boolean isAppAvilible(Context context, String packageName) {  
-	    PackageManager packageManager = context.getPackageManager();  
+	    PackageManager packageManager = context.getPackageManager();
 	  
 
-	    List<PackageInfo> pinfo = packageManager.getInstalledPackages(0);  
+	    List<PackageInfo> pinfo = packageManager.getInstalledPackages(0);
 	    for (int i = 0; i < pinfo.size(); i++) {  
 	        if (((PackageInfo) pinfo.get(i)).packageName  
 	                .equalsIgnoreCase(packageName))  
@@ -219,3 +221,4 @@ public class WifiApAdmin
 	    return false;  
 	}  
 }
+*/

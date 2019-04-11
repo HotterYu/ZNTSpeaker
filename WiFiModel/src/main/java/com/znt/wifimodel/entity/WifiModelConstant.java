@@ -1,10 +1,10 @@
 
 package com.znt.wifimodel.entity; 
 
+import android.net.wifi.ScanResult;
+
 import java.util.ArrayList;
 import java.util.List;
-
-import android.net.wifi.ScanResult;
 
 /** 
  * @ClassName: Constant 
@@ -42,14 +42,9 @@ public class WifiModelConstant
 	
 	
 	
-	
-	
-	
-	
-	
-	
 	public static final int CALL_BACK_WIFI_CONNECT_START = 0;
 	public static final int CALL_BACK_WIFI_CONNECT_FAIL = 1;
 	public static final int CALL_BACK_WIFI_CONNECT_SUCCESS = 2;
+	public static final int CALL_BACK_OPEN_WIFI_FAIL = -1;
 }
  

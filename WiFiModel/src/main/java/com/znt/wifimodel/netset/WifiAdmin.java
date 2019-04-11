@@ -19,10 +19,9 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.widget.Toast;
 
-import com.znt.utils.ViewUtils;
-import com.znt.wifimodel.R;
-
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public abstract class WifiAdmin
 {
@@ -44,7 +43,7 @@ public abstract class WifiAdmin
 	
 	private void showToast(String text)
 	{
-		ViewUtils.sendMessage(Uihandler, 0, text);
+		//ViewUtils.sendMessage(Uihandler, 0, text);
 	}
 
 	public boolean isConnectRunning()
@@ -82,6 +81,8 @@ public abstract class WifiAdmin
 		mWifiManager.setWifiEnabled(false);
 		mWifiManager.setWifiEnabled(true);
 	}
+
+	private String curConnectWifiName = "";
 	
 	public boolean isWifiEnabled()
 	{
@@ -99,52 +100,53 @@ public abstract class WifiAdmin
 	public boolean addNetwork(String wifiName, String wifiPwd)
 	{
 		isConnectRunning = true;
-		/*WifiConfiguration tempConfig = this.IsExsits(wifiName);
-		if (tempConfig != null)
+
+		curConnectWifiName = wifiName;
+
+		stopTimer();
+		unRegister();
+
+		register();
+
+		//WifiApAdmin.closeWifiAp(mContext);
+		int wcgID = mWifiManager.addNetwork(createWifiInfo(wifiName, wifiPwd, true));
+		//showToast("wcgID-->" + wcgID);
+		if(wcgID < 0)
 		{
-			//boolean removeResult = mWifiManager.removeNetwork(tempConfig.networkId);
-			//wifiManager.saveConfiguration();
-			boolean b = mWifiManager.enableNetwork(tempConfig.networkId, true);
-			//showToast(" enableNetwork--> "+b);
-			startTimer();
-			return b;
-		}
-		else*/
-		{
-			int wcgID = mWifiManager.addNetwork(createWifiInfo(wifiName, wifiPwd, true));
-			//showToast("wcgID-->" + wcgID);
+			wcgID = mWifiManager.addNetwork(createWifiInfo(wifiName, wifiPwd, true));
 			if(wcgID < 0)
 			{
 				wcgID = mWifiManager.addNetwork(createWifiInfo(wifiName, wifiPwd, false));
 				if(wcgID < 0)
 				{
-					wcgID = mWifiManager.addNetwork(createWifiInfo(wifiName, wifiPwd, true));
-					if(wcgID < 0)
-					{
-						showToast(mContext.getResources().getString(R.string.wifi_connect_error) + "wcgID:"+wcgID + "  wifiName:"+wifiName + "    wifiPwd:"+wifiPwd);
-						isConnectRunning = false;
-						Log.e("", " ************* WifiAdmin   wifi connected failed wcgID-->"+wcgID);
-						onNotifyWifiConnectFailed();
-						return false;
-					}
+					//showToast(mContext.getResources().getString(R.string.wifi_connect_error) + "  name:"+wifiName + "    pwd:"+wifiPwd);
+					isConnectRunning = false;
+
+					onNotifyWifiConnectFailed();
+					stopTimer();
+					unRegister();
+					return false;
 				}
 			}
-			
-			boolean b = mWifiManager.enableNetwork(wcgID, true);
-			//showToast("wcgID  end-->" + wcgID + "  b-->"+b);
-			if(b)
-			{
-				onNotifyWifiConnected();
-				//Log.e("", " ************* WifiAdmin   wifi connected success!");
-			}
-			else
-			{
-				isConnectRunning = false;
-				Log.e("", " ************* WifiAdmin   wifi connected failed b-->"+b);
-				onNotifyWifiConnectFailed();
-			}
-			return b;
 		}
+
+		boolean b = mWifiManager.enableNetwork(wcgID, true);
+		//showToast("wcgID  end-->" + wcgID + "  b-->"+b);
+		if(b)
+		{
+			//onNotifyWifiConnected();
+			Log.e("", " ************* WifiAdmin   wifi connected success!");
+		}
+		else
+		{
+			isConnectRunning = false;
+
+
+			stopTimer();
+			unRegister();
+			onNotifyWifiConnectFailed();
+		}
+		return b;
 	}
 	public static final int TYPE_NO_PASSWD = 0x11;
 	public static final int TYPE_WEP = 0x12;
@@ -173,13 +175,6 @@ public abstract class WifiAdmin
 		else
 			type = TYPE_WPA;
 		
-		/*WifiConfiguration tempConfig = isExsits(SSID);
-
-		if (tempConfig != null) 
-		{
-			mWifiManager.removeNetwork(tempConfig.networkId);
-		}*/
-		
 		this.curConnectWifiSSID = SSID;
 		
 		WifiConfiguration config = new WifiConfiguration();
@@ -202,7 +197,7 @@ public abstract class WifiAdmin
 		if (type == TYPE_NO_PASSWD)
 		{
 			// config.wepKeys[0] = "";
-			config.allowedKeyManagement.set(WifiConfiguration.KeyMgmt.NONE);
+			config.allowedKeyManagement.set(KeyMgmt.NONE);
 			// config.wepTxKeyIndex = 0;
 		}
 		// wep
@@ -226,9 +221,9 @@ public abstract class WifiAdmin
 			config.preSharedKey = "\"" + Password + "\"";
 			config.hiddenSSID = true;
 			config.allowedAuthAlgorithms
-					.set(WifiConfiguration.AuthAlgorithm.OPEN);
+					.set(AuthAlgorithm.OPEN);
 			config.allowedGroupCiphers.set(WifiConfiguration.GroupCipher.TKIP);
-			config.allowedKeyManagement.set(WifiConfiguration.KeyMgmt.WPA_PSK);
+			config.allowedKeyManagement.set(KeyMgmt.WPA_PSK);
 			config.allowedPairwiseCiphers
 					.set(WifiConfiguration.PairwiseCipher.TKIP);
 			// config.allowedProtocols.set(WifiConfiguration.Protocol.WPA);
@@ -504,7 +499,120 @@ public abstract class WifiAdmin
 			Toast.makeText(mContext, text, Toast.LENGTH_LONG).show();
 		};
 	};
-	
-	
+
+
+	private Timer mTimer = null;
+	private void startTimer() {
+		if (mTimer != null) {
+			stopTimer();
+		}
+
+		mTimer = new Timer(true);
+		if(mTimerTask == null)
+		{
+			mTimerTask = new TimerTask() {
+				@Override
+				public void run() {
+
+					String connectedWifi = NetWorkUtils.getWifiName(mContext);
+					if(!TextUtils.isEmpty(connectedWifi) && connectedWifi.contains(curConnectWifiName))
+					{
+						onNotifyWifiConnected();
+					}
+					else
+					{
+						onNotifyWifiConnectFailed();
+					}
+					isConnectRunning = false;
+					unRegister();
+				}
+			};
+		}
+		mTimer.schedule(mTimerTask, 15 * 1000);
+	}
+
+	private TimerTask mTimerTask = null;
+
+	private void stopTimer() {
+		if (mTimer != null) {
+			mTimer.cancel();
+			mTimer = null;
+			mTimerTask.cancel();
+			mTimerTask = null;
+		}
+	}
+
+	private BroadcastReceiver mBroadcastReceiver = new BroadcastReceiver() {
+
+		@Override
+		public void onReceive(Context context, Intent intent)
+		{
+			// TODO Auto-generated method stub
+			if (intent.getAction().equals(WifiManager.RSSI_CHANGED_ACTION))
+			{
+				Log.d(TAG, "RSSI changed");
+
+				//有可能是正在获取，或者已经获取了
+				Log.d(TAG, " intent is " + WifiManager.RSSI_CHANGED_ACTION);
+
+				int connectResult = isWifiContected(mContext);
+
+				if (connectResult == WIFI_CONNECTED)
+				{
+					isConnectRunning = false;
+					stopTimer();
+					onNotifyWifiConnected();
+					unRegister();
+				}
+				else if (connectResult == WIFI_CONNECT_FAILED)
+				{
+					stopTimer();
+					//closeWifi();
+					isConnectRunning = false;
+
+					unRegister();
+					onNotifyWifiConnectFailed();
+				}
+				else if (connectResult == WIFI_CONNECTING)
+				{
+
+				}
+			}
+		}
+	};
+
+	private final int STATE_REGISTRING = 0x01;
+	private final int STATE_REGISTERED = 0x02;
+	private final int STATE_UNREGISTERING = 0x03;
+	private final int STATE_UNREGISTERED = 0x04;
+
+	private int mHaveRegister = STATE_UNREGISTERED;
+	private synchronized void register() {
+		Log.v(TAG, "register() ##mHaveRegister = " + mHaveRegister);
+
+		if (mHaveRegister == STATE_REGISTRING
+				|| mHaveRegister == STATE_REGISTERED) {
+			return ;
+		}
+
+		mHaveRegister = STATE_REGISTRING;
+		myRegisterReceiver(mBroadcastReceiver, new IntentFilter(WifiManager.RSSI_CHANGED_ACTION));
+		mHaveRegister = STATE_REGISTERED;
+
+		startTimer();
+	}
+
+	private synchronized void unRegister() {
+		Log.v(TAG, "unRegister() ##mHaveRegister = " + mHaveRegister);
+
+		if (mHaveRegister == STATE_UNREGISTERED
+				|| mHaveRegister == STATE_UNREGISTERING) {
+			return ;
+		}
+
+		mHaveRegister = STATE_UNREGISTERING;
+		myUnregisterReceiver(mBroadcastReceiver);
+		mHaveRegister = STATE_UNREGISTERED;
+	}
 	
 }

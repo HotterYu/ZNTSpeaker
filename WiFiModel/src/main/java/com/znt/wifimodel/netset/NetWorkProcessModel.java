@@ -33,16 +33,16 @@ import java.util.List;
 public class NetWorkProcessModel implements WifiReceiver.WifiStateListener,WifiConnectorModel
 {
 	private final String TAG = "NetWorkModel";
-	
+
 	private INetWorkView iNetWorkView = null;
-	
+
 	private Context mContext = null;
 	private WifiAdmin mWifiAdmin = null;
 
 	private WifiReceiver mWifiReceiver = null;
 
 	private WifiConnector wifiConnector;
-	
+
 	private volatile String curConnectWifiName = "";
 	private volatile String curConnectWifiPwd = "";
 
@@ -58,7 +58,7 @@ public class NetWorkProcessModel implements WifiReceiver.WifiStateListener,WifiC
 	{
 		this.mContext = context;
 		this.iNetWorkView = iNetWorkView;
-		
+
 		mWifiReceiver = new WifiReceiver(context);
 
 		mWifiReceiver.setWifiStateListener(this);
@@ -66,7 +66,7 @@ public class NetWorkProcessModel implements WifiReceiver.WifiStateListener,WifiC
 
 		curConnectWifiName = WifiLocalDataEntity.newInstance(mContext).getWifiName();
 		curConnectWifiPwd = WifiLocalDataEntity.newInstance(mContext).getWifiPwd();
-		
+
 		mCheckWifiStateTimer = new CheckSsidTimer(context);
 		mCheckWifiStateTimer.setHandler(mHandler, CHECK_WIFI_STATE);
 		mCheckWifiStateTimer.setTimeInterval(1000);
@@ -75,7 +75,7 @@ public class NetWorkProcessModel implements WifiReceiver.WifiStateListener,WifiC
 		createWifiConnectorObject();
 
 		scanForWifiNetworks();
-		
+
 		if(mWifiAdmin == null)
 		{
 			mWifiAdmin = new WifiAdmin(context)
@@ -86,24 +86,24 @@ public class NetWorkProcessModel implements WifiReceiver.WifiStateListener,WifiC
 					// TODO Auto-generated method stub
 					doconenctWifiSuccess();
 				}
-				
+
 				@Override
 				public void onNotifyWifiConnectFailed()
 				{
 					// TODO Auto-generated method stub
 					connectNextWifi();
 				}
-				
+
 				@Override
 				public void myUnregisterReceiver(BroadcastReceiver receiver)
 				{
 					// TODO Auto-generated method stub
 					//mContext.unregisterReceiver(receiver);
 				}
-				
+
 				@Override
 				public Intent myRegisterReceiver(BroadcastReceiver receiver,
-						IntentFilter filter)
+												 IntentFilter filter)
 				{
 					// TODO Auto-generated method stub
 					return null;
@@ -128,11 +128,11 @@ public class NetWorkProcessModel implements WifiReceiver.WifiStateListener,WifiC
 		if(!isWifiRegistered)
 		{
 			IntentFilter filter = new IntentFilter();
-	        filter.addAction("android.net.wifi.RSSI_CHANGED");
-	        filter.addAction("android.net.wifi.STATE_CHANGE");
-	        filter.addAction("android.net.wifi.WIFI_STATE_CHANGED");
-	        mContext.registerReceiver(mWifiReceiver, filter);
-	        isWifiRegistered = true;
+			filter.addAction("android.net.wifi.RSSI_CHANGED");
+			filter.addAction("android.net.wifi.STATE_CHANGE");
+			filter.addAction("android.net.wifi.WIFI_STATE_CHANGED");
+			mContext.registerReceiver(mWifiReceiver, filter);
+			isWifiRegistered = true;
 		}
 	}
 
@@ -177,11 +177,13 @@ public class NetWorkProcessModel implements WifiReceiver.WifiStateListener,WifiC
 		}
 		else
 		{
-
-			String name = WifiLocalDataEntity.newInstance(mContext).getWifiName();
+			connectNextWifi();
+			/*String name = WifiLocalDataEntity.newInstance(mContext).getWifiName();
 			String pwd = WifiLocalDataEntity.newInstance(mContext).getWifiPwd();
-
-			connectWifi(name, pwd);
+			if(TextUtils.isEmpty(name))
+				connectNextWifi();
+			else
+				connectWifi(name, pwd);*/
 
 		}
 	}
@@ -212,13 +214,14 @@ public class NetWorkProcessModel implements WifiReceiver.WifiStateListener,WifiC
 	{
 		try
 		{
-			ScanResult scanResult = getScanResultByWifiName(curConnectWifiName);
+			mWifiAdmin.addNetwork(curConnectWifiName, curConnectWifiPwd);
+			/*ScanResult scanResult = getScanResultByWifiName(curConnectWifiName);
 			if(scanResult == null)
 			{
 				mWifiAdmin.addNetwork(curConnectWifiName, curConnectWifiPwd);
 			}
 			else
-				connectToWifiAccessPoint(scanResult, curConnectWifiPwd);
+				connectToWifiAccessPoint(scanResult, curConnectWifiPwd);*/
 		}
 		catch (Exception e)
 		{
@@ -240,14 +243,14 @@ public class NetWorkProcessModel implements WifiReceiver.WifiStateListener,WifiC
 	}
 
 	public void checkIfShouldConnectWifi()
-    {
+	{
 		Log.e(TAG, "***********checkIfShouldConnectWifi");
     	/*if(NetWorkUtils.checkEthernet(mContext))
     	{
     		return;
     	}*/
-    	startConnectCurrentWifi();
-    }
+		startConnectCurrentWifi();
+	}
 
 	private int wifiIndex = 0;
 	private int loopConnectCount = 0;
@@ -290,10 +293,10 @@ public class NetWorkProcessModel implements WifiReceiver.WifiStateListener,WifiC
 
 	private void resetLoopConnextCount()
 	{
-		wifiIndex = 0;
+		//wifiIndex = 0;
 		loopConnectCount = 0;
 	}
-	
+
 	private void doconenctWifiFail()
 	{
 		loopConnectFailCountMax ++;
@@ -311,7 +314,7 @@ public class NetWorkProcessModel implements WifiReceiver.WifiStateListener,WifiC
 		WifiLocalDataEntity.newInstance(mContext).updateWifi(curConnectWifiName, curConnectWifiPwd);
 
 		DBManager.INSTANCE.insertWifi(curConnectWifiName, curConnectWifiPwd);
-		
+
 		if(iNetWorkView != null)
 			iNetWorkView.connectWifiSuccess(curConnectWifiName, curConnectWifiPwd);
 	}
@@ -334,16 +337,16 @@ public class NetWorkProcessModel implements WifiReceiver.WifiStateListener,WifiC
 	}
 
 	@Override
-	public void onRssiChanged() 
+	public void onRssiChanged()
 	{
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	private volatile boolean isCurWifiConnectedSuccessRepoted = false;
 	private volatile boolean isFailWhenSuccess = false;
 	@Override
-	public void onNetWorkStateChanged(String wifi, boolean info) 
+	public void onNetWorkStateChanged(String wifi, boolean info)
 	{
 		if(wifi.contains(curConnectWifiName) && !TextUtils.isEmpty(curConnectWifiName))
 		{
@@ -353,7 +356,7 @@ public class NetWorkProcessModel implements WifiReceiver.WifiStateListener,WifiC
 				{
 					isCurWifiConnectedSuccessRepoted = true;
 					isFailWhenSuccess = true;
-			        doconenctWifiSuccess(); 
+					doconenctWifiSuccess();
 				}
 			}
 			else
@@ -361,15 +364,15 @@ public class NetWorkProcessModel implements WifiReceiver.WifiStateListener,WifiC
 				mHandler.postDelayed(new Runnable()
 				{
 					@Override
-					public void run() 
+					public void run()
 					{
 						// TODO Auto-generated method stub
 						if(!isFailWhenSuccess)
 							connectNextWifi();
 					}
 				}, 10000);
-				
-				
+
+
 			}
 		}
 	}
@@ -383,7 +386,7 @@ public class NetWorkProcessModel implements WifiReceiver.WifiStateListener,WifiC
 	}
 
 	@Override
-	public void onWifiStateChanged(int wifistate) 
+	public void onWifiStateChanged(int wifistate)
 	{
 		// TODO Auto-generated method stub
 		/*if(wifistate == WifiManager.WIFI_STATE_DISABLED)
